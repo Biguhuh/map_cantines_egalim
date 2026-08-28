@@ -25,4 +25,9 @@ SIRENE_SEARCH_API = "https://recherche-entreprises.api.gouv.fr/search"
 BAN_SEARCH_API = "https://api-adresse.data.gouv.fr/search/"
 GEOCODE_MIN_SCORE = 0.35
 
+# API publique ma-cantine (celle utilisée par leurs propres pages /nos-cantines/...),
+# utilisée en secours pour la campagne la plus récente tant que son CSV agrégé
+# n'est pas encore publié sur data.gouv.fr.
+MA_CANTINE_CANTEEN_API = "https://ma-cantine.agriculture.gouv.fr/api/v1/publishedCanteens/{id}"
+
 REQUEST_TIMEOUT = 20

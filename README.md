@@ -18,6 +18,9 @@ par une GitHub Action à partir des données ouvertes publiées par
   identité, localisation administrative et caractéristiques de chaque cantine.
 - [Résultats de campagnes de télédéclaration des cantines](https://www.data.gouv.fr/datasets/resultats-de-campagnes-de-teledeclaration-des-cantines) —
   part de bio et de produits durables & de qualité déclarée chaque année (2021+).
+- [API publique ma-cantine](https://ma-cantine.agriculture.gouv.fr/api/v1/publishedCanteens/) —
+  secours pour la campagne la plus récente tant que son CSV agrégé n'est pas
+  encore publié (voir plus bas).
 - [recherche-entreprises.api.gouv.fr](https://recherche-entreprises.api.gouv.fr/) (SIRENE) —
   adresse postale de l'établissement à partir de son SIRET.
 - [api-adresse.data.gouv.fr](https://api-adresse.data.gouv.fr/) (Base Adresse Nationale) —
@@ -35,6 +38,7 @@ src/                Code Python du générateur
   download.py        Téléchargement des CSV sources
   geocode.py         SIRET -> adresse (SIRENE) -> lat/lon (BAN), avec cache
   build_data.py      Filtrage et mise en forme des données pour la carte
+  provisional_year.py Secours API ma-cantine pour l'année sans CSV officiel
   render_map.py      Injection des données dans le template HTML
   main.py            Orchestration (point d'entrée)
 template/
@@ -72,6 +76,22 @@ Le premier lancement géocode ~1 000 cantines (un appel SIRENE + un appel BAN
 par cantine, ~0,1 s de pause entre chaque) : compter quelques minutes. Les
 exécutions suivantes ne géocodent que les cantines nouvellement apparues
 dans le registre, grâce au cache `data/cache/geocode_cache.json`.
+
+## Campagne la plus récente : secours via l'API ma-cantine
+
+Le CSV agrégé d'une campagne de télédéclaration (ex : 2025) n'est publié sur
+data.gouv.fr qu'avec un certain délai après la fin de la campagne. En
+attendant, `src/provisional_year.py` interroge individuellement l'API
+publique `publishedCanteens/{id}` (celle qui alimente les fiches publiques
+du site ma-cantine) pour l'année `aujourd'hui - 1`, et reconstruit les mêmes
+indicateurs (%bio, %durable & qualité) à partir du détail par cantine.
+
+Dès que `sources.get_teledeclaration_resources()` détecte que le CSV
+officiel de cette année est disponible, ce secours est automatiquement
+désactivé pour elle : le CSV agrégé fait toujours foi dès qu'il existe,
+aucune intervention manuelle n'est nécessaire. Ces données provisoires ne
+sont pas mises en cache (contrairement au géocodage) puisqu'elles évoluent
+tout au long de l'année, au fil des nouvelles télédéclarations.
 
 ## Automatisation (GitHub Actions)
 

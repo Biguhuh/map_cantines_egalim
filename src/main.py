@@ -8,7 +8,7 @@ Usage :
 import argparse
 from datetime import datetime
 
-from . import build_data, config, download, geocode, render_map, sources, state
+from . import build_data, config, download, geocode, provisional_year, render_map, sources, state
 from .utils import digits
 
 
@@ -50,6 +50,14 @@ def main():
         year: build_data.read_teledeclaration(path) for year, path in td_paths.items()
     }
     td_embed = build_data.build_td_embed(td_rows_by_year, valid_sirets)
+
+    fallback_year = str(datetime.now().year - 1)
+    if fallback_year in td_resources:
+        print(f"CSV officiel {fallback_year} disponible : pas besoin de l'API ma-cantine.")
+    else:
+        provisional = provisional_year.fetch_provisional_year(rows, fallback_year)
+        if provisional:
+            td_embed[fallback_year] = provisional
 
     generated_at = datetime.now().strftime("%d/%m/%Y")
     output_path = render_map.render(cantines, td_embed, epci_by_insee, generated_at)
