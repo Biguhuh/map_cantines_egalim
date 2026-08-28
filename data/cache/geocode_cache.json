@@ -1,0 +1,5407 @@
+{
+  "02598018600024": {
+    "address": "6 RUE DENIS PAPIN, 79000 NIORT",
+    "lat": 46.310394,
+    "lon": -0.484863
+  },
+  "17330120100047": {
+    "address": "59 B RUE ARC DE TRIOMPHE, 17100 SAINTES",
+    "lat": 45.745831,
+    "lon": -0.625233
+  },
+  "17330120100054": {
+    "address": "11 T RUE DU MARECHAL GALLIENI, 17300 ROCHEFORT",
+    "lat": 45.941928,
+    "lon": -0.960906
+  },
+  "17330120100096": {
+    "address": "1 RUE DU SANITAT, 79000 NIORT",
+    "lat": 46.324181,
+    "lon": -0.466771
+  },
+  "17330120100187": {
+    "address": "LD LA CITADELLE, 17410 SAINT-MARTIN-DE-RE",
+    "lat": 46.198856,
+    "lon": -1.352552
+  },
+  "17330120100203": {
+    "address": "17210 BEDENAC",
+    "lat": 45.173324,
+    "lon": -0.30583
+  },
+  "17330153200037": {
+    "address": "CASERNE RENAUDIN AVENUE DE LA PORTE DAUPHINE, 17000 LA ROCHELLE",
+    "lat": 46.166606,
+    "lon": -1.151077
+  },
+  "18007003901175": {
+    "address": "STATION DE MAGNERAUD, 17700 SAINT PIERRE D'AMILLY",
+    "lat": 46.168987,
+    "lon": -0.688712
+  },
+  "18170008900012": {
+    "address": "RPT ALBERT BIGNON, 17300 ROCHEFORT",
+    "lat": 45.954062,
+    "lon": -0.945064
+  },
+  "18860005000192": {
+    "address": "90 BOULEVARD DE LA REPUBLIQUE, 17000 LA ROCHELLE",
+    "lat": 46.138519,
+    "lon": -1.151363
+  },
+  "18860005000374": {
+    "address": "15 RUE F DE VAUX DE FOLETIER, 17000 LA ROCHELLE",
+    "lat": 46.141814,
+    "lon": -1.153147
+  },
+  "18860005000515": {
+    "address": "LES MINIMES RUE LE LOUP MARIN, 17000 LA ROCHELLE",
+    "lat": 46.152317,
+    "lon": -1.155148
+  },
+  "18860005000564": {
+    "address": "10 AVENUE DE WELLINGBOROUGH, 79000 NIORT",
+    "lat": 46.327213,
+    "lon": -0.488992
+  },
+  "19170001200013": {
+    "address": "ESPLANADE DES PORTS 40 AVENUE MARCEL DASSAULT, 17300 ROCHEFORT",
+    "lat": 45.947248,
+    "lon": -0.958453
+  },
+  "19170004600011": {
+    "address": "27 BOULEVARD DES ECOLIERS, 17770 BURIE",
+    "lat": 45.776846,
+    "lon": -0.414439
+  },
+  "19170005300017": {
+    "address": "1 BD VICTOR HUGO, 17480 LE CHATEAU D OLERON",
+    "lat": 45.884934,
+    "lon": -1.194104
+  },
+  "19170007900012": {
+    "address": "RUE DU COLLEGE, 17170 COURCON",
+    "lat": 46.241637,
+    "lon": -0.807503
+  },
+  "19170008700015": {
+    "address": "ROUTE DE TALMONT, 17120 COZES",
+    "lat": 45.579252,
+    "lon": -0.838378
+  },
+  "19170009500018": {
+    "address": "1 AVENUE JULES FERRY, 17260 GEMOZAC",
+    "lat": 45.572134,
+    "lon": -0.669568
+  },
+  "19170011100013": {
+    "address": "10 AVENUE WINSTON CHURCHILL, 17500 JONZAC",
+    "lat": 45.438578,
+    "lon": -0.435491
+  },
+  "19170012900015": {
+    "address": "2 RUE FIEF BRAUD, 17330 LOULAY",
+    "lat": 46.044958,
+    "lon": -0.506657
+  },
+  "19170016000010": {
+    "address": "17 CITE PECHEVRE, 17150 MIRAMBEAU",
+    "lat": 45.369953,
+    "lon": -0.571119
+  },
+  "19170020200010": {
+    "address": "9 RUE DES CORDELIERS, 17800 PONS",
+    "lat": 45.578046,
+    "lon": -0.550341
+  },
+  "19170020200044": {
+    "address": "30 AVENUE DU DEBARQUEMENT, 17370 SAINT-TROJAN-LES-BAINS",
+    "lat": 45.818594,
+    "lon": -1.216273
+  },
+  "19170022800015": {
+    "address": "3 RUE RAYMONDE MAOUS, 17300 ROCHEFORT",
+    "lat": 45.950566,
+    "lon": -0.971327
+  },
+  "19170025100017": {
+    "address": "2 A BOULEVARD EDOUARD POUZET, 17300 ROCHEFORT",
+    "lat": 45.93024,
+    "lon": -0.966847
+  },
+  "19170027700012": {
+    "address": "AV HENRI BARBUSSE, 17000 LA ROCHELLE",
+    "lat": 46.15619,
+    "lon": -1.139493
+  },
+  "19170028500015": {
+    "address": "18 RUE DELAYANT, 17000 LA ROCHELLE",
+    "lat": 46.164497,
+    "lon": -1.15381
+  },
+  "19170029300019": {
+    "address": "118 RUE DES GONTHIERES, 17000 LA ROCHELLE",
+    "lat": 46.175716,
+    "lon": -1.15412
+  },
+  "19170030100010": {
+    "address": "118 RUE DES GONTHIERES, 17000 LA ROCHELLE",
+    "lat": 46.175716,
+    "lon": -1.15412
+  },
+  "19170031900012": {
+    "address": "221 RUE DE PERIGNY, 17000 LA ROCHELLE",
+    "lat": 46.158686,
+    "lon": -1.135223
+  },
+  "19170035000017": {
+    "address": "RUE DE L'ARTILLERIE, 17000 LA ROCHELLE",
+    "lat": 46.171262,
+    "lon": -1.133914
+  },
+  "19170042600015": {
+    "address": "28 RUE HENRY DUNANT, 17200 ROYAN",
+    "lat": 45.621035,
+    "lon": -1.00356
+  },
+  "19170047500012": {
+    "address": "AVENUE CHARLES DE GAULLE, 17620 SAINT-AGNANT",
+    "lat": 45.867213,
+    "lon": -0.963971
+  },
+  "19170048300016": {
+    "address": "17 AVENUE JEAN MOULIN, 17360 SAINT-AIGULIN",
+    "lat": 45.164101,
+    "lon": -0.021586
+  },
+  "19170050900018": {
+    "address": "2 RUE JEAN MOULIN, 17770 SAINT-HILAIRE-DE-VILLEFRANCHE",
+    "lat": 45.851821,
+    "lon": -0.531975
+  },
+  "19170051700011": {
+    "address": "1 RUE PHILIPPE JANNET, 17400 SAINT-JEAN-D'ANGELY",
+    "lat": 45.951444,
+    "lon": -0.525719
+  },
+  "19170052500014": {
+    "address": "11 RUE DE DAMPIERRE, 17400 SAINT-JEAN-D'ANGELY",
+    "lat": 45.949314,
+    "lon": -0.513214
+  },
+  "19170056600018": {
+    "address": "22 MTE DE LA LONGEE, 17350 SAINT-SAVINIEN",
+    "lat": 45.874043,
+    "lon": -0.678969
+  },
+  "19170058200015": {
+    "address": "1 CHEMIN DES COTIERES, 17100 SAINTES",
+    "lat": 45.737042,
+    "lon": -0.643016
+  },
+  "19170059000018": {
+    "address": "6 RUE DU CORMIER, 17100 SAINTES",
+    "lat": 45.748984,
+    "lon": -0.612913
+  },
+  "19170060800018": {
+    "address": "1 RUE DE GASCOGNE, 17100 SAINTES",
+    "lat": 45.735179,
+    "lon": -0.614528
+  },
+  "19170061600011": {
+    "address": "ALLEE MARECHAL DE LATTRE DE TASSIGNY, 17000 LA ROCHELLE",
+    "lat": 46.156703,
+    "lon": -1.177024
+  },
+  "19170070700018": {
+    "address": "RUE DU STADE, 17700 SURGERES",
+    "lat": 46.108419,
+    "lon": -0.747857
+  },
+  "19170071500011": {
+    "address": "RUE DU STADE, 17700 SURGERES",
+    "lat": 46.108419,
+    "lon": -0.747857
+  },
+  "19170072300015": {
+    "address": "RUE JOLIOT-CURIE, 17430 TONNAY-CHARENTE",
+    "lat": 45.946104,
+    "lon": -0.890369
+  },
+  "19170076400019": {
+    "address": "6 RUE DU COLLEGE, 17210 MONTLIEU-LA-GARDE",
+    "lat": 45.243673,
+    "lon": -0.251268
+  },
+  "19170077200038": {
+    "address": "AV DE LUXEMBOURG, 17000 LA ROCHELLE",
+    "lat": 46.157589,
+    "lon": -1.183577
+  },
+  "19170078000015": {
+    "address": "1 RUE DE GASCOGNE, 17100 SAINTES",
+    "lat": 45.735179,
+    "lon": -0.614528
+  },
+  "19170082200015": {
+    "address": "3 RUE DU DOCTEUR STEPHANE BONDUEL, 17380 TONNAY-BOUTONNE",
+    "lat": 45.967688,
+    "lon": -0.711929
+  },
+  "19170087100012": {
+    "address": "RUE GEORGES DESCLAUDE, 17100 SAINTES",
+    "lat": 45.75973,
+    "lon": -0.647677
+  },
+  "19170087100061": {
+    "address": "LE RENAUDIN, 17500 SAINT-GERMAIN-DE-LUSIGNAN",
+    "lat": 45.457265,
+    "lon": -0.412664
+  },
+  "19170087100087": {
+    "address": "LE PETIT CHADIGNAC, 17100 SAINTES",
+    "lat": 45.721122,
+    "lon": -0.66381
+  },
+  "19170088900014": {
+    "address": "RUE DU BOIS L'EPINE, 17000 LA ROCHELLE",
+    "lat": 46.161311,
+    "lon": -1.17261
+  },
+  "19170091300012": {
+    "address": "RUE WILLIAM BERTRAND, 17560 BOURCEFRANC-LE-CHAPUS",
+    "lat": 45.846651,
+    "lon": -1.157428
+  },
+  "19170135800019": {
+    "address": "PLACE SAINT-EXUPERY, 17500 JONZAC",
+    "lat": 45.441544,
+    "lon": -0.432438
+  },
+  "19170142400019": {
+    "address": "TASDON 1 RUE FRANCOIS VIETE, 17000 LA ROCHELLE",
+    "lat": 46.144615,
+    "lon": -1.140742
+  },
+  "19170144000015": {
+    "address": "2 RUE DE LA MARINE, 17100 SAINTES",
+    "lat": 45.749267,
+    "lon": -0.633552
+  },
+  "19170386700017": {
+    "address": "MARENNES 25 AVENUE DE BEAULIEU, 17320 MARENNES-HIERS-BROUAGE",
+    "lat": 45.827532,
+    "lon": -1.105947
+  },
+  "19170387500010": {
+    "address": "2 RUE JULES RAVET, 17600 SAUJON",
+    "lat": 45.676288,
+    "lon": -0.927
+  },
+  "19170388300014": {
+    "address": "RUE DU COLLEGE, 17390 LA TREMBLADE",
+    "lat": 45.77708,
+    "lon": -1.146332
+  },
+  "19170390900017": {
+    "address": "3 BOULEVARD DE SAINTONGE, 17130 MONTENDRE",
+    "lat": 45.286501,
+    "lon": -0.398078
+  },
+  "19170392500013": {
+    "address": "32 RUE DE CHERMIGNAC, 17100 SAINTES",
+    "lat": 45.729295,
+    "lon": -0.650455
+  },
+  "19170393300017": {
+    "address": "1 RUE DES BABIGEOTS, 17700 SURGERES",
+    "lat": 46.107039,
+    "lon": -0.770076
+  },
+  "19170970800017": {
+    "address": "AVENUE DU RECTEUR PIERRE MOISY, 17140 LAGORD",
+    "lat": 46.172442,
+    "lon": -1.171225
+  },
+  "19171022700015": {
+    "address": "RUE DE BEL AIR, 17230 MARANS",
+    "lat": 46.307213,
+    "lon": -0.989568
+  },
+  "19171034200012": {
+    "address": "AVENUE PHILIPPSBURG, 17410 SAINT-MARTIN-DE-RE",
+    "lat": 46.195382,
+    "lon": -1.356077
+  },
+  "19171056500018": {
+    "address": "4 RUE ODETTE VALENCE, 17300 ROCHEFORT",
+    "lat": 45.952972,
+    "lon": -0.969537
+  },
+  "19171117500015": {
+    "address": "VILLENEUVE LES SALINES 2 RUE FABRE D'EGLANTINE, 17000 LA ROCHELLE",
+    "lat": 46.151842,
+    "lon": -1.116744
+  },
+  "19171120900038": {
+    "address": "AVENUE DE L'ESPERANCE, 17200 ROYAN",
+    "lat": 45.639957,
+    "lon": -1.04916
+  },
+  "19171122500018": {
+    "address": "21 23 21 AVENUE EMILE ZOLA, 17200 ROYAN",
+    "lat": 48.826238,
+    "lon": 2.238067
+  },
+  "19171159700010": {
+    "address": "4 ALLEE DU COLLEGE, 17160 MATHA",
+    "lat": 45.867947,
+    "lon": -0.312879
+  },
+  "19171184500013": {
+    "address": "2 RUE JAILLOT, 17000 LA ROCHELLE",
+    "lat": 46.164075,
+    "lon": -1.15088
+  },
+  "19171210800015": {
+    "address": "RUE DE LA MARE, 17139 DOMPIERRE-SUR-MER",
+    "lat": 46.187241,
+    "lon": -1.059359
+  },
+  "19171211600018": {
+    "address": "AVENUE SURCOUF, 17340 CHATELAILLON-PLAGE",
+    "lat": 46.080616,
+    "lon": -1.089238
+  },
+  "19171215700012": {
+    "address": "2 AVENUE DE LA LIBERATION, 17310 SAINT-PIERRE-D'OLERON",
+    "lat": 45.945033,
+    "lon": -1.310252
+  },
+  "19171238900011": {
+    "address": "RUE DE PERIGNY, 17000 LA ROCHELLE",
+    "lat": 46.158686,
+    "lon": -1.135223
+  },
+  "19171339500017": {
+    "address": "RUE DES PAQUERETTES, 17440 AYTRE",
+    "lat": 46.133118,
+    "lon": -1.124912
+  },
+  "19171405400019": {
+    "address": "AVENUE DES MINIMES, 17000 LA ROCHELLE",
+    "lat": 46.14263,
+    "lon": -1.163032
+  },
+  "19171408800017": {
+    "address": "2 RUE DE MONTREAL, 17200 ROYAN",
+    "lat": 45.633912,
+    "lon": -1.018821
+  },
+  "19790001200018": {
+    "address": "10 RUE DU COLLEGE, 79240 L'ABSIE",
+    "lat": 46.631195,
+    "lon": -0.57185
+  },
+  "19790003800013": {
+    "address": "ARGENTON-LES-VALLEES 25 RUE PASTEUR, 79150 ARGENTONNAY",
+    "lat": 46.986766,
+    "lon": -0.45981
+  },
+  "19790004600016": {
+    "address": "BOUILLE-LORETZ 118 RUE DE L'ABBAYE, 79290 LORETZ-D'ARGENTON",
+    "lat": 47.080229,
+    "lon": -0.275579
+  },
+  "19790007900017": {
+    "address": "36 RUE DE MALABRY, 79300 BRESSUIRE",
+    "lat": 46.841179,
+    "lon": -0.485485
+  },
+  "19790010300015": {
+    "address": "17 RUE SAINT-EXUPERY, 79170 BRIOUX-SUR-BOUTONNE",
+    "lat": 46.144123,
+    "lon": -0.228203
+  },
+  "19790011100018": {
+    "address": "10 RUE DANIEL ARCHAIMBAULT, 79370 CELLES-SUR-BELLE",
+    "lat": 46.264862,
+    "lon": -0.21366
+  },
+  "19790013700013": {
+    "address": "8 B ROUTE DE BRESSUIRE, 79220 CHAMPDENIERS",
+    "lat": 46.488,
+    "lon": -0.405793
+  },
+  "19790014500016": {
+    "address": "18 AV DE L'HOTEL DE VILLE, 79110 CHEF-BOUTONNE",
+    "lat": 46.109613,
+    "lon": -0.074451
+  },
+  "19790015200012": {
+    "address": "1 RUE MAURICE GADIOUX, 79110 CHEF-BOUTONNE",
+    "lat": 46.104805,
+    "lon": -0.070002
+  },
+  "19790016000015": {
+    "address": "1 RUE DU CALVAIRE, 79160 COULONGES-SUR-L'AUTIZE",
+    "lat": 46.479232,
+    "lon": -0.598852
+  },
+  "19790017800017": {
+    "address": "RUE DU TEMPLE, 79120 LEZAY",
+    "lat": 46.261708,
+    "lon": -0.011349
+  },
+  "19790019400014": {
+    "address": "2 RUE GUILLOTIERE, 79500 MELLE",
+    "lat": 46.225424,
+    "lon": -0.144464
+  },
+  "19790020200015": {
+    "address": "RUE DE LA ROUSSELINIERE, 79340 MENIGOUTE",
+    "lat": 46.495213,
+    "lon": -0.060377
+  },
+  "19790021000018": {
+    "address": "21 RUE DE LA LIBERATION, 79800 LA MOTHE-SAINT-HERAY",
+    "lat": 46.356458,
+    "lon": -0.109252
+  },
+  "19790023600013": {
+    "address": "20 RUE GUSTAVE EIFFEL, 79000 NIORT",
+    "lat": 46.330994,
+    "lon": -0.469152
+  },
+  "19790024400017": {
+    "address": "19 RUE DES FIEFS, 79000 NIORT",
+    "lat": 46.314738,
+    "lon": -0.442986
+  },
+  "19790027700017": {
+    "address": "11 A 19 RUE JEAN ZAY, 79000 NIORT",
+    "lat": 46.319031,
+    "lon": -0.479749
+  },
+  "19790029300014": {
+    "address": "40 RUE TAILLEPIED, 79200 PARTHENAY",
+    "lat": 46.643134,
+    "lon": -0.251591
+  },
+  "19790030100015": {
+    "address": "35 RUE DU MARCHIOUX, 79200 PARTHENAY",
+    "lat": 46.642686,
+    "lon": -0.249163
+  },
+  "19790031900017": {
+    "address": "22 RUE DU PANIER FLEURI, 79400 SAINT-MAIXENT-L'ECOLE",
+    "lat": 46.41126,
+    "lon": -0.219904
+  },
+  "19790032700010": {
+    "address": "26 AVENUE DES PLATANES, 79330 SAINT-VARENT",
+    "lat": 46.896582,
+    "lon": -0.241745
+  },
+  "19790033500013": {
+    "address": "9 ROUTE DE CIVRAY, 79190 SAUZE-ENTRE-BOIS",
+    "lat": 46.133997,
+    "lon": 0.113909
+  },
+  "19790034300017": {
+    "address": "4 RUE DU STADE, 79130 SECONDIGNY",
+    "lat": 46.609745,
+    "lon": -0.410901
+  },
+  "19790035000012": {
+    "address": "49 B RUE DE LA CROIX CHAUVIN, 79390 THENEZAY",
+    "lat": 46.714109,
+    "lon": -0.03165
+  },
+  "19790036800014": {
+    "address": "1 RUE ALBERT BUISSON, 79100 THOUARS",
+    "lat": 46.993858,
+    "lon": -0.213439
+  },
+  "19790038400011": {
+    "address": "1 RUE ALBERT BUISSON, 79100 THOUARS",
+    "lat": 46.993858,
+    "lon": -0.213439
+  },
+  "19790043400014": {
+    "address": "19 RUE DES FIEFS, 79000 NIORT",
+    "lat": 46.314738,
+    "lon": -0.442986
+  },
+  "19790044200017": {
+    "address": "RUE DU CHAMP MARTIN, 79310 MAZIERES-EN-GATINE",
+    "lat": 46.530386,
+    "lon": -0.326046
+  },
+  "19790052500019": {
+    "address": "175 RUE DU MARECHAL LECLERC, 79000 NIORT",
+    "lat": 46.335102,
+    "lon": -0.454624
+  },
+  "19790089700012": {
+    "address": "51 RUE CHIRON COURTINET, 79000 NIORT",
+    "lat": 46.322922,
+    "lon": -0.427788
+  },
+  "19790090500013": {
+    "address": "1 RUE EDOUARD HERRIOT, 79200 PARTHENAY",
+    "lat": 46.637766,
+    "lon": -0.259169
+  },
+  "19790091300025": {
+    "address": "229 BOULEVARD DE L'EUROPE, 79300 BRESSUIRE",
+    "lat": 46.843641,
+    "lon": -0.479001
+  },
+  "19790699300013": {
+    "address": "20 RUE ALBERT CAMUS, 79270 FRONTENAY-ROHAN-ROHAN",
+    "lat": 46.251813,
+    "lon": -0.543558
+  },
+  "19790702500013": {
+    "address": "36 RUE DE MALABRY, 79300 BRESSUIRE",
+    "lat": 46.841179,
+    "lon": -0.485485
+  },
+  "19790703300017": {
+    "address": "10 RUE MASSUJAT, 79000 NIORT",
+    "lat": 46.309138,
+    "lon": -0.448075
+  },
+  "19790704100010": {
+    "address": "13 RUE ERNEST PEROCHON, 79600 AIRVAULT",
+    "lat": 46.823057,
+    "lon": -0.133094
+  },
+  "19790706600017": {
+    "address": "CAMPUS DES SICAUDIERES BOULEVARD DE NANTES, 79300 BRESSUIRE",
+    "lat": 46.840724,
+    "lon": -0.509551
+  },
+  "19790708200014": {
+    "address": "RPT DU 19 MARS 1962, 79100 THOUARS",
+    "lat": 46.971842,
+    "lon": -0.217665
+  },
+  "19790709000017": {
+    "address": "56 RUE DU 14 JUILLET, 79000 NIORT",
+    "lat": 46.323719,
+    "lon": -0.455464
+  },
+  "19790710800017": {
+    "address": "42 RUE DU COTEAU SAINT-HUBERT, 79000 NIORT",
+    "lat": 46.342106,
+    "lon": -0.476326
+  },
+  "19790768600012": {
+    "address": "ROUTE DE LA ROCHE, 79500 MELLE",
+    "lat": 46.227158,
+    "lon": -0.151769
+  },
+  "19790768600053": {
+    "address": "130 ROUTE DE COULONGES, 79000 NIORT",
+    "lat": 46.340616,
+    "lon": -0.474212
+  },
+  "19790928600019": {
+    "address": "RUE JEAN PERRIN, 79000 NIORT",
+    "lat": 46.314674,
+    "lon": -0.439075
+  },
+  "19790929400013": {
+    "address": "ROUTE DE PRIN, 79210 MAUZE-SUR-LE-MIGNON",
+    "lat": 46.198411,
+    "lon": -0.666262
+  },
+  "19790943500012": {
+    "address": "AV CLEMENT PINEAU, 79500 MELLE",
+    "lat": 46.229335,
+    "lon": -0.131369
+  },
+  "19790945000011": {
+    "address": "RUE DES VOUTES, 79140 CERIZAY",
+    "lat": 46.820278,
+    "lon": -0.671235
+  },
+  "19790950000013": {
+    "address": "RUE DES ECOLES, 79230 PRAHECQ",
+    "lat": 46.261641,
+    "lon": -0.343529
+  },
+  "19790964100015": {
+    "address": "39 RUE DU COTEAU SAINT-HUBERT, 79000 NIORT",
+    "lat": 46.341835,
+    "lon": -0.478466
+  },
+  "19790965800019": {
+    "address": "26 RUE DE BARILLEAU, 79260 LA CRECHE",
+    "lat": 46.364417,
+    "lon": -0.300752
+  },
+  "19790966600012": {
+    "address": "MONCOUTANT 5 AV DU PREBYRE, 79240 MONCOUTANT-SUR-SEVRE",
+    "lat": 46.683886,
+    "lon": -0.573361
+  },
+  "19790978100019": {
+    "address": "31 RUE JEAN JAURES, 79400 SAINT-MAIXENT-L'ECOLE",
+    "lat": 46.411414,
+    "lon": -0.208995
+  },
+  "19790979900011": {
+    "address": "40 RUE EDOUARD PIED, 79450 SAINT-AUBIN-LE-CLOUD",
+    "lat": 46.656826,
+    "lon": -0.3539
+  },
+  "19791002900010": {
+    "address": "34 BD JACQUES MENARD, 79100 THOUARS",
+    "lat": 46.974573,
+    "lon": -0.189803
+  },
+  "19791029200014": {
+    "address": "37 BOULEVARD LESCURE, 79300 BRESSUIRE",
+    "lat": 46.833823,
+    "lon": -0.48772
+  },
+  "19791042500010": {
+    "address": "38 AVENUE PIERRE MENDES-FRANCE, 79200 PARTHENAY",
+    "lat": 46.646252,
+    "lon": -0.247541
+  },
+  "19791062300028": {
+    "address": "71 RUE LAURENT BONNEVAY, 79000 NIORT",
+    "lat": 46.316863,
+    "lon": -0.486169
+  },
+  "20000139400010": {
+    "address": "CHATEAU BOURDIN 15 CHE DES CHAUSSEES, 79310 SAINT-PARDOUX-SOUTIERS",
+    "lat": 46.571419,
+    "lon": -0.342195
+  },
+  "20000139400028": {
+    "address": "LA MENARDIERE, 79310 SAINT-MARC-LA-LANDE",
+    "lat": 46.534435,
+    "lon": -0.33248
+  },
+  "20000224400081": {
+    "address": "13 RUE DES FAUVETTES, 79260 LA CRECHE",
+    "lat": 46.365552,
+    "lon": -0.297243
+  },
+  "20000224400107": {
+    "address": "ANTE 1 RUE DENFERT ROCHEREAU, 79400 SAINT-MAIXENT-L'ECOLE",
+    "lat": 46.414014,
+    "lon": -0.202466
+  },
+  "20000300200017": {
+    "address": "2 RUE DES DOUVES, 17380 TONNAY-BOUTONNE",
+    "lat": 45.968377,
+    "lon": -0.704897
+  },
+  "20000724300021": {
+    "address": "43 RUE DES BABELOTTES, 79370 AIGONDIGNE",
+    "lat": 46.293267,
+    "lon": -0.283206
+  },
+  "20000797900012": {
+    "address": "MAIRIE 24 RUE DE L'EGLISE, 17290 CIRE-D'AUNIS",
+    "lat": 46.055599,
+    "lon": -0.931811
+  },
+  "20001325800013": {
+    "address": "5 PLACE DES ECOLES, 17290 LE THOU",
+    "lat": 46.084846,
+    "lon": -0.919984
+  },
+  "20001586500013": {
+    "address": "MAIRIE 22 PLACE DE L'HOTEL DE VILLE, 17380 TONNAY-BOUTONNE",
+    "lat": 45.967568,
+    "lon": -0.706346
+  },
+  "20001673100016": {
+    "address": "2 RUE DE L'AUBRECAY, 17137 NIEUL-SUR-MER",
+    "lat": 46.210034,
+    "lon": -1.157395
+  },
+  "20003528500010": {
+    "address": "6 PLACE DE LA MAIRIE, 79370 BEAUSSAIS-VITRE",
+    "lat": 46.290157,
+    "lon": -0.153689
+  },
+  "20003647300128": {
+    "address": "RUE DE PERJUS, 17460 PREGUILLAC",
+    "lat": 45.668446,
+    "lon": -0.618598
+  },
+  "20003647300136": {
+    "address": "RUE DE BEL-AIR, 17460 CHERMIGNAC",
+    "lat": 45.683806,
+    "lon": -0.670272
+  },
+  "20003647300144": {
+    "address": "11 RUE DU FIEF DU MOULIN, 17600 CORME-ROYAL",
+    "lat": 45.744783,
+    "lon": -0.81455
+  },
+  "20003647300151": {
+    "address": "15 ROUTE DU BOURG, 17100 FONTCOUVERTE",
+    "lat": 45.770442,
+    "lon": -0.591332
+  },
+  "20003647300169": {
+    "address": "9 ROUTE DE LA SAUZAIE, 17100 FONTCOUVERTE",
+    "lat": 45.771841,
+    "lon": -0.584849
+  },
+  "20003647300177": {
+    "address": "LE MAINE ALLAIN 7 CHEMIN DES GENETS, 17610 CHANIERS",
+    "lat": 45.746051,
+    "lon": -0.561035
+  },
+  "20003647300185": {
+    "address": "8 AVENUE DU 8 MAI 1945, 17610 CHANIERS",
+    "lat": 45.718722,
+    "lon": -0.557069
+  },
+  "20003647300193": {
+    "address": "RUE DU STADE, 17100 LES GONDS",
+    "lat": 45.713401,
+    "lon": -0.617969
+  },
+  "20003647300201": {
+    "address": "ROUTE DU CORMIER, 17610 CHERAC",
+    "lat": 45.703325,
+    "lon": -0.439528
+  },
+  "20003647300219": {
+    "address": "20 BOULEVARD DES ECOLIERS, 17770 BURIE",
+    "lat": 45.776196,
+    "lon": -0.41686
+  },
+  "20003647300227": {
+    "address": "CHEMIN DE GRAND VILLAGE, 17100 BUSSAC-SUR-CHARENTE",
+    "lat": 45.78934,
+    "lon": -0.6385
+  },
+  "20003647300235": {
+    "address": "2 RUE DU 19 MARS 1962, 17460 COLOMBIERS",
+    "lat": 45.642652,
+    "lon": -0.552878
+  },
+  "20003647300243": {
+    "address": "47 RUE PIERRE SCHOEFFER, 17100 COURCOURY",
+    "lat": 45.71027,
+    "lon": -0.577356
+  },
+  "20003647300250": {
+    "address": "8 IMPASSE DU PUITS, 17810 ECURAT",
+    "lat": 45.782218,
+    "lon": -0.676213
+  },
+  "20003647300268": {
+    "address": "11 RUE DES GIROFLEES, 17100 SAINTES",
+    "lat": 45.737488,
+    "lon": -0.645053
+  },
+  "20003647300276": {
+    "address": "24 RUE DE LA REPUBLIQUE, 17100 LA CHAPELLE-DES-POTS",
+    "lat": 45.759252,
+    "lon": -0.540326
+  },
+  "20003647300284": {
+    "address": "3 RUE DU CENTRE, 17460 LA JARD",
+    "lat": 45.654443,
+    "lon": -0.587255
+  },
+  "20003647300292": {
+    "address": "1 ROUTE DU RUISSEAU, 17100 LE DOUHET",
+    "lat": 45.818909,
+    "lon": -0.569425
+  },
+  "20003647300300": {
+    "address": "4 RUE DES ECOLES, 17600 LUCHAT",
+    "lat": 45.717006,
+    "lon": -0.764705
+  },
+  "20003647300318": {
+    "address": "PETIT CHEMIN DES ECOLES, 17800 MONTILS",
+    "lat": 45.648758,
+    "lon": -0.503117
+  },
+  "20003647300326": {
+    "address": "SQUARE PHILIPPE BONNE, 17100 SAINTES",
+    "lat": 45.744018,
+    "lon": -0.632913
+  },
+  "20003647300334": {
+    "address": "1 IMPASSE DE LA POSTE, 17600 PISANY",
+    "lat": 45.700187,
+    "lon": -0.780257
+  },
+  "20003647300342": {
+    "address": "21 RUE SAINT EUTROPE, 17100 SAINTES",
+    "lat": 45.743468,
+    "lon": -0.642444
+  },
+  "20003647300359": {
+    "address": "LES BUJOLIERS, 17770 SAINT-CESAIRE",
+    "lat": 45.766257,
+    "lon": -0.493749
+  },
+  "20003647300367": {
+    "address": "PASSAGE DE L'ECOLE, 17100 SAINT-VAIZE",
+    "lat": 45.813029,
+    "lon": -0.634062
+  },
+  "20003647300375": {
+    "address": "4 RUE DE LA PAIX, 17460 THENAC",
+    "lat": 45.669499,
+    "lon": -0.654407
+  },
+  "20003647300383": {
+    "address": "28 RUE DES 2 SOURCES, 17100 VENERAND",
+    "lat": 45.793615,
+    "lon": -0.555705
+  },
+  "20003647300391": {
+    "address": "RUE DE L'AVENIR, 17770 ECOYEUX",
+    "lat": 45.821919,
+    "lon": -0.503517
+  },
+  "20003647300409": {
+    "address": "GRAND RUE, 17810 SAINT-GEORGES-DES-COTEAUX",
+    "lat": 45.764619,
+    "lon": -0.710143
+  },
+  "20003647300417": {
+    "address": "61 RUE DE SAINTONGE, 17800 SAINT-SEVER-DE-SAINTONGE",
+    "lat": 45.696946,
+    "lon": -0.51568
+  },
+  "20003647300425": {
+    "address": "IMPASSE BACHELIER, 17460 VARZAY",
+    "lat": 45.70587,
+    "lon": -0.733614
+  },
+  "20003647300433": {
+    "address": "4 RUE DU CORMIER, 17100 SAINTES",
+    "lat": 45.749528,
+    "lon": -0.611719
+  },
+  "20003647300441": {
+    "address": "28 RUE DU GENERAL SARRAIL, 17100 SAINTES",
+    "lat": 45.748092,
+    "lon": -0.637443
+  },
+  "20003647300458": {
+    "address": "13 RUE SAINT FRANCOIS, 17100 SAINTES",
+    "lat": 45.74265,
+    "lon": -0.638516
+  },
+  "20003647300466": {
+    "address": "19 RUE DU PIGEONNIER, 17100 SAINTES",
+    "lat": 45.738627,
+    "lon": -0.620351
+  },
+  "20003647300474": {
+    "address": "IMPASSE RENE CAILLIE, 17100 SAINTES",
+    "lat": 45.747395,
+    "lon": -0.641782
+  },
+  "20003647300482": {
+    "address": "RUE PKG DE LA GOUTTE DE LAIT, 17100 SAINTES",
+    "lat": 44.280025,
+    "lon": 4.089562
+  },
+  "20003647300490": {
+    "address": "17 AVENUE DE BELLEVUE, 17100 SAINTES",
+    "lat": 45.730406,
+    "lon": -0.642651
+  },
+  "20003647300508": {
+    "address": "RUE PONT AMILION, 17100 SAINTES",
+    "lat": 45.744815,
+    "lon": -0.625413
+  },
+  "20003691100010": {
+    "address": "8 B RUE PIERRE LAILLE, 79600 AIRVAULT",
+    "lat": 46.823038,
+    "lon": -0.135308
+  },
+  "20003691100051": {
+    "address": "33 ROUTE DU PUY-TERRIER, 79600 SAINT-LOUP-LAMAIRE",
+    "lat": 46.779325,
+    "lon": -0.172862
+  },
+  "20004024400010": {
+    "address": "27 BOULEVARD DU COLONEL AUBRY, 79300 BRESSUIRE",
+    "lat": 46.842143,
+    "lon": -0.48874
+  },
+  "20004168900361": {
+    "address": "LES ARDILLAUX 37 GRANDE RUE, 17330 BERNAY-SAINT-MARTIN",
+    "lat": 46.064524,
+    "lon": -0.627848
+  },
+  "20004168900379": {
+    "address": "13 ROUTE NATIONALE, 17330 VILLENEUVE-LA-COMTESSE",
+    "lat": 46.099439,
+    "lon": -0.501283
+  },
+  "20004168900387": {
+    "address": "2 RUE DES ECOLES, 17330 LOULAY",
+    "lat": 46.044452,
+    "lon": -0.51168
+  },
+  "20004168900395": {
+    "address": "23 RUE DES ECOLES, 17400 ESSOUVERT",
+    "lat": 45.988715,
+    "lon": -0.521333
+  },
+  "20004168900411": {
+    "address": "81 RUE GAMBETTA, 17400 SAINT-JEAN-D'ANGELY",
+    "lat": 45.946158,
+    "lon": -0.525323
+  },
+  "20004168900429": {
+    "address": "19 RUE DU MANOIR, 17400 SAINT-JEAN-D'ANGELY",
+    "lat": 45.947621,
+    "lon": -0.520333
+  },
+  "20004168900437": {
+    "address": "1 RUE REGNAUD, 17400 SAINT-JEAN-D'ANGELY",
+    "lat": 45.942295,
+    "lon": -0.523047
+  },
+  "20004168900445": {
+    "address": "1 RUE DE L'ECOLE, 17400 POURSAY-GARNAUD",
+    "lat": 45.952863,
+    "lon": -0.460449
+  },
+  "20004168900460": {
+    "address": "25 GRANDE RUE, 17400 VARAIZE",
+    "lat": 45.919378,
+    "lon": -0.421178
+  },
+  "20004168900478": {
+    "address": "49 AVENUE DE SAINT-JEAN-D'ANGELY, 17400 ASNIERES-LA-GIRAUD",
+    "lat": 45.890883,
+    "lon": -0.521831
+  },
+  "20004168900486": {
+    "address": "3 RUE DE SAINTONGE, 17400 LES EGLISES-D'ARGENTEUIL",
+    "lat": 45.972755,
+    "lon": -0.433219
+  },
+  "20004168900494": {
+    "address": "COURGEON 14 RUE DES ECOLES, 17400 SAINT-PIERRE-DE-JUILLERS",
+    "lat": 45.94138,
+    "lon": -0.387895
+  },
+  "20004168900502": {
+    "address": "RUE DES ECOLES, 17400 SAINT-JULIEN-DE-L'ESCAP",
+    "lat": 45.932291,
+    "lon": -0.489301
+  },
+  "20004168900510": {
+    "address": "15 RUE DE L'ECOLE, 17380 LANDES",
+    "lat": 45.991275,
+    "lon": -0.598127
+  },
+  "20004168900528": {
+    "address": "2 RUE DU 19 MARS 1962, 17470 AULNAY",
+    "lat": 46.023648,
+    "lon": -0.348834
+  },
+  "20004168900536": {
+    "address": "23 RUE D'AULNAY, 17470 SAINT-GEORGES-DE-LONGUEPIERRE",
+    "lat": 46.040061,
+    "lon": -0.39418
+  },
+  "20004168900544": {
+    "address": "1 RUE FRIEDA ET DAVID KAPLAN, 17510 NERE",
+    "lat": 45.97855,
+    "lon": -0.238708
+  },
+  "20004168900551": {
+    "address": "9 AVENUE JEAN MOULIN, 17400 SAINT-JEAN-D'ANGELY",
+    "lat": 45.951146,
+    "lon": -0.52387
+  },
+  "20004168900569": {
+    "address": "26 RUE DE SAINTONGE, 17330 SAINT-FELIX",
+    "lat": 46.088635,
+    "lon": -0.596215
+  },
+  "20004168900577": {
+    "address": "RUE DE LA BORDERIE DU COUVENT, 17350 SAINT-SAVINIEN",
+    "lat": 45.876328,
+    "lon": -0.675904
+  },
+  "20004287700049": {
+    "address": "4 RUE SAINT PIERRE, 79290 VAL EN VIGNES",
+    "lat": 47.047304,
+    "lon": -0.353941
+  },
+  "20004287700080": {
+    "address": "4 RUE DE LA TREMOILLE, 79100 THOUARS",
+    "lat": 46.972817,
+    "lon": -0.216622
+  },
+  "20004334700042": {
+    "address": "CIAS 27 BOULEVARD DU COLONEL AUBRY, 79300 BRESSUIRE",
+    "lat": 46.842143,
+    "lon": -0.48874
+  },
+  "20004783500018": {
+    "address": "RUE DU DOCTEUR SCHWEITZER, 17000 LA ROCHELLE",
+    "lat": 46.158439,
+    "lon": -1.144819
+  },
+  "20004783500042": {
+    "address": "38 RUE EMILE COMBES, 17300 ROCHEFORT",
+    "lat": 45.933306,
+    "lon": -0.96211
+  },
+  "20004783500091": {
+    "address": "208 RUE MARIUS LACROIX, 17000 LA ROCHELLE",
+    "lat": 46.174524,
+    "lon": -1.142318
+  },
+  "20004783500141": {
+    "address": "RUE DE BEAUREGARD, 17000 LA ROCHELLE",
+    "lat": 46.169959,
+    "lon": -1.138196
+  },
+  "20004783500166": {
+    "address": "RUE DU MOULIN DES JUSTICES, 17138 PUILBOREAU",
+    "lat": 46.173777,
+    "lon": -1.127749
+  },
+  "20004783500190": {
+    "address": "RUE DU MOULIN DES JUSTICES, 17138 PUILBOREAU",
+    "lat": 46.173777,
+    "lon": -1.127749
+  },
+  "20004783500307": {
+    "address": "1 PLACE DE VERDUN, 17300 ROCHEFORT",
+    "lat": 45.934822,
+    "lon": -0.964953
+  },
+  "20004783500331": {
+    "address": "53 RUE DE L'HOPITAL, 17410 SAINT-MARTIN-DE-RE",
+    "lat": 46.201412,
+    "lon": -1.366324
+  },
+  "20004783500430": {
+    "address": "5 RUE DE LA GROSSE MOTTE, 17290 CHAMBON",
+    "lat": 46.11923,
+    "lon": -0.859801
+  },
+  "20005274400014": {
+    "address": "13 RUE DU PANIER FLEURI, 79400 SAINT-MAIXENT-L'ECOLE",
+    "lat": 46.411231,
+    "lon": -0.220186
+  },
+  "20006081200019": {
+    "address": "LA BOURELIERE 11 RUE DU VILLAGE, 79330 LUCHE-THOUARSAIS",
+    "lat": 46.906165,
+    "lon": -0.295563
+  },
+  "20006414500036": {
+    "address": "GOURNAY-LOIZE RUE DU CENTRE, 79110 ALLOINAY",
+    "lat": 46.153461,
+    "lon": -0.06036
+  },
+  "20006857500014": {
+    "address": "10 RUE DU MOULIN, 79290 VAL EN VIGNES",
+    "lat": 47.045755,
+    "lon": -0.354193
+  },
+  "20006974800016": {
+    "address": "PLACE SAINT ANTOINE, 79220 CHAMPDENIERS",
+    "lat": 46.485655,
+    "lon": -0.402079
+  },
+  "20006975500011": {
+    "address": "2 PLACE DE STRASBOURG, 79500 MELLE",
+    "lat": 46.220094,
+    "lon": -0.146058
+  },
+  "20007619800015": {
+    "address": "PL DE LA MAIRIE, 79360 PLAINE-D'ARGENSON",
+    "lat": 46.154892,
+    "lon": -0.483677
+  },
+  "20007658600011": {
+    "address": "RUE CHARLES  HENRI PERCHERON, 17380 LA DEVISE",
+    "lat": 46.055302,
+    "lon": -0.766219
+  },
+  "20008009100040": {
+    "address": "RUE DE LA MAIRIE, 17700 SAINT-PIERRE-LA-NOUE",
+    "lat": 46.091451,
+    "lon": -0.818623
+  },
+  "20008009100057": {
+    "address": "ST-GERMAIN-DE-MARENCENNES RTE DE PERE, 17700 SAINT-PIERRE-LA-NOUE",
+    "lat": 46.065749,
+    "lon": -0.79496
+  },
+  "20008132100016": {
+    "address": "57 PL CHARLES DE GAULLE, 79290 LORETZ-D'ARGENTON",
+    "lat": 47.044633,
+    "lon": -0.259836
+  },
+  "20008132100057": {
+    "address": "ARGENTON-L'EGLISE 141 RUE DES TILLEULS, 79290 LORETZ-D'ARGENTON",
+    "lat": 47.043081,
+    "lon": -0.261803
+  },
+  "20008151100079": {
+    "address": "MAZIERES-SUR-BERONNE 13 PL DU CHAMP DE FOIRE - CHARZAY, 79500 MELLE",
+    "lat": 46.182994,
+    "lon": -0.185328
+  },
+  "20008151100087": {
+    "address": "QUARTIER DE LA MAIRIE, 79500 MELLE",
+    "lat": 46.22344,
+    "lon": -0.142815
+  },
+  "20008151100095": {
+    "address": "RUE DU SIMPLOT, 79500 MELLE",
+    "lat": 46.222022,
+    "lon": -0.135483
+  },
+  "20008151100103": {
+    "address": "PAIZAY-LE-TORT LE BOURG, 79500 MELLE",
+    "lat": 46.182191,
+    "lon": -0.157458
+  },
+  "20008151100111": {
+    "address": "ST-LEGER-DE-LA-MARTINIERE 5 CHEM DE MOUCHETUNE, 79500 MELLE",
+    "lat": 46.229001,
+    "lon": -0.121294
+  },
+  "20008151100129": {
+    "address": "SAINT-MARTIN-LES-MELLE RTE DE L'ECOLE, 79500 MELLE",
+    "lat": 46.225297,
+    "lon": -0.159535
+  },
+  "20008153700025": {
+    "address": "1 RUE DES ECOLES, 79110 VALDELAUME",
+    "lat": 46.078905,
+    "lon": 0.026742
+  },
+  "20008171900045": {
+    "address": "21 RTE DES ECOLES, 79500 MARCILLE",
+    "lat": 46.203597,
+    "lon": -0.115436
+  },
+  "20008216200047": {
+    "address": "CHAIL QUA POMMEROUX, 79110 FONTIVILLIE",
+    "lat": null,
+    "lon": null
+  },
+  "20008238600075": {
+    "address": "10 RUE DE L'HOTEL DE VILLE, 79110 CHEF-BOUTONNE",
+    "lat": 46.109759,
+    "lon": -0.073569
+  },
+  "20008252700017": {
+    "address": "8 RUE DES ECOLES, 79370 PRAILLES-LA COUARDE",
+    "lat": 46.311969,
+    "lon": -0.182913
+  },
+  "20008264200014": {
+    "address": "PL PIERRE ROUSSEAU, 79210 VAL-DU-MIGNON",
+    "lat": 46.173433,
+    "lon": -0.578927
+  },
+  "20008287300015": {
+    "address": "2 IMP DES ECOLIERS, 79310 SAINT-PARDOUX-SOUTIERS",
+    "lat": 46.571389,
+    "lon": -0.305616
+  },
+  "20008389700062": {
+    "address": "MONTIGNE 2 RTE DE VERRINES, 79370 CELLES-SUR-BELLE",
+    "lat": 46.213735,
+    "lon": -0.238255
+  },
+  "20008389700088": {
+    "address": "VERRINES-SOUS-CELLES RUE DU TEMPLE, 79370 CELLES-SUR-BELLE",
+    "lat": 46.231044,
+    "lon": -0.225715
+  },
+  "20008389700096": {
+    "address": "4 RUE DES MESANGES, 79370 CELLES-SUR-BELLE",
+    "lat": 46.262142,
+    "lon": -0.215768
+  },
+  "20008390500022": {
+    "address": "5 RUE DU TREUIL, 79370 CELLES-SUR-BELLE",
+    "lat": 46.259074,
+    "lon": -0.218157
+  },
+  "20008426700018": {
+    "address": "14 PL SAINT LAON, 79100 THOUARS",
+    "lat": 46.975751,
+    "lon": -0.216451
+  },
+  "20008426700059": {
+    "address": "10 RUE ANATOLE FRANCE, 79100 THOUARS",
+    "lat": 46.98341,
+    "lon": -0.210544
+  },
+  "20008426700075": {
+    "address": "18 RUE MARCELIN BERTHELOT, 79100 THOUARS",
+    "lat": 46.98694,
+    "lon": -0.215786
+  },
+  "20008426700091": {
+    "address": "12 AV DE LA MAGDELAINE, 79100 THOUARS",
+    "lat": 46.976299,
+    "lon": -0.211267
+  },
+  "20008426700133": {
+    "address": "13 RUE DE LA MAIRIE, 79100 THOUARS",
+    "lat": 46.996344,
+    "lon": -0.247872
+  },
+  "20008435800015": {
+    "address": "3 RUE DROUYNEAU DE BRIE, 79100 THOUARS",
+    "lat": 46.976741,
+    "lon": -0.216782
+  },
+  "20008440800083": {
+    "address": "TAIZE-MAULAIS 4 RUE DE LA MAIRIE, 79100 PLAINE-ET-VALLEES",
+    "lat": 46.924824,
+    "lon": -0.116821
+  },
+  "20008448100015": {
+    "address": "4 RUE DES COSTERES, 79340 LES CHATELIERS",
+    "lat": 46.505358,
+    "lon": -0.118389
+  },
+  "20008463000017": {
+    "address": "PL DE LA MAIRIE, 79370 AIGONDIGNE",
+    "lat": 46.294596,
+    "lon": -0.287972
+  },
+  "20008463000066": {
+    "address": "2 RTE DE LA RIVIERE, 79370 AIGONDIGNE",
+    "lat": 46.32816,
+    "lon": -0.250326
+  },
+  "20008463000074": {
+    "address": "MOUGON 14 RTE DE TRIOU, 79370 AIGONDIGNE",
+    "lat": 46.292193,
+    "lon": -0.289413
+  },
+  "20008463000082": {
+    "address": "THORIGNE 27 RUE DE L'ECOLE, 79370 AIGONDIGNE",
+    "lat": 46.291718,
+    "lon": -0.246893
+  },
+  "20008463000090": {
+    "address": "SAINTE-BLANDINE 26 RUE JACQUES BUJAULT, 79370 AIGONDIGNE",
+    "lat": 46.257942,
+    "lon": -0.266686
+  },
+  "20008526400014": {
+    "address": "18 AV DU MARECHAL JUIN, 79240 MONCOUTANT-SUR-SEVRE",
+    "lat": 46.721158,
+    "lon": -0.589137
+  },
+  "20008527200025": {
+    "address": "1 PL DES PASSEREAUX, 79240 MONCOUTANT-SUR-SEVRE",
+    "lat": 46.723154,
+    "lon": -0.595842
+  },
+  "20008578500075": {
+    "address": "2 RUE ERNEST PEROCHON, 79600 AIRVAULT",
+    "lat": 46.825293,
+    "lon": -0.133934
+  },
+  "20008579300012": {
+    "address": "2 IMP DES JARDINS, 79130 BEUGNON-THIREUIL",
+    "lat": 46.557554,
+    "lon": -0.555224
+  },
+  "21170003400039": {
+    "address": "14 RUE DES ECOLES, 17290 AIGREFEUILLE-D'AUNIS",
+    "lat": 46.116887,
+    "lon": -0.939567
+  },
+  "21170003400054": {
+    "address": "14 B RUE DES ECOLES, 17290 AIGREFEUILLE-D'AUNIS",
+    "lat": 46.11672,
+    "lon": -0.939108
+  },
+  "21170008300010": {
+    "address": "30 RUE DE LA PAIX, 17230 ANDILLY",
+    "lat": 46.253376,
+    "lon": -1.028048
+  },
+  "21170009100013": {
+    "address": "RUE DE L'ECOLE, 17540 ANGLIERS",
+    "lat": 46.211384,
+    "lon": -0.951998
+  },
+  "21170010900047": {
+    "address": "9 RUE SAINT GILLES, 17690 ANGOULINS",
+    "lat": 46.106119,
+    "lon": -1.110654
+  },
+  "21170016600013": {
+    "address": "PL MAIRIE, 17520 ARCHIAC",
+    "lat": 45.521796,
+    "lon": -0.3014
+  },
+  "21170018200010": {
+    "address": "RUE DU MARAIS, 17290 ARDILLIERES",
+    "lat": 46.056406,
+    "lon": -0.89557
+  },
+  "21170019000088": {
+    "address": "24 PLACE CARNOT, 17590 ARS-EN-RE",
+    "lat": 46.208506,
+    "lon": -1.515795
+  },
+  "21170021600016": {
+    "address": "1 PL JACQUES LACOMBES, 17530 ARVERT",
+    "lat": 45.74089,
+    "lon": -1.125519
+  },
+  "21170025700010": {
+    "address": "8 PL DE LA MAIRIE HILLAIRETS, 17770 AUMAGNE",
+    "lat": 45.880132,
+    "lon": -0.408784
+  },
+  "21170028100028": {
+    "address": "1 RUE BARBEDETTE, 17440 AYTRE",
+    "lat": 46.131224,
+    "lon": -1.115511
+  },
+  "21170028100036": {
+    "address": "2 BOULEVARD GEORGES CLEMENCEAU, 17440 AYTRE",
+    "lat": 46.131873,
+    "lon": -1.121943
+  },
+  "21170028100051": {
+    "address": "2 BOULEVARD GEORGES CLEMENCEAU, 17440 AYTRE",
+    "lat": 46.131873,
+    "lon": -1.121943
+  },
+  "21170028100077": {
+    "address": "21 AVENUE EDMOND GRASSET, 17440 AYTRE",
+    "lat": 46.134599,
+    "lon": -1.117373
+  },
+  "21170028100085": {
+    "address": "RUE DU QUATORZE JUILLET, 17440 AYTRE",
+    "lat": 46.140978,
+    "lon": -1.133728
+  },
+  "21170036400022": {
+    "address": "3 RUE DES RIDOLLIERES, 17620 BEAUGEAY",
+    "lat": 45.868345,
+    "lon": -1.002384
+  },
+  "21170038000010": {
+    "address": "19 AVENUE ANNE D'AUTRICHE, 17210 BEDENAC",
+    "lat": 45.165942,
+    "lon": -0.299205
+  },
+  "21170038000028": {
+    "address": "1 RUE DU STADE, 17210 BEDENAC",
+    "lat": 45.166168,
+    "lon": -0.299294
+  },
+  "21170044800015": {
+    "address": "1 RUE DE LA MAIRIE, 17460 BERNEUIL",
+    "lat": 45.643302,
+    "lon": -0.601187
+  },
+  "21170045500028": {
+    "address": "34 RUE DU GENERAL DE GAULLE, 17250 BEURLAY",
+    "lat": 45.86231,
+    "lon": -0.838304
+  },
+  "21170050500012": {
+    "address": "4 PLACE DE LA MAIRIE, 17240 BOIS",
+    "lat": 45.48861,
+    "lon": -0.599181
+  },
+  "21170050500020": {
+    "address": "5 RUE DES ECOLES, 17240 BOIS",
+    "lat": 45.489386,
+    "lon": -0.598924
+  },
+  "21170051300016": {
+    "address": "37 RUE ARISTIDE BRIAND, 17580 LE BOIS-PLAGE-EN-RE",
+    "lat": 46.186619,
+    "lon": -1.393002
+  },
+  "21170052100019": {
+    "address": "14 ROUTE DE SOUBRAN, 17150 BOISREDON",
+    "lat": 45.315277,
+    "lon": -0.53774
+  },
+  "21170057000024": {
+    "address": "4 RUE DU BIEF, 17540 BOUHET",
+    "lat": 46.165104,
+    "lon": -0.859685
+  },
+  "21170059600045": {
+    "address": "58 B RUE DE LA COMMANDERIE, 17220 BOURGNEUF",
+    "lat": 46.166683,
+    "lon": -1.0255
+  },
+  "21170063800029": {
+    "address": "LA CRIGNOLEE 6 RUE DE FAVAUT, 17700 BREUIL-LA-REORTE",
+    "lat": 46.052474,
+    "lon": -0.690906
+  },
+  "21170065300028": {
+    "address": "2 RUE DU 8 MAI 1945, 17870 BREUIL-MAGNE",
+    "lat": 45.982519,
+    "lon": -0.957318
+  },
+  "21170074500022": {
+    "address": "LE BOURG, 17210 BUSSAC-FORET",
+    "lat": 45.210983,
+    "lon": -0.368164
+  },
+  "21170074500030": {
+    "address": "RUE DE L'EGLISE, 17210 BUSSAC-FORET",
+    "lat": 45.213142,
+    "lon": -0.368756
+  },
+  "21170075200010": {
+    "address": "32 RUE DES GABARES, 17430 CABARIOT",
+    "lat": 45.925706,
+    "lon": -0.85696
+  },
+  "21170077800031": {
+    "address": "LE BOURG, 17270 CERCOUX",
+    "lat": 45.126768,
+    "lon": -0.204939
+  },
+  "21170078600018": {
+    "address": "42 RUE DE LA MAIRIE, 17800 CHADENAC",
+    "lat": 45.54156,
+    "lon": -0.443041
+  },
+  "21170080200013": {
+    "address": "25 RUE DU GROS SILLON, 17290 CHAMBON",
+    "lat": 46.109143,
+    "lon": -0.841912
+  },
+  "21170082800026": {
+    "address": "PLACE GUY PUBLIE, 17500 CHAMPAGNAC",
+    "lat": 45.424069,
+    "lon": -0.383605
+  },
+  "21170083600011": {
+    "address": "59 AVENUE RENE CAILLE, 17620 CHAMPAGNE",
+    "lat": 45.832119,
+    "lon": -0.910394
+  },
+  "21170083600029": {
+    "address": "3 RUE DES ECOLES, 17620 CHAMPAGNE",
+    "lat": 45.829948,
+    "lon": -0.911373
+  },
+  "21170084400015": {
+    "address": "1 PARC DE LA MAIRIE, 17240 CHAMPAGNOLLES",
+    "lat": 45.513406,
+    "lon": -0.636761
+  },
+  "21170091900015": {
+    "address": "5 RUE DES ECOLES, 17230 CHARRON",
+    "lat": 46.295488,
+    "lon": -1.105991
+  },
+  "21170093500037": {
+    "address": "RUE CHANZY, 17480 LE CHATEAU-D'OLERON",
+    "lat": 45.885937,
+    "lon": -1.196729
+  },
+  "21170093500045": {
+    "address": "RUE JEAN HAY, 17480 LE CHATEAU-D'OLERON",
+    "lat": 45.885501,
+    "lon": -1.196482
+  },
+  "21170094300015": {
+    "address": "20 BOULEVARD DE LA LIBERATION, 17340 CHATELAILLON-PLAGE",
+    "lat": 46.073698,
+    "lon": -1.090242
+  },
+  "21170099200012": {
+    "address": "58 LE BOURG, 17210 CHEPNIERS",
+    "lat": 45.257669,
+    "lon": -0.309849
+  },
+  "21170108100013": {
+    "address": "RUE HENRI VION, 17500 CLAM",
+    "lat": 45.488105,
+    "lon": -0.450029
+  },
+  "21170108100021": {
+    "address": "RUE HENRI VION, 17500 CLAM",
+    "lat": 45.488105,
+    "lon": -0.450029
+  },
+  "21170109900015": {
+    "address": "17 RUE DU GRAND CHEMIN, 17220 CLAVETTE",
+    "lat": 46.139107,
+    "lon": -1.027567
+  },
+  "21170110700016": {
+    "address": "1 PLACE DE LA MAIRIE, 17270 CLERAC",
+    "lat": 45.180967,
+    "lon": -0.228546
+  },
+  "21170111500027": {
+    "address": "PLACE JEAN MOULIN, 17240 CLION",
+    "lat": 45.478037,
+    "lon": -0.502566
+  },
+  "21170113100016": {
+    "address": "19 ROUTE DU BOURG, 17360 LA CLOTTE",
+    "lat": 45.117115,
+    "lon": -0.148536
+  },
+  "21170121400010": {
+    "address": "9 GRANDE RUE, 17670 LA COUARDE-SUR-MER",
+    "lat": 46.194505,
+    "lon": -1.423313
+  },
+  "21170133900015": {
+    "address": "PL MICHEL ALLAIN, 17260 CRAVANS",
+    "lat": 45.596351,
+    "lon": -0.712355
+  },
+  "21170134700034": {
+    "address": "26 RUE DE LA MAIRIE, 17350 CRAZANNES",
+    "lat": 45.848147,
+    "lon": -0.70425
+  },
+  "21170136200017": {
+    "address": "37 AVENUE DE LA LIBERATION, 17220 CROIX-CHAPEAU",
+    "lat": 46.109751,
+    "lon": -1.007439
+  },
+  "21170136200025": {
+    "address": "35 AVENUE DE LA LIBERATION, 17220 CROIX-CHAPEAU",
+    "lat": 46.109955,
+    "lon": -1.007923
+  },
+  "21170140400017": {
+    "address": "PLACE SIMONE VEIL, 17550 DOLUS-D'OLERON",
+    "lat": 45.910753,
+    "lon": -1.264687
+  },
+  "21170140400025": {
+    "address": "23 RUE DES ECOLES, 17550 DOLUS-D'OLERON",
+    "lat": 45.910267,
+    "lon": -1.260884
+  },
+  "21170140400033": {
+    "address": "57 RUE DES ECOLES, 17550 DOLUS-D'OLERON",
+    "lat": 45.912851,
+    "lon": -1.258781
+  },
+  "21170140400082": {
+    "address": "3 RUE DU MOULIN, 17550 DOLUS-D'OLERON",
+    "lat": 45.908365,
+    "lon": -1.259694
+  },
+  "21170142000047": {
+    "address": "IMPASSE JULES FERRY, 17139 DOMPIERRE-SUR-MER",
+    "lat": 46.187919,
+    "lon": -1.060544
+  },
+  "21170142000062": {
+    "address": "CHAGNOLET 33 GRANDE RUE, 17139 DOMPIERRE-SUR-MER",
+    "lat": 46.173526,
+    "lon": -1.094938
+  },
+  "21170145300022": {
+    "address": "15 RUE DE LA MAIRIE, 17800 ECHEBRUNE",
+    "lat": 45.593115,
+    "lon": -0.468457
+  },
+  "21170146100025": {
+    "address": "MAIRIE IMP DU CHAMP TRUCHOT, 17620 ECHILLAIS",
+    "lat": 45.896643,
+    "lon": -0.95496
+  },
+  "21170151100019": {
+    "address": "3 GRAND RUE, 17600 L'EGUILLE",
+    "lat": 45.705364,
+    "lon": -0.97984
+  },
+  "21170153700014": {
+    "address": "AVENUE DE LA REPUBLIQUE, 17137 ESNANDES",
+    "lat": 46.248571,
+    "lon": -1.11685
+  },
+  "21170154500017": {
+    "address": "5 RUE DE L'HOTEL DE VILLE, 17250 LES ESSARDS",
+    "lat": 45.792414,
+    "lon": -0.759244
+  },
+  "21170158600011": {
+    "address": "93 RUE DE LA JUILLERIE, 17170 FERRIERES",
+    "lat": 46.227077,
+    "lon": -0.864414
+  },
+  "21170159400023": {
+    "address": "6 PLACE DE L'ECOLE, 17800 FLEAC-SUR-SEUGNE",
+    "lat": 45.533173,
+    "lon": -0.540765
+  },
+  "21170161000019": {
+    "address": "25 COURS FELIX FAURE, 17630 LA FLOTTE",
+    "lat": 46.188926,
+    "lon": -1.32642
+  },
+  "21170163600014": {
+    "address": "2 RUE SAINT LAURENT, 17500 FONTAINES-D'OZILLAC",
+    "lat": 45.385686,
+    "lon": -0.379997
+  },
+  "21170166900015": {
+    "address": "9 RUE DE LA MAIRIE, 17290 FORGES",
+    "lat": 46.104697,
+    "lon": -0.897596
+  },
+  "21170167700018": {
+    "address": "26 ROUTE DE LA MAIRIE, 17270 LE FOUILLOUX",
+    "lat": 45.190004,
+    "lon": -0.125927
+  },
+  "21170168500011": {
+    "address": "PL LENOIR, 17450 FOURAS",
+    "lat": 45.98846,
+    "lon": -1.093047
+  },
+  "21170168500102": {
+    "address": "RUE DU TROP TOT VENU, 17450 FOURAS",
+    "lat": 45.990251,
+    "lon": -1.08467
+  },
+  "21170171900018": {
+    "address": "20 RUE DE L'EGLISE ROMANE, 17250 GEAY",
+    "lat": 45.870867,
+    "lon": -0.765059
+  },
+  "21170174300026": {
+    "address": "18 RUE DES FORGERONS, 17430 GENOUILLE",
+    "lat": 46.022336,
+    "lon": -0.783554
+  },
+  "21170184200018": {
+    "address": "22 GRANDE RUE, 17620 LA GRIPPERIE-SAINT-SYMPHORIEN",
+    "lat": 45.801181,
+    "lon": -0.951014
+  },
+  "21170184200026": {
+    "address": "2 PLACE DE L'ECOLE, 17620 LA GRIPPERIE-SAINT-SYMPHORIEN",
+    "lat": 45.801115,
+    "lon": -0.951638
+  },
+  "21170185900012": {
+    "address": "28 RUE SAINT LAURENT, 17600 LE GUA",
+    "lat": 45.725804,
+    "lon": -0.942855
+  },
+  "21170186700023": {
+    "address": "RUE DE LA GATINE, 17540 LE GUE-D'ALLERE",
+    "lat": 46.185719,
+    "lon": -0.863295
+  },
+  "21170190900049": {
+    "address": "1 RUE DES SPORTS, 17137 L'HOUMEAU",
+    "lat": 46.193891,
+    "lon": -1.186594
+  },
+  "21170194100018": {
+    "address": "PLACE DE LA MAIRIE, 17220 LA JARRIE",
+    "lat": 46.12851,
+    "lon": -1.009282
+  },
+  "21170200600019": {
+    "address": "1 RUE DE LA METAIRIE, 17140 LAGORD",
+    "lat": 46.190715,
+    "lon": -1.153183
+  },
+  "21170200600043": {
+    "address": "5 RUE DES CIGOGNES, 17140 LAGORD",
+    "lat": 46.183537,
+    "lon": -1.158158
+  },
+  "21170200600050": {
+    "address": "RUE DES CIGOGNES, 17140 LAGORD",
+    "lat": 46.184041,
+    "lon": -1.157608
+  },
+  "21170204800029": {
+    "address": "LE BOURG, 17500 LEOVILLE",
+    "lat": 45.378885,
+    "lon": -0.337071
+  },
+  "21170207100013": {
+    "address": "PLACE DU MARCHE, 17111 LOIX",
+    "lat": 46.223711,
+    "lon": -1.437489
+  },
+  "21170208900015": {
+    "address": "33 RUE DE CURZAY, 17230 LONGEVES",
+    "lat": 46.226101,
+    "lon": -0.994053
+  },
+  "21170218800015": {
+    "address": "PLACE ERNEST COGNACQ, 17230 MARANS",
+    "lat": 46.308826,
+    "lon": -0.992782
+  },
+  "21170222000016": {
+    "address": "RUE DES ECOLES, 17137 MARSILLY",
+    "lat": 46.230259,
+    "lon": -1.134916
+  },
+  "21170222000032": {
+    "address": "RUE DU CHEMIN BAS, 17137 MARSILLY",
+    "lat": 46.227898,
+    "lon": -1.134879
+  },
+  "21170222000040": {
+    "address": "7 RUE DES ECOLES, 17137 MARSILLY",
+    "lat": 46.229644,
+    "lon": -1.134858
+  },
+  "21170224600029": {
+    "address": "RUE MARC JEANJEAN, 17160 MATHA",
+    "lat": 45.867129,
+    "lon": -0.313817
+  },
+  "21170224600037": {
+    "address": "RUE DE L'AVENIR, 17160 MATHA",
+    "lat": 45.86852,
+    "lon": -0.310672
+  },
+  "21170228700015": {
+    "address": "1 RUE JOSEPH RAMBEAU, 17600 MEDIS",
+    "lat": 45.642534,
+    "lon": -0.964603
+  },
+  "21170230300010": {
+    "address": "38 RUE PAUL MASSY, 17132 MESCHERS-SUR-GIRONDE",
+    "lat": 45.559349,
+    "lon": -0.95341
+  },
+  "21170236000010": {
+    "address": "10 PLACE DE LA MAIRIE, 17150 MIRAMBEAU",
+    "lat": 45.372956,
+    "lon": -0.570098
+  },
+  "21170237800038": {
+    "address": "AVENUE DU GENERAL DE GAULLE, 17780 MOEZE",
+    "lat": 45.903972,
+    "lon": -1.03748
+  },
+  "21170240200010": {
+    "address": "29 RUE DE L'HOTEL DE VILLE, 17130 MONTENDRE",
+    "lat": 45.283498,
+    "lon": -0.410146
+  },
+  "21170241000039": {
+    "address": "37 AVENUE DE LA REPUBLIQUE, 17270 MONTGUYON",
+    "lat": 45.214642,
+    "lon": -0.186548
+  },
+  "21170244400020": {
+    "address": "5 C ROUTE DE MEURSAC, 17260 MONTPELLIER-DE-MEDILLAN",
+    "lat": 45.63641,
+    "lon": -0.760108
+  },
+  "21170245100017": {
+    "address": "GRANDE RUE, 17220 MONTROY",
+    "lat": 46.155929,
+    "lon": -1.01126
+  },
+  "21170246900027": {
+    "address": "17 RUE DU PORT PARADIS, 17430 MORAGNE",
+    "lat": 45.972439,
+    "lon": -0.803848
+  },
+  "21170250100027": {
+    "address": "39 RUE DE LA SEUGNE, 17240 MOSNAC",
+    "lat": 45.505744,
+    "lon": -0.52445
+  },
+  "21170253500017": {
+    "address": "12 RUE DE LA LIBERATION, 17430 MURON",
+    "lat": 46.036189,
+    "lon": -0.828986
+  },
+  "21170253500025": {
+    "address": "10 CHEMIN CHARLES, 17430 MURON",
+    "lat": 46.03173,
+    "lon": -0.827395
+  },
+  "21170255000024": {
+    "address": "38 RUE DES ECOLES, 17600 NANCRAS",
+    "lat": 45.74583,
+    "lon": -0.880582
+  },
+  "21170260000019": {
+    "address": "ROUTE DE LA MAIRIE, 17270 NEUVICQ",
+    "lat": 45.245845,
+    "lon": -0.173368
+  },
+  "21170262600014": {
+    "address": "3 RUE ROUYER GUILLET, 17810 NIEUL-LES-SAINTES",
+    "lat": 45.759188,
+    "lon": -0.732714
+  },
+  "21170263400026": {
+    "address": "2 RUE DES ECOLES, 17150 NIEUL-LE-VIROUIL",
+    "lat": 45.408854,
+    "lon": -0.530555
+  },
+  "21170264200011": {
+    "address": "CHATEAU BEAUREGARD AVENUE DU PARC, 17137 NIEUL-SUR-MER",
+    "lat": 46.209663,
+    "lon": -1.162092
+  },
+  "21170267500029": {
+    "address": "3 RUE DES ECOLES, 17540 NUAILLE-D'AUNIS",
+    "lat": 46.226567,
+    "lon": -0.928383
+  },
+  "21170269100026": {
+    "address": "2 RUE DES ECOLES, 17210 ORIGNOLLES",
+    "lat": 45.230544,
+    "lon": -0.235743
+  },
+  "21170274100029": {
+    "address": "7 RUE DE CHATEAURENARD, 17180 PERIGNY",
+    "lat": 46.156765,
+    "lon": -1.098954
+  },
+  "21170274100037": {
+    "address": "3 RUE DE CHATEAURENARD, 17180 PERIGNY",
+    "lat": 46.155375,
+    "lon": -1.097221
+  },
+  "21170274100052": {
+    "address": "ROMPSAY 11 RUE DES ECOLES, 17180 PERIGNY",
+    "lat": 46.167932,
+    "lon": -1.112985
+  },
+  "21170274100128": {
+    "address": "22 E RUE DU STADE, 17180 PERIGNY",
+    "lat": 46.155148,
+    "lon": -1.083762
+  },
+  "21170283200018": {
+    "address": "PLACE DE LA REPUBLIQUE, 17800 PONS",
+    "lat": 45.578902,
+    "lon": -0.547918
+  },
+  "21170283200075": {
+    "address": "10 COURS ALSACE LORRAINE, 17800 PONS",
+    "lat": 45.580364,
+    "lon": -0.551017
+  },
+  "21170283200091": {
+    "address": "5 RUE GABRIEL PERRIER, 17800 PONS",
+    "lat": 45.581416,
+    "lon": -0.54965
+  },
+  "21170284000045": {
+    "address": "64 AVENUE ANDRE MALRAUX, 17250 PONT-L'ABBE-D'ARNOULT",
+    "lat": 45.829399,
+    "lon": -0.869839
+  },
+  "21170285700023": {
+    "address": "4 PLACE JACQUES DE GRAILLY, 17350 PORT-D'ENVAUX",
+    "lat": 45.835426,
+    "lon": -0.680328
+  },
+  "21170287300020": {
+    "address": "RN 10 L'OMBRIERE, 17210 POUILLAC",
+    "lat": 45.265799,
+    "lon": -0.266633
+  },
+  "21170290700026": {
+    "address": "60 RUE DE L'EGLISE, 17160 PRIGNAC",
+    "lat": 45.828236,
+    "lon": -0.352889
+  },
+  "21170291500011": {
+    "address": "29 RUE DE LA REPUBLIQUE, 17138 PUILBOREAU",
+    "lat": 46.187604,
+    "lon": -1.118465
+  },
+  "21170296400019": {
+    "address": "22 RUE SAINT-TROJAN, 17460 RETAUD",
+    "lat": 45.678736,
+    "lon": -0.727981
+  },
+  "21170298000015": {
+    "address": "12 PLACE DE LA MAIRIE, 17460 RIOUX",
+    "lat": 45.636077,
+    "lon": -0.710798
+  },
+  "21170298000023": {
+    "address": "2 RUE ST ANDRE, 17460 RIOUX",
+    "lat": 45.636,
+    "lon": -0.711593
+  },
+  "21170299800041": {
+    "address": "ALLEE DU PONTON, 17300 ROCHEFORT",
+    "lat": 45.952085,
+    "lon": -0.942574
+  },
+  "21170299800058": {
+    "address": "RUE LOUIS BLERIOT, 17300 ROCHEFORT",
+    "lat": 45.94951,
+    "lon": -0.966234
+  },
+  "21170299800074": {
+    "address": "28 RUE DU DOCTEUR PIERRE BONNET, 17300 ROCHEFORT",
+    "lat": 45.944853,
+    "lon": -0.982091
+  },
+  "21170299800082": {
+    "address": "2 RUE DE LA LEVEE DE LOIRE, 17300 ROCHEFORT",
+    "lat": 45.951586,
+    "lon": -0.942213
+  },
+  "21170299800108": {
+    "address": "4 PL CHAMPLAIN, 17300 ROCHEFORT",
+    "lat": 45.939999,
+    "lon": -0.969617
+  },
+  "21170299800116": {
+    "address": "LA GELINERIE 2 RUE ANTOINE DE SAINT EXUPERY, 17300 ROCHEFORT",
+    "lat": 45.952068,
+    "lon": -0.977007
+  },
+  "21170299800124": {
+    "address": "RUE ANTOINE DE SAINT EXUPERY, 17300 ROCHEFORT",
+    "lat": 45.951571,
+    "lon": -0.975524
+  },
+  "21170299800132": {
+    "address": "8 RUE ANATOLE FRANCE, 17300 ROCHEFORT",
+    "lat": 45.939815,
+    "lon": -0.97533
+  },
+  "21170299800140": {
+    "address": "6 RUE ANATOLE FRANCE, 17300 ROCHEFORT",
+    "lat": 45.940273,
+    "lon": -0.975037
+  },
+  "21170299800165": {
+    "address": "2 RUE LOUIS LUMIERE, 17300 ROCHEFORT",
+    "lat": 45.949785,
+    "lon": -0.965892
+  },
+  "21170299800199": {
+    "address": "28 B RUE DU DOCTEUR BONNET, 17300 ROCHEFORT",
+    "lat": 45.944725,
+    "lon": -0.982237
+  },
+  "21170299800207": {
+    "address": "1 RUE DU DOCTEUR PAUL PELTIER, 17300 ROCHEFORT",
+    "lat": 45.936975,
+    "lon": -0.964488
+  },
+  "21170299800215": {
+    "address": "6 RUE DU DOCTEUR PAUL PELTIER, 17300 ROCHEFORT",
+    "lat": 45.93895,
+    "lon": -0.963796
+  },
+  "21170299800223": {
+    "address": "3 RUE DU DOCTEUR PAUL PELTIER, 17300 ROCHEFORT",
+    "lat": 45.937197,
+    "lon": -0.964108
+  },
+  "21170299800249": {
+    "address": "8 RUE DU DOCTEUR PAUL PELTIER, 17300 ROCHEFORT",
+    "lat": 45.939452,
+    "lon": -0.963687
+  },
+  "21170299800280": {
+    "address": "7 RUE BUROT, 17300 ROCHEFORT",
+    "lat": 45.934735,
+    "lon": -0.966159
+  },
+  "21170300400070": {
+    "address": "1 RUE ARCERE, 17000 LA ROCHELLE",
+    "lat": 46.164153,
+    "lon": -1.151269
+  },
+  "21170300400112": {
+    "address": "7 RUE JEAN BAPTISTE CHARCOT, 17000 LA ROCHELLE",
+    "lat": 46.141685,
+    "lon": -1.143001
+  },
+  "21170300400120": {
+    "address": "9 RUE JEAN BAPTISTE CHARCOT, 17000 LA ROCHELLE",
+    "lat": 46.141251,
+    "lon": -1.143148
+  },
+  "21170300400138": {
+    "address": "MIREUIL 2 RUE GABRIEL CHARLOPEAU, 17000 LA ROCHELLE",
+    "lat": 46.171605,
+    "lon": -1.179551
+  },
+  "21170300400146": {
+    "address": "38 AVENUE DES CORSAIRES, 17000 LA ROCHELLE",
+    "lat": 46.166534,
+    "lon": -1.173933
+  },
+  "21170300400153": {
+    "address": "38 AVENUE DES CORSAIRES, 17000 LA ROCHELLE",
+    "lat": 46.166534,
+    "lon": -1.173933
+  },
+  "21170300400161": {
+    "address": "VILLENEUVE-LES-SALINES 40 AVENUE DANTON, 17000 LA ROCHELLE",
+    "lat": 46.153014,
+    "lon": -1.119764
+  },
+  "21170300400195": {
+    "address": "47 RUE DUPLEIX, 17000 LA ROCHELLE",
+    "lat": 46.170575,
+    "lon": -1.162955
+  },
+  "21170300400203": {
+    "address": "47 RUE DUPLEIX, 17000 LA ROCHELLE",
+    "lat": 46.170575,
+    "lon": -1.162955
+  },
+  "21170300400211": {
+    "address": "LA PALLICE 21 RUE NICOLAS DENYS DE FRONSAC, 17000 LA ROCHELLE",
+    "lat": 46.162273,
+    "lon": -1.210465
+  },
+  "21170300400229": {
+    "address": "2 RUE DES ECOLES, 17000 LA ROCHELLE",
+    "lat": 46.163459,
+    "lon": -1.154829
+  },
+  "21170300400245": {
+    "address": "32 RUE MICHELET, 17000 LA ROCHELLE",
+    "lat": 46.159422,
+    "lon": -1.168411
+  },
+  "21170300400260": {
+    "address": "1 AVENUE LOUIS GUILLET, 17000 LA ROCHELLE",
+    "lat": 46.169237,
+    "lon": -1.180582
+  },
+  "21170300400286": {
+    "address": "1 AVENUE LOUIS GUILLET, 17000 LA ROCHELLE",
+    "lat": 46.169237,
+    "lon": -1.180582
+  },
+  "21170300400294": {
+    "address": "RUE DU GENERAL COUSSE, 17000 LA ROCHELLE",
+    "lat": 46.172617,
+    "lon": -1.133379
+  },
+  "21170300400302": {
+    "address": "1 AVENUE MARECHAL JUIN, 17000 LA ROCHELLE",
+    "lat": 46.159089,
+    "lon": -1.179837
+  },
+  "21170300400377": {
+    "address": "VILLENEUVE-LES-SALINES 42 AVENUE DANTON, 17000 LA ROCHELLE",
+    "lat": 46.152611,
+    "lon": -1.1199
+  },
+  "21170300400393": {
+    "address": "16 AVENUE PIERRE LOTI, 17000 LA ROCHELLE",
+    "lat": 46.162858,
+    "lon": -1.176041
+  },
+  "21170300400419": {
+    "address": "26 RUE MASSIOU, 17000 LA ROCHELLE",
+    "lat": 46.164956,
+    "lon": -1.149155
+  },
+  "21170300400427": {
+    "address": "20 AVENUE PIERRE LOTI, 17000 LA ROCHELLE",
+    "lat": 46.162746,
+    "lon": -1.176104
+  },
+  "21170300400443": {
+    "address": "21 RUE MICHELET, 17000 LA ROCHELLE",
+    "lat": 46.159259,
+    "lon": -1.167917
+  },
+  "21170300400468": {
+    "address": "19 RUE DE LA MUSE, 17000 LA ROCHELLE",
+    "lat": 46.165363,
+    "lon": -1.201375
+  },
+  "21170300400484": {
+    "address": "1 COURS LADAUGE, 17000 LA ROCHELLE",
+    "lat": 46.157486,
+    "lon": -1.148419
+  },
+  "21170300400518": {
+    "address": "19 RUE NICOLAS DENYS DE FRONSAC, 17000 LA ROCHELLE",
+    "lat": 46.162273,
+    "lon": -1.210465
+  },
+  "21170300400526": {
+    "address": "19 RUE GASTON PERIER, 17000 LA ROCHELLE",
+    "lat": 46.163272,
+    "lon": -1.140137
+  },
+  "21170300400559": {
+    "address": "AVENUE DE LA RESISTANCE, 17000 LA ROCHELLE",
+    "lat": 46.171696,
+    "lon": -1.179712
+  },
+  "21170300400583": {
+    "address": "VILLENEUVE-LES-SALINES 1 RUE ROSSEL, 17000 LA ROCHELLE",
+    "lat": 46.159137,
+    "lon": -1.147671
+  },
+  "21170300400609": {
+    "address": "31 AVENUE VICTOR SCHOELCHER, 17000 LA ROCHELLE",
+    "lat": 46.153734,
+    "lon": -1.12705
+  },
+  "21170300400641": {
+    "address": "TASDON PLACE DES BRITANNIQUES, 17000 LA ROCHELLE",
+    "lat": 46.148357,
+    "lon": -1.144436
+  },
+  "21170300400658": {
+    "address": "TASDON 5 RUE GUYNEMER, 17000 LA ROCHELLE",
+    "lat": 46.147679,
+    "lon": -1.145261
+  },
+  "21170300400682": {
+    "address": "19 RUE DE VAUGOUIN, 17000 LA ROCHELLE",
+    "lat": 46.163715,
+    "lon": -1.186117
+  },
+  "21170300400690": {
+    "address": "19 RUE DE VAUGOUIN, 17000 LA ROCHELLE",
+    "lat": 46.163715,
+    "lon": -1.186117
+  },
+  "21170300400757": {
+    "address": "31 RUE DU COMMANDANT L HERMINIER, 17000 LA ROCHELLE",
+    "lat": 46.173801,
+    "lon": -1.148605
+  },
+  "21170300400799": {
+    "address": "21 RUE DE LA MUSE, 17000 LA ROCHELLE",
+    "lat": 46.165363,
+    "lon": -1.201375
+  },
+  "21170302000019": {
+    "address": "12 RUE DE ROMAGOTZ, 17250 ROMEGOUX",
+    "lat": 45.870419,
+    "lon": -0.807123
+  },
+  "21170306100013": {
+    "address": "80 AVENUE DE PONTAILLAC, 17200 ROYAN",
+    "lat": 45.623247,
+    "lon": -1.042887
+  },
+  "21170310300013": {
+    "address": "8 RUE DE LA SEUDRE, 17260 SAINT-ANDRE-DE-LIDON",
+    "lat": 45.600509,
+    "lon": -0.74804
+  },
+  "21170310300021": {
+    "address": "9 RUE DES ECOLES, 17260 SAINT-ANDRE-DE-LIDON",
+    "lat": 45.599374,
+    "lon": -0.74799
+  },
+  "21170311100024": {
+    "address": "4 PLACE DU FOYER RURAL, 17570 SAINT-AUGUSTIN",
+    "lat": 45.677155,
+    "lon": -1.100046
+  },
+  "21170312900018": {
+    "address": "1 RUE DE LA MAIRIE, 17150 SAINT-BONNET-SUR-GIRONDE",
+    "lat": 45.354502,
+    "lon": -0.659469
+  },
+  "21170315200010": {
+    "address": "11 ROUTE DE MARANS, 17220 SAINT-CHRISTOPHE",
+    "lat": 46.14548,
+    "lon": -0.947007
+  },
+  "21170317800015": {
+    "address": "1 PLACE DE LA MAIRIE, 17240 SAINT-CIERS-DU-TAILLON",
+    "lat": 45.423653,
+    "lon": -0.641777
+  },
+  "21170317800023": {
+    "address": "32 AVENUE DE LA REPUBLIQUE, 17240 SAINT-CIERS-DU-TAILLON",
+    "lat": 45.42204,
+    "lon": -0.638886
+  },
+  "21170321000016": {
+    "address": "30 ROUTE DE TONNAY-BOUTONNE, 17380 SAINT-CREPIN",
+    "lat": 46.001455,
+    "lon": -0.732632
+  },
+  "21170321000024": {
+    "address": "5 ROUTE DE TONNAY BOUTONNE, 17380 SAINT-CREPIN",
+    "lat": 46.004521,
+    "lon": -0.732786
+  },
+  "21170323600045": {
+    "address": "29 RUE DE LA LIBERATION, 17650 SAINT-DENIS-D'OLERON",
+    "lat": 46.033391,
+    "lon": -1.378206
+  },
+  "21170325100010": {
+    "address": "6 PLACE DE LA MAIRIE, 17240 SAINT-DIZANT-DU-GUA",
+    "lat": 45.432265,
+    "lon": -0.705324
+  },
+  "21170325100028": {
+    "address": "PLACE DE LA MAIRIE, 17240 SAINT-DIZANT-DU-GUA",
+    "lat": 45.432149,
+    "lon": -0.705465
+  },
+  "21170329300020": {
+    "address": "10 RUE DE L'EUROPE, 17780 SAINT-FROULT",
+    "lat": 45.917653,
+    "lon": -1.059232
+  },
+  "21170330100013": {
+    "address": "1 RUE DE LA MAIRIE, 17250 SAINTE-GEMME",
+    "lat": 45.77147,
+    "lon": -0.888965
+  },
+  "21170337600015": {
+    "address": "RUE DE LA REPUBLIQUE, 17190 SAINT-GEORGES-D'OLERON",
+    "lat": 45.978312,
+    "lon": -1.333068
+  },
+  "21170338400035": {
+    "address": "141 RUE DU STADE, 17700 SAINT-GEORGES-DU-BOIS",
+    "lat": 46.138523,
+    "lon": -0.735466
+  },
+  "21170342600018": {
+    "address": "14 RUE EUTROPE DUPON, 17240 SAINT-GERMAIN-DU-SEUDRE",
+    "lat": 45.512853,
+    "lon": -0.667138
+  },
+  "21170342600026": {
+    "address": "8 RUE EUTROPE DUPON, 17240 SAINT-GERMAIN-DU-SEUDRE",
+    "lat": 45.513014,
+    "lon": -0.666682
+  },
+  "21170347500049": {
+    "address": "10 ALL D AUSSY, 17400 SAINT JEAN D'ANGELY",
+    "lat": 45.942323,
+    "lon": -0.516446
+  },
+  "21170348300027": {
+    "address": "RUE MAURICE PONTE, 17620 SAINT-JEAN-D'ANGLE",
+    "lat": 45.81812,
+    "lon": -0.947736
+  },
+  "21170349100020": {
+    "address": "15 RUE DU 19 MARS 1962, 17170 SAINT-JEAN-DE-LIVERSAY",
+    "lat": 46.271895,
+    "lon": -0.871048
+  },
+  "21170351700030": {
+    "address": "12 RUE DU 19 MARS 1962, 17320 SAINT-JUST-LUZAC",
+    "lat": 45.802864,
+    "lon": -1.040922
+  },
+  "21170353300037": {
+    "address": "116 RUE DE L'INTENDANCE, 17450 SAINT-LAURENT-DE-LA-PREE",
+    "lat": 45.992933,
+    "lon": -1.024011
+  },
+  "21170355800026": {
+    "address": "LE BOURG, 17520 SAINTE-LHEURINE",
+    "lat": 45.530929,
+    "lon": -0.36612
+  },
+  "21170359000029": {
+    "address": "90 RUE DES TILLEULS, 17700 SAINT-MARD",
+    "lat": 46.084522,
+    "lon": -0.713358
+  },
+  "21170359000037": {
+    "address": "BOISSEUL 247 RUE FIEF LA CROIX, 17700 SAINT-MARD",
+    "lat": 46.098243,
+    "lon": -0.672348
+  },
+  "21170369900010": {
+    "address": "PLACE DE LA REPUBLIQUE, 17410 SAINT-MARTIN-DE-RE",
+    "lat": 46.201689,
+    "lon": -1.368379
+  },
+  "21170369900044": {
+    "address": "2 RUE DU PERE IGNACE, 17410 SAINT-MARTIN-DE-RE",
+    "lat": 46.200622,
+    "lon": -1.367341
+  },
+  "21170369900051": {
+    "address": "20 PLACE DE LA REPUBLIQUE, 17410 SAINT-MARTIN-DE-RE",
+    "lat": 46.200327,
+    "lon": -1.368222
+  },
+  "21170373100011": {
+    "address": "1 ALLEE DE LA MAIRIE, 17220 SAINT-MEDARD-D'AUNIS",
+    "lat": 46.15906,
+    "lon": -0.97187
+  },
+  "21170375600026": {
+    "address": "2 RUE DES ECOLES, 17780 SAINT-NAZAIRE-SUR-CHARENTE",
+    "lat": 45.934755,
+    "lon": -1.051248
+  },
+  "21170378000026": {
+    "address": "LE BOURG, 17210 SAINT-PALAIS-DE-NEGRIGNAC",
+    "lat": 45.275022,
+    "lon": -0.208311
+  },
+  "21170380600029": {
+    "address": "73 AVENUE DE COURLAY, 17420 SAINT-PALAIS-SUR-MER",
+    "lat": 45.649146,
+    "lon": -1.08046
+  },
+  "21170385500026": {
+    "address": "RUE DE LA CORDERIE, 17310 SAINT-PIERRE-D'OLERON",
+    "lat": 45.94413,
+    "lon": -1.308882
+  },
+  "21170385500034": {
+    "address": "LA COTINIERE 1 RUE DES ECLUSES, 17310 SAINT-PIERRE-D'OLERON",
+    "lat": 45.919739,
+    "lon": -1.329451
+  },
+  "21170385500109": {
+    "address": "39 PLACE CAMILLE MEMAIN, 17310 SAINT-PIERRE-D'OLERON",
+    "lat": 45.944857,
+    "lon": -1.305522
+  },
+  "21170391300015": {
+    "address": "1 PLACE DE LA MAIRIE, 17220 SAINT-ROGATIEN",
+    "lat": 46.151203,
+    "lon": -1.073684
+  },
+  "21170396200012": {
+    "address": "PLACE DE LA MAIRIE, 17540 SAINT-SAUVEUR-D'AUNIS",
+    "lat": 46.218076,
+    "lon": -0.88691
+  },
+  "21170397000023": {
+    "address": "RUE DU 19 MARS 1962, 17350 SAINT-SAVINIEN",
+    "lat": 45.87302,
+    "lon": -0.679758
+  },
+  "21170397000031": {
+    "address": "RUE DU 19 MARS 1962, 17350 SAINT-SAVINIEN",
+    "lat": 45.87302,
+    "lon": -0.679758
+  },
+  "21170403600014": {
+    "address": "18 RUE PRINCIPALE, 17500 SAINT-SIMON-DE-BORDES",
+    "lat": 45.395319,
+    "lon": -0.454096
+  },
+  "21170403600030": {
+    "address": "8 RUE DE LA SALLE DES FETES, 17500 SAINT-SIMON-DE-BORDES",
+    "lat": 45.395769,
+    "lon": -0.454372
+  },
+  "21170404400018": {
+    "address": "7 ROUTE DE BENIGOUSSE, 17260 SAINT-SIMON-DE-PELLOUAILLE",
+    "lat": 45.613555,
+    "lon": -0.696872
+  },
+  "21170404400026": {
+    "address": "8 ROUTE DE SAINT-SIMON, 17260 SAINT-SIMON-DE-PELLOUAILLE",
+    "lat": 45.613364,
+    "lon": -0.69768
+  },
+  "21170407700018": {
+    "address": "39 RUE DE L'AUNIS, 17220 SAINTE-SOULLE",
+    "lat": 46.187336,
+    "lon": -1.012856
+  },
+  "21170409300031": {
+    "address": "2 PLACE DES ECOLES, 17200 SAINT-SULPICE-DE-ROYAN",
+    "lat": 45.673706,
+    "lon": -1.009694
+  },
+  "21170411900042": {
+    "address": "18 RUE VICTOR BELLIARD, 17370 SAINT-TROJAN-LES-BAINS",
+    "lat": 45.839843,
+    "lon": -1.210186
+  },
+  "21170413500014": {
+    "address": "26 GRANDE RUE, 17220 SAINT-VIVIEN",
+    "lat": 46.079859,
+    "lon": -1.053928
+  },
+  "21170414300059": {
+    "address": "6 PLACE RENE BRISSON, 17138 SAINT-XANDRE",
+    "lat": 46.201471,
+    "lon": -1.103106
+  },
+  "21170420000016": {
+    "address": "PLACE DE LA MAIRIE, 17220 SALLES-SUR-MER",
+    "lat": 46.105013,
+    "lon": -1.057135
+  },
+  "21170421800034": {
+    "address": "13 AVENUE GAMBETTA, 17600 SAUJON",
+    "lat": 45.671421,
+    "lon": -0.926913
+  },
+  "21170421800042": {
+    "address": "4 RUE JULES RAVET, 17600 SAUJON",
+    "lat": 45.676107,
+    "lon": -0.92753
+  },
+  "21170421800067": {
+    "address": "6 RUE JULES RAVET, 17600 SAUJON",
+    "lat": 45.675843,
+    "lon": -0.92766
+  },
+  "21170425900012": {
+    "address": "PLACE DE L'EGLISE, 17120 SEMUSSAC",
+    "lat": 45.599808,
+    "lon": -0.912627
+  },
+  "21170425900020": {
+    "address": "PLACE DE L'EGLISE, 17120 SEMUSSAC",
+    "lat": 45.599808,
+    "lon": -0.912627
+  },
+  "21170425900038": {
+    "address": "7 RUE DU VIEUX PORCHE, 17120 SEMUSSAC",
+    "lat": 45.600023,
+    "lon": -0.911131
+  },
+  "21170428300020": {
+    "address": "10 RUE DES VALLONS, 17160 SONNAC",
+    "lat": 45.840169,
+    "lon": -0.271704
+  },
+  "21170429100015": {
+    "address": "2 RUE DU 18 JUIN, 17780 SOUBISE",
+    "lat": 45.926786,
+    "lon": -1.008806
+  },
+  "21170430900015": {
+    "address": "6 RUE DES POTIERS, 17150 SOUBRAN",
+    "lat": 45.353418,
+    "lon": -0.515307
+  },
+  "21170431700018": {
+    "address": "2 PLACE DE L'EGLISE, 17250 SOULIGNONNE",
+    "lat": 45.777429,
+    "lon": -0.786897
+  },
+  "21170433300015": {
+    "address": "12 RUE DU BOURG, 17130 SOUSMOULINS",
+    "lat": 45.308261,
+    "lon": -0.329792
+  },
+  "21170433300023": {
+    "address": "QUARTIER CROIX ROUGE, 17130 SOUSMOULINS",
+    "lat": 45.313742,
+    "lon": -0.32596
+  },
+  "21170434100018": {
+    "address": "SQ DU CHATEAU, 17700 SURGERES",
+    "lat": 46.104896,
+    "lon": -0.75025
+  },
+  "21170434100034": {
+    "address": "1 RUE HELENE DE FONSEQUE, 17700 SURGERES",
+    "lat": 46.103766,
+    "lon": -0.749589
+  },
+  "21170434100059": {
+    "address": "A 52 RUE GAMBETTA, 17700 SURGERES",
+    "lat": 46.109662,
+    "lon": -0.750276
+  },
+  "21170434100067": {
+    "address": "RUE DE VERDUN, 17700 SURGERES",
+    "lat": 46.11016,
+    "lon": -0.754846
+  },
+  "21170439000023": {
+    "address": "1 PLACE DE L'ECOLE, 17170 TAUGON",
+    "lat": 46.308233,
+    "lon": -0.831008
+  },
+  "21170441600018": {
+    "address": "2 PLACE MONCONSEIL, 17460 TESSON",
+    "lat": 45.63239,
+    "lon": -0.653661
+  },
+  "21170441600026": {
+    "address": "8 RUE JULES FERRY, 17460 TESSON",
+    "lat": 45.630839,
+    "lon": -0.65287
+  },
+  "21170443200015": {
+    "address": "RUE JEAN COYTTAR, 17290 THAIRE",
+    "lat": 46.073453,
+    "lon": -1.002449
+  },
+  "21170449900014": {
+    "address": "RUE ALSACE LORRAINE, 17430 TONNAY-CHARENTE",
+    "lat": null,
+    "lon": null
+  },
+  "21170449900063": {
+    "address": "RUE SALVADOR ALLENDE, 17430 TONNAY-CHARENTE",
+    "lat": 45.948563,
+    "lon": -0.890257
+  },
+  "21170449900071": {
+    "address": "PLATEAU D'ARCHIAC AVENUE GONDER, 17430 TONNAY-CHARENTE",
+    "lat": 45.946665,
+    "lon": -0.910258
+  },
+  "21170452300052": {
+    "address": "27 T RUE DE LA SABLIERE, 17390 LA TREMBLADE",
+    "lat": 45.772236,
+    "lon": -1.14548
+  },
+  "21170453100014": {
+    "address": "48 AVENUE DE LA REPUBLIQUE, 17250 TRIZAY",
+    "lat": 45.88258,
+    "lon": -0.896866
+  },
+  "21170454900016": {
+    "address": "17130 TUGERAS-SAINT-MAURICE",
+    "lat": 45.357186,
+    "lon": -0.408023
+  },
+  "21170454900024": {
+    "address": "LE BOURG, 17130 TUGERAS ST MAURICE",
+    "lat": 45.351168,
+    "lon": -0.379266
+  },
+  "21170455600029": {
+    "address": "3 RUE PAUL BURGAUD, 17250 LA VALLEE",
+    "lat": 45.89111,
+    "lon": -0.84014
+  },
+  "21170461400018": {
+    "address": "1 PLACE MAURICE GARNIER, 17640 VAUX-SUR-MER",
+    "lat": 45.646456,
+    "lon": -1.064262
+  },
+  "21170466300015": {
+    "address": "15 RUE DE LA VERRERIE, 17540 VERINES",
+    "lat": 46.192331,
+    "lon": -0.965137
+  },
+  "21170469700013": {
+    "address": "14 RUE DES ECOLES, 17260 VILLARS-EN-PONS",
+    "lat": 45.603662,
+    "lon": -0.62348
+  },
+  "21170469700021": {
+    "address": "12 RUE DES ECOLES, 17260 VILLARS-EN-PONS",
+    "lat": 45.603662,
+    "lon": -0.62348
+  },
+  "21170472100011": {
+    "address": "4 RUE DE LA MAIRIE, 17230 VILLEDOUX",
+    "lat": 46.241472,
+    "lon": -1.068472
+  },
+  "21170480400015": {
+    "address": "1 PLACE DU SOUVENIR, 17290 VIRSON",
+    "lat": 46.142024,
+    "lon": -0.899719
+  },
+  "21170485300038": {
+    "address": "2 PASSAGE DES ECOLIERS, 17370 LE GRAND-VILLAGE-PLAGE",
+    "lat": 45.861848,
+    "lon": -1.239373
+  },
+  "21790001800011": {
+    "address": "11 RUE RAYMOND MIGAUD, 79240 L'ABSIE",
+    "lat": 46.632763,
+    "lon": -0.57801
+  },
+  "21790003400018": {
+    "address": "41 RUE DE LA MAIRIE, 79230 AIFFRES",
+    "lat": 46.285611,
+    "lon": -0.416376
+  },
+  "21790012500048": {
+    "address": "RUE ALPHONSE LAVOIS, 79160 ARDIN",
+    "lat": 46.474011,
+    "lon": -0.556041
+  },
+  "21790020800018": {
+    "address": "3 PLACE DE LA MAIRIE, 79400 AUGE",
+    "lat": 46.438373,
+    "lon": -0.287604
+  },
+  "21790020800026": {
+    "address": "7 PLACE DE LA MAIRIE, 79400 AUGE",
+    "lat": 46.438458,
+    "lon": -0.287799
+  },
+  "21790024000029": {
+    "address": "CERZEAU D'AZAY LE BRULE 6 RUE DU QUAIREUX, 79400 AZAY-LE-BRULE",
+    "lat": 46.399024,
+    "lon": -0.286442
+  },
+  "21790024000045": {
+    "address": "25 RUE LA FRAIRIE, 79400 AZAY-LE-BRULE",
+    "lat": 46.39927,
+    "lon": -0.248493
+  },
+  "21790024000086": {
+    "address": "34 RUE DU PRIEURE, 79400 AZAY-LE-BRULE",
+    "lat": 46.401172,
+    "lon": -0.249743
+  },
+  "21790025700015": {
+    "address": "2 RUE DE LA FILATURE, 79130 AZAY-SUR-THOUET",
+    "lat": 46.623383,
+    "lon": -0.351733
+  },
+  "21790029900017": {
+    "address": "RUE MEILLERAYE, 79420 BEAULIEU-SOUS-PARTHENAY",
+    "lat": 46.576228,
+    "lon": -0.232746
+  },
+  "21790032300015": {
+    "address": "PLACE RENE CASSIN, 79160 BECELEUF",
+    "lat": 46.470841,
+    "lon": -0.506901
+  },
+  "21790034900010": {
+    "address": "RUE DE L'EGLISE, 79000 BESSINES",
+    "lat": 46.300109,
+    "lon": -0.510622
+  },
+  "21790048900014": {
+    "address": "99 AVENUE DE PARIS, 79260 LA CRECHE",
+    "lat": 46.362911,
+    "lon": -0.298247
+  },
+  "21790049700058": {
+    "address": "15 RUE DE LA CABANE, 79300 BRESSUIRE",
+    "lat": 46.847661,
+    "lon": -0.488337
+  },
+  "21790049700066": {
+    "address": "CLAZAY 45 RUE DES FORGES, 79300 BRESSUIRE",
+    "lat": 46.809565,
+    "lon": -0.561666
+  },
+  "21790049700090": {
+    "address": "CHAMBROUTET 27 ROUTE DES ECOLIERS, 79300 BRESSUIRE",
+    "lat": 46.893304,
+    "lon": -0.462271
+  },
+  "21790049700108": {
+    "address": "NOIRTERRE 26 RUE PIERRE DE RONSARD, 79300 BRESSUIRE",
+    "lat": 46.869084,
+    "lon": -0.390472
+  },
+  "21790049700124": {
+    "address": "NOIRLIEU 13 RUE DES TONNELLES, 79300 BRESSUIRE",
+    "lat": 46.920498,
+    "lon": -0.432097
+  },
+  "21790049700140": {
+    "address": "3 RUE DUGUESCLIN, 79300 BRESSUIRE",
+    "lat": 46.841324,
+    "lon": -0.493866
+  },
+  "21790049700157": {
+    "address": "16 RUE RENE HERY, 79300 BRESSUIRE",
+    "lat": 46.84094,
+    "lon": -0.492892
+  },
+  "21790049700165": {
+    "address": "SAINT-PORCHAIRE 11 RUE DU CHAMP PAILLE, 79300 BRESSUIRE",
+    "lat": 46.855078,
+    "lon": -0.455782
+  },
+  "21790049700314": {
+    "address": "27 BOULEVARD CLEMENCEAU, 79300 BRESSUIRE",
+    "lat": 46.836978,
+    "lon": -0.495849
+  },
+  "21790057000011": {
+    "address": "PLACE DU CHAMP DE FOIRE, 79170 BRIOUX-SUR-BOUTONNE",
+    "lat": 46.142026,
+    "lon": -0.221676
+  },
+  "21790058800021": {
+    "address": "3 RUE BAPTISTE PAUL GRIMAUD, 79230 BRULAIN",
+    "lat": 46.203684,
+    "lon": -0.319801
+  },
+  "21790059600016": {
+    "address": "6 RUE DE LA MAIRIE, 79240 LE BUSSEAU",
+    "lat": 46.580209,
+    "lon": -0.594681
+  },
+  "21790066100018": {
+    "address": "30 GRANDE RUE, 79220 CHAMPDENIERS",
+    "lat": 46.483938,
+    "lon": -0.405467
+  },
+  "21790069500016": {
+    "address": "1 RUE DE LA MAIRIE, 79320 CHANTELOUP",
+    "lat": 46.766963,
+    "lon": -0.524299
+  },
+  "21790076000018": {
+    "address": "PLACE DE L'EGLISE, 79430 LA CHAPELLE-SAINT-LAURENT",
+    "lat": 46.746351,
+    "lon": -0.477039
+  },
+  "21790080200026": {
+    "address": "AVENUE EDMOND ROSTAND, 79200 CHATILLON-SUR-THOUET",
+    "lat": 46.662682,
+    "lon": -0.233271
+  },
+  "21790081000011": {
+    "address": "12 RUE DE L'EGLISE, 79180 CHAURAY",
+    "lat": 46.360744,
+    "lon": -0.37495
+  },
+  "21790084400036": {
+    "address": "RUE DE LA MAIRIE, 79120 CHENAY",
+    "lat": 46.323948,
+    "lon": -0.033316
+  },
+  "21790086900017": {
+    "address": "1 RUE DE LA BELLE ETOILE, 79410 CHERVEUX",
+    "lat": 46.414663,
+    "lon": -0.35801
+  },
+  "21790094300010": {
+    "address": "15 RUE DE LA MAIRIE, 79350 CLESSE",
+    "lat": 46.716557,
+    "lon": -0.405016
+  },
+  "21790094300028": {
+    "address": "28 RUE DE LA MAIRIE, 79350 CLESSE",
+    "lat": 46.717063,
+    "lon": -0.403532
+  },
+  "21790095000023": {
+    "address": "RUE DES ECOLES, 79190 CLUSSAIS-LA-POMMERAIE",
+    "lat": 46.185533,
+    "lon": 0.030815
+  },
+  "21790096800017": {
+    "address": "2 RUE DU CALVAIRE, 79140 COMBRAND",
+    "lat": 46.863245,
+    "lon": -0.688731
+  },
+  "21790100800011": {
+    "address": "14 PLACE DE L'EGLISE, 79510 COULON",
+    "lat": 46.321657,
+    "lon": -0.586087
+  },
+  "21790101600014": {
+    "address": "4 PLACE DU CHATEAU, 79160 COULONGES-SUR-L'AUTIZE",
+    "lat": 46.48171,
+    "lon": -0.599881
+  },
+  "21790103200011": {
+    "address": "42 RUE SALLIARD DU RIVAULT, 79440 COURLAY",
+    "lat": 46.77852,
+    "lon": -0.565103
+  },
+  "21790106500029": {
+    "address": "19 RUE DE LA SANTE, 79110 COUTURE-D'ARGENSON",
+    "lat": 45.992727,
+    "lon": -0.086004
+  },
+  "21790109900010": {
+    "address": "1 PLACE DE L'EGLISE, 79410 ECHIRE",
+    "lat": 46.391516,
+    "lon": -0.415151
+  },
+  "21790112300018": {
+    "address": "410 RUE DES ECOLES, 79270 EPANNES",
+    "lat": 46.229479,
+    "lon": -0.579282
+  },
+  "21790114900013": {
+    "address": "9 PLACE DE LA MAIRIE, 79400 EXIREUIL",
+    "lat": 46.432872,
+    "lon": -0.192128
+  },
+  "21790114900021": {
+    "address": "3 PLACE DE LA MAIRIE, 79400 EXIREUIL",
+    "lat": 46.432879,
+    "lon": -0.191746
+  },
+  "21790117200015": {
+    "address": "40 ROUTE DU DRAGOR, 79160 FAYE-SUR-ARDIN",
+    "lat": 46.448485,
+    "lon": -0.513075
+  },
+  "21790120600011": {
+    "address": "22 RUE DE LA MAIRIE, 79390 LA FERRIERE-EN-PARTHENAY",
+    "lat": 46.658672,
+    "lon": -0.076045
+  },
+  "21790120600029": {
+    "address": "21 RUE DE LA MAIRIE, 79390 LA FERRIERE-EN-PARTHENAY",
+    "lat": 46.656894,
+    "lon": -0.075536
+  },
+  "21790125500018": {
+    "address": "17 RUE DE LA MAIRIE, 79230 FORS",
+    "lat": 46.234878,
+    "lon": -0.409682
+  },
+  "21790127100015": {
+    "address": "23 RUE DE LA MAIRIE, 79360 LA FOYE-MONJAULT",
+    "lat": 46.188365,
+    "lon": -0.54012
+  },
+  "21790128900025": {
+    "address": "RUE DES ECOLES, 79260 FRANCOIS",
+    "lat": 46.383141,
+    "lon": -0.339937
+  },
+  "21790129700028": {
+    "address": "1 PL DES CHARMILLES, 79370 FRESSINES",
+    "lat": 46.32267,
+    "lon": -0.296979
+  },
+  "21790129700044": {
+    "address": "29 ROUTE DE MOUGON, 79370 FRESSINES",
+    "lat": 46.321088,
+    "lon": -0.292126
+  },
+  "21790130500011": {
+    "address": "PLACE RENE CASSIN, 79270 FRONTENAY-ROHAN-ROHAN",
+    "lat": 46.254134,
+    "lon": -0.540618
+  },
+  "21790133900093": {
+    "address": "1 RUE DU RELAIS, 79220 GERMOND-ROUVRE",
+    "lat": 46.455161,
+    "lon": -0.419697
+  },
+  "21790134700021": {
+    "address": "13 B RUE DE L'ECOLE, 79330 GLENAY",
+    "lat": 46.860044,
+    "lon": -0.248235
+  },
+  "21790135400027": {
+    "address": "1 PLACE DE LA MAIRIE, 79200 GOURGE",
+    "lat": 46.728129,
+    "lon": -0.166397
+  },
+  "21790137000015": {
+    "address": "8 RUE FOUGERAYE, 79360 GRANZAY-GRIPT",
+    "lat": 46.213799,
+    "lon": -0.469225
+  },
+  "21790144600013": {
+    "address": "95 ROUTE DE BRULAIN, 79230 JUSCORPS",
+    "lat": 46.209648,
+    "lon": -0.377906
+  },
+  "21790147900014": {
+    "address": "1 RUE DE LA REPUBLIQUE, 79240 LARGEASSE",
+    "lat": 46.692909,
+    "lon": -0.499622
+  },
+  "21790148700025": {
+    "address": "79120 LEZAY",
+    "lat": 46.269119,
+    "lon": -0.026484
+  },
+  "21790148700041": {
+    "address": "IMP DES ECOLES, 79120 LEZAY",
+    "lat": 46.259053,
+    "lon": -0.009492
+  },
+  "21790150300029": {
+    "address": "10 RUE DU STADE, 79190 LIMALONGES",
+    "lat": 46.130254,
+    "lon": 0.170954
+  },
+  "21790157800013": {
+    "address": "6 RUE DE LA MAIRIE, 79100 LOUZY",
+    "lat": 47.011576,
+    "lon": -0.186283
+  },
+  "21790162800016": {
+    "address": "SQUARE SAINT GERMAIN, 79460 MAGNE",
+    "lat": 46.314687,
+    "lon": -0.543258
+  },
+  "21790163600035": {
+    "address": "2 RTE DE L'OUMEE, 79190 MAIRE LEVESCAULT",
+    "lat": 46.156126,
+    "lon": 0.079474
+  },
+  "21790164400021": {
+    "address": "LE BOURG, 79500 MAISONNAIS",
+    "lat": 46.188701,
+    "lon": -0.061959
+  },
+  "21790166900101": {
+    "address": "8 PLACE DU CENTRE, 79360 MARIGNY",
+    "lat": 46.19768,
+    "lon": -0.417279
+  },
+  "21790170100011": {
+    "address": "2 PLACE DE LA MAIRIE, 79210 MAUZE-SUR-LE-MIGNON",
+    "lat": 46.196944,
+    "lon": -0.671045
+  },
+  "21790175000026": {
+    "address": "RUE DES ECOLES, 79190 MELLERAN",
+    "lat": 46.130157,
+    "lon": -0.00061
+  },
+  "21790184200021": {
+    "address": "17 RUE DE LA LIBERATION, 79800 LA MOTHE-SAINT-HERAY",
+    "lat": 46.356855,
+    "lon": -0.109884
+  },
+  "21790190900010": {
+    "address": "4 RUE DU COMMERCE, 79130 NEUVY-BOUIN",
+    "lat": 46.677352,
+    "lon": -0.461063
+  },
+  "21790191700013": {
+    "address": "1 PLACE MARTIN BASTARD, 79000 NIORT",
+    "lat": 46.323985,
+    "lon": -0.464225
+  },
+  "21790198200033": {
+    "address": "18 RUE DE LA MAIRIE, 79170 PAIZAY-LE-CHAPT",
+    "lat": 46.082191,
+    "lon": -0.180273
+  },
+  "21790201400034": {
+    "address": "79800 PAMPROUX",
+    "lat": 46.401151,
+    "lon": -0.048885
+  },
+  "21790201400059": {
+    "address": "1 RUE DU DOCTEUR SCHWEITZER, 79800 PAMPROUX",
+    "lat": 46.396761,
+    "lon": -0.054975
+  },
+  "21790201400067": {
+    "address": "6 RUE PIERRE ET MARIE CURIE, 79800 PAMPROUX",
+    "lat": 46.396227,
+    "lon": -0.052227
+  },
+  "21790202200011": {
+    "address": "2 RUE DE LA CITADELLE, 79200 PARTHENAY",
+    "lat": 46.648803,
+    "lon": -0.251554
+  },
+  "21790202200078": {
+    "address": "12 RUE CLEMENT ADER, 79200 PARTHENAY",
+    "lat": 46.654184,
+    "lon": -0.226854
+  },
+  "21790202200086": {
+    "address": "10 RUE GUTENBERG, 79200 PARTHENAY",
+    "lat": 46.644495,
+    "lon": -0.247642
+  },
+  "21790202200128": {
+    "address": "RUE BLAISE PASCAL, 79200 PARTHENAY",
+    "lat": 46.636951,
+    "lon": -0.250903
+  },
+  "21790202200144": {
+    "address": "QUARTIER ST PAUL RUE DU FBG ST PAUL, 79200 PARTHENAY",
+    "lat": 46.649219,
+    "lon": -0.2563
+  },
+  "21790204800016": {
+    "address": "7 ROUTE DE BRIOUX, 79170 PERIGNE",
+    "lat": null,
+    "lon": null
+  },
+  "21790208900036": {
+    "address": "8 RUE DES 4 VENTS, 79200 LA PEYRATTE",
+    "lat": 46.673693,
+    "lon": -0.147449
+  },
+  "21790208900044": {
+    "address": "1 PLACE DES MARRONNIERS, 79200 LA PEYRATTE",
+    "lat": 46.675326,
+    "lon": -0.148285
+  },
+  "21790210500014": {
+    "address": "1 PLACE JEANNE D'ARC, 79140 LE PIN",
+    "lat": 46.861012,
+    "lon": -0.654803
+  },
+  "21790213900013": {
+    "address": "2 PLACE DE LA MAIRIE, 79200 POMPAIRE",
+    "lat": 46.60891,
+    "lon": -0.235263
+  },
+  "21790216200015": {
+    "address": "PLACE DE L'EGLISE, 79230 PRAHECQ",
+    "lat": 46.25908,
+    "lon": -0.344721
+  },
+  "21790218800028": {
+    "address": "LE BOURG, 79390 PRESSIGNY",
+    "lat": 46.746522,
+    "lon": -0.091548
+  },
+  "21790229500013": {
+    "address": "14 GRANDE RUE, 79270 LA ROCHENARD",
+    "lat": 46.208541,
+    "lon": -0.586388
+  },
+  "21790230300023": {
+    "address": "7 GRANDE RUE, 79120 ROM",
+    "lat": 46.292692,
+    "lon": 0.115546
+  },
+  "21790231100018": {
+    "address": "8 LE BOURG, 79260 ROMANS",
+    "lat": 46.359398,
+    "lon": -0.228939
+  },
+  "21790231100026": {
+    "address": "LE BOURG, 79260 ROMANS",
+    "lat": 46.359398,
+    "lon": -0.228939
+  },
+  "21790238600010": {
+    "address": "RUE DE LA CROIX-BERNIER, 79300 SAINT-AUBIN-DU-PLAIN",
+    "lat": 46.92186,
+    "lon": -0.473159
+  },
+  "21790239400014": {
+    "address": "34 RUE DE L'HOTEL DE VILLE, 79450 SAINT-AUBIN-LE-CLOUD",
+    "lat": 46.650725,
+    "lon": -0.356035
+  },
+  "21790241000026": {
+    "address": "LE BOURG, 79220 SAINT-CHRISTOPHE-SUR-ROC",
+    "lat": 46.449008,
+    "lon": -0.351704
+  },
+  "21790249300014": {
+    "address": "320 RUE DES HERPENS, 79410 SAINT-GELAIS",
+    "lat": 46.381633,
+    "lon": -0.388572
+  },
+  "21790257600024": {
+    "address": "PLACE DE LA MAIRIE, 79210 SAINT-HILAIRE-LA-PALUD",
+    "lat": 46.264234,
+    "lon": -0.713587
+  },
+  "21790259200013": {
+    "address": "RUE CHARLES RAGOT, 79100 SAINT-JEAN-DE-THOUARS",
+    "lat": 46.962474,
+    "lon": -0.218273
+  },
+  "21790263400013": {
+    "address": "6 ROUTE DE LA BRUYERE, 79160 SAINT-LAURS",
+    "lat": 46.525266,
+    "lon": -0.583916
+  },
+  "21790270900013": {
+    "address": "PL LEON GUYONNET, 79400 SAINT MAIXENT L'ECOLE",
+    "lat": 46.41204,
+    "lon": -0.218258
+  },
+  "21790270900047": {
+    "address": "RUE EDMOND PROUST CHAUMETTE, 79400 SAINT-MAIXENT-L'ECOLE",
+    "lat": 46.418044,
+    "lon": -0.201225
+  },
+  "21790270900054": {
+    "address": "AVENUE DU GENERAL FAUCHER, 79400 SAINT-MAIXENT-L'ECOLE",
+    "lat": 46.412673,
+    "lon": -0.215497
+  },
+  "21790270900062": {
+    "address": "RUE DE LA GARE, 79400 SAINT-MAIXENT-L'ECOLE",
+    "lat": 46.406508,
+    "lon": -0.203253
+  },
+  "21790270900138": {
+    "address": "30 AV DU MAL DE LATTRE DE TASSIGNY, 79400 SAINT-MAIXENT-L'ECOLE",
+    "lat": 46.412629,
+    "lon": -0.207728
+  },
+  "21790271700016": {
+    "address": "1 RUE DE LA COLLEGIALE, 79310 SAINT-MARC-LA-LANDE",
+    "lat": 46.520243,
+    "lon": -0.379663
+  },
+  "21790271700024": {
+    "address": "79310 SAINT-MARC-LA-LANDE",
+    "lat": 46.522025,
+    "lon": -0.347048
+  },
+  "21790273300021": {
+    "address": "440 ROUTE DE BRULAIN, 79230 SAINT-MARTIN-DE-BERNEGOUE",
+    "lat": 46.237834,
+    "lon": -0.348638
+  },
+  "21790276600013": {
+    "address": "2 RUE DES ECOLES, 79400 SAINT-MARTIN-DE-SAINT-MAIXENT",
+    "lat": 46.395792,
+    "lon": -0.201631
+  },
+  "21790277400041": {
+    "address": "PLACE DE LA GARE, 79290 BRION-PRES-THOUET",
+    "lat": 47.048241,
+    "lon": -0.185471
+  },
+  "21790283200013": {
+    "address": "RUE DE LA MAIRIE, 79260 SAINTE-NEOMAYE",
+    "lat": 46.370355,
+    "lon": -0.263502
+  },
+  "21790284000016": {
+    "address": "4 RUE DE LA POSTE, 79220 SAINTE-OUENNE",
+    "lat": 46.445192,
+    "lon": -0.447463
+  },
+  "21790290700021": {
+    "address": "RUE DE LA CROIX GUERIN, 79160 SAINT-POMPAIN",
+    "lat": 46.43969,
+    "lon": -0.600397
+  },
+  "21790293100013": {
+    "address": "4 RUE DE L'EGLISE, 79410 SAINT-REMY",
+    "lat": 46.370794,
+    "lon": -0.526371
+  },
+  "21790295600028": {
+    "address": "8 RUE DE LA GAIETE, 79500 SAINT-ROMANS-LES-MELLE",
+    "lat": 46.204154,
+    "lon": -0.190711
+  },
+  "21790298000036": {
+    "address": "RUE DES ECOLES, 79270 SAINT-SYMPHORIEN",
+    "lat": 46.2631,
+    "lon": -0.490874
+  },
+  "21790298000044": {
+    "address": "12 RUE DU FOUR, 79270 SAINT-SYMPHORIEN",
+    "lat": 46.264053,
+    "lon": -0.490517
+  },
+  "21790298000093": {
+    "address": "5 PLACE RENE CASSIN, 79270 SAINT-SYMPHORIEN",
+    "lat": 46.264169,
+    "lon": -0.491434
+  },
+  "21790300400018": {
+    "address": "2 RUE DE LA MAIRIE, 79100 SAINTE-VERGE",
+    "lat": 47.007551,
+    "lon": -0.211663
+  },
+  "21790301200029": {
+    "address": "LE BOURG, 79500 SAINT-VINCENT-LA-CHATRE",
+    "lat": 46.210791,
+    "lon": -0.041065
+  },
+  "21790302000014": {
+    "address": "PLACE DU BICENTENAIRE, 79400 SAIVRES",
+    "lat": 46.432132,
+    "lon": -0.236786
+  },
+  "21790307900036": {
+    "address": "6 PLACE DU GRAND PUITS, 79190 SAUZE-VAUSSAIS",
+    "lat": 46.132642,
+    "lon": 0.106253
+  },
+  "21790313700024": {
+    "address": "LE BOURG, 79120 SEPVRET",
+    "lat": 46.286861,
+    "lon": -0.093758
+  },
+  "21790319400017": {
+    "address": "PLACE DE LA MAIRIE, 79800 SOUVIGNE",
+    "lat": 46.373362,
+    "lon": -0.187298
+  },
+  "21790320200018": {
+    "address": "94 RUE PATRICE COIRAULT, 79220 SURIN",
+    "lat": 46.459489,
+    "lon": -0.46429
+  },
+  "21790322800013": {
+    "address": "43 RUE DE L'ATLANTIQUE, 79200 LE TALLUD",
+    "lat": 46.63153,
+    "lon": -0.294979
+  },
+  "21790324400028": {
+    "address": "BD DU CALVAIRE, 79300 BRESSUIRE",
+    "lat": 46.85398,
+    "lon": -0.452013
+  },
+  "21790324400036": {
+    "address": "RUE DE L'HUMELET, 79300 BRESSUIRE",
+    "lat": 46.806457,
+    "lon": -0.513549
+  },
+  "21790335000023": {
+    "address": "93 RUE SAINT-LOUIS, 79270 VALLANS",
+    "lat": 46.214797,
+    "lon": -0.552583
+  },
+  "21790342600013": {
+    "address": "1 RUE OCEAN, 79240 VERNOUX-EN-GATINE",
+    "lat": 46.634462,
+    "lon": -0.51129
+  },
+  "21790345900055": {
+    "address": "2 RUE NOUVELLE, 79310 VERRUYES",
+    "lat": 46.515865,
+    "lon": -0.2896
+  },
+  "21790347500010": {
+    "address": "RUE DU BOURG, 79200 VIENNAY",
+    "lat": 46.68959,
+    "lon": -0.243243
+  },
+  "21790351700019": {
+    "address": "14 ROUTE DE BENET, 79160 VILLIERS-EN-PLAINE",
+    "lat": 46.406029,
+    "lon": -0.537592
+  },
+  "21790355800013": {
+    "address": "19 RUE DE BOUSSANTIN, 79230 VOUILLE",
+    "lat": 46.314153,
+    "lon": -0.368339
+  },
+  "21792008100254": {
+    "address": "75 AVENUE SAINT-HUBERT, 79250 NUEIL-LES-AUBIERS",
+    "lat": 46.945512,
+    "lon": -0.593585
+  },
+  "22170001600738": {
+    "address": "85 BOULEVARD DE LA REPUBLIQUE, 17000 LA ROCHELLE",
+    "lat": 46.138209,
+    "lon": -1.152052
+  },
+  "22170001600910": {
+    "address": "85 BOULEVARD DE LA REPUBLIQUE, 17000 LA ROCHELLE",
+    "lat": 46.138209,
+    "lon": -1.152052
+  },
+  "24170045900043": {
+    "address": "AILE SAINT MICHEL 3 RUE DU PERE IGNACE, 17410 SAINT-MARTIN-DE-RE",
+    "lat": 46.201237,
+    "lon": -1.367448
+  },
+  "24790003800024": {
+    "address": "275 RUE DU PLANTIS, 79360 BEAUVOIR-SUR-NIORT",
+    "lat": 46.180003,
+    "lon": -0.471594
+  },
+  "24790010300026": {
+    "address": "200 RUE DES ECOLES, 79410 ECHIRE",
+    "lat": 46.390311,
+    "lon": -0.419567
+  },
+  "24790079800031": {
+    "address": "HOTEL DES COMMUNES 4 RUE DE LA TREMOILLE, 79100 THOUARS",
+    "lat": 46.972817,
+    "lon": -0.216622
+  },
+  "25170025800014": {
+    "address": "8 PLACE DE LA MAIRIE, 17520 JARNAC-CHAMPAGNE",
+    "lat": 45.557133,
+    "lon": -0.402648
+  },
+  "25170054800034": {
+    "address": "MAIRIE 146 RUE DE L'AUNIS, 17170 LA LAIGNE",
+    "lat": 46.214585,
+    "lon": -0.757774
+  },
+  "25170106600010": {
+    "address": "LE BOURG, 17520 SAINTE-LHEURINE",
+    "lat": 45.530929,
+    "lon": -0.36612
+  },
+  "25170146200011": {
+    "address": "18 RUE DE SCHWEYEN, 17150 SAINT-GEORGES-DES-AGOUTS",
+    "lat": 45.375195,
+    "lon": -0.646584
+  },
+  "25170291600023": {
+    "address": "MAIRIE PLACE DE LA MAIRIE, 17620 SAINT-JEAN-D'ANGLE",
+    "lat": 45.817716,
+    "lon": -0.948146
+  },
+  "25170341900027": {
+    "address": "MAIRIE RUE DE LA GRENOUILLERE, 17880 LES PORTES-EN-RE",
+    "lat": 46.248635,
+    "lon": -1.499461
+  },
+  "25170458100015": {
+    "address": "LE BOURG, 17500 LEOVILLE",
+    "lat": 45.378885,
+    "lon": -0.337071
+  },
+  "25170474800028": {
+    "address": "MAIRIE DE BENON RUE DU CHATEAU MUSSET, 17170 BENON",
+    "lat": 46.20286,
+    "lon": -0.815052
+  },
+  "25171053900015": {
+    "address": "MAIRIE DE SAINT-DENIS-D'OLERON 27 RUE DE LA LIBERATION, 17650 SAINT-DENIS-D'OLERON",
+    "lat": 46.033224,
+    "lon": -1.378016
+  },
+  "25171069500015": {
+    "address": "MAIRIE 1 RUE DE LA MAIRIE, 17170 LA RONDE",
+    "lat": 46.298813,
+    "lon": -0.807895
+  },
+  "25790140500015": {
+    "address": "MAIRIE 15 RUE MONTAUSIER, 79800 SALLES",
+    "lat": 46.385453,
+    "lon": -0.100021
+  },
+  "25790148800011": {
+    "address": "MAIRIE 2 RUE COURANCE, 79210 LE BOURDET",
+    "lat": 46.234076,
+    "lon": -0.627298
+  },
+  "25790170200015": {
+    "address": "2 RUE DU CALVAIRE, 79450 FENERY",
+    "lat": 46.687747,
+    "lon": -0.361515
+  },
+  "25790223900025": {
+    "address": "6 B PLACE DE L'EGLISE, 79240 L'ABSIE",
+    "lat": 46.633411,
+    "lon": -0.575812
+  },
+  "25790231200012": {
+    "address": "MAIRIE 8 PLACE DE LA MAIRIE, 79350 AMAILLOUX",
+    "lat": 46.74695,
+    "lon": -0.31878
+  },
+  "25790252800013": {
+    "address": "MAIRIE 28 RUE DE L'HOTEL DE VILLE, 79170 CHIZE",
+    "lat": 46.116516,
+    "lon": -0.349987
+  },
+  "26170002500552": {
+    "address": "42 RUE DE L'ALMA, 17100 SAINTES",
+    "lat": 45.745537,
+    "lon": -0.652375
+  },
+  "26170009000010": {
+    "address": "31 RUE DU DOCTEUR JACQUES PUJOS, 17300 ROCHEFORT",
+    "lat": 45.940553,
+    "lon": -0.959198
+  },
+  "26170010800028": {
+    "address": "CHATEAU DE LALEU 1 AVENUE RAYMOND POINCARE, 17000 LA ROCHELLE",
+    "lat": 46.167739,
+    "lon": -1.196911
+  },
+  "26170010800036": {
+    "address": "AVENUE DU CHAMP DE MARS, 17000 LA ROCHELLE",
+    "lat": 46.169298,
+    "lon": -1.148483
+  },
+  "26170010800044": {
+    "address": "4 RUE MASSIOU, 17000 LA ROCHELLE",
+    "lat": 46.164502,
+    "lon": -1.147338
+  },
+  "26170010800150": {
+    "address": "2 RUE LUCILE, 17000 LA ROCHELLE",
+    "lat": 46.139313,
+    "lon": -1.16697
+  },
+  "26170010800275": {
+    "address": "QUARTIER PORT NEUF 69 BOULEVARD ARISTIDE RONDEAU, 17000 LA ROCHELLE",
+    "lat": 46.160616,
+    "lon": -1.183754
+  },
+  "26170011600021": {
+    "address": "3 RUE DU LOGIS, 17640 VAUX-SUR-MER",
+    "lat": 45.64629,
+    "lon": -1.063285
+  },
+  "26170015700033": {
+    "address": "7 RUE BEAUSEJOUR, 17170 SAINT-JEAN-DE-LIVERSAY",
+    "lat": 46.268155,
+    "lon": -0.877438
+  },
+  "26170023100028": {
+    "address": "53 RUE DES CALFATS, 17390 LA TREMBLADE",
+    "lat": 45.782491,
+    "lon": -1.152514
+  },
+  "26170026400011": {
+    "address": "LD LES BRUYERES, 17360 BOSCAMNANT",
+    "lat": 45.198609,
+    "lon": -0.083906
+  },
+  "26170027200014": {
+    "address": "4 AVENUE WINSTON CHURCHILL, 17500 JONZAC",
+    "lat": 45.438971,
+    "lon": -0.433619
+  },
+  "26170027200022": {
+    "address": "DOMAINE DES FOSSES, 17500 SAINT-MARTIAL-DE-VITATERNE",
+    "lat": 45.458563,
+    "lon": -0.437496
+  },
+  "26170027200048": {
+    "address": "11 AVENUE DES POILUS, 17500 JONZAC",
+    "lat": 45.439785,
+    "lon": -0.436007
+  },
+  "26170027200279": {
+    "address": "DOMAINE DES FOSSES, 17500 SAINT-MARTIAL-DE-VITATERNE",
+    "lat": 45.458563,
+    "lon": -0.437496
+  },
+  "26170027200378": {
+    "address": "LE ROQUET 18 AVENUE JEAN MOULIN, 17500 JONZAC",
+    "lat": 45.442045,
+    "lon": -0.426136
+  },
+  "26170028000017": {
+    "address": "RUE DU BOIS D'HURE, 17140 LAGORD",
+    "lat": 46.189741,
+    "lon": -1.143724
+  },
+  "26170029800035": {
+    "address": "LES CLOS 20 RUE DES MOULINS, 17230 MARANS",
+    "lat": 46.307124,
+    "lon": -0.994975
+  },
+  "26170030600069": {
+    "address": "3 B RUE DU DOCTEUR ROUX, 17320 MARENNES-HIERS-BROUAGE",
+    "lat": 45.821855,
+    "lon": -1.100117
+  },
+  "26170032200017": {
+    "address": "13 RUE DU FIOU, 17210 MONTLIEU-LA-GARDE",
+    "lat": 45.247342,
+    "lon": -0.252683
+  },
+  "26170032200058": {
+    "address": "5 RUE DE LA MOTTE A VAILLANT, 17130 MONTENDRE",
+    "lat": 45.286592,
+    "lon": -0.412749
+  },
+  "26170032200082": {
+    "address": "20 B RUE DE LA MOTTE A VAILLANT, 17130 MONTENDRE",
+    "lat": 45.28633,
+    "lon": -0.412504
+  },
+  "26170032200165": {
+    "address": "1 RUE DES LANDES DE LA TUILERIE, 17130 MONTENDRE",
+    "lat": 45.281536,
+    "lon": -0.40137
+  },
+  "26170032200173": {
+    "address": "30 RUE DU CHATEAU D'EAU, 17132 MESCHERS-SUR-GIRONDE",
+    "lat": 45.568738,
+    "lon": -0.963371
+  },
+  "26170033000135": {
+    "address": "1 AVENUE DE BELIGON, 17300 ROCHEFORT",
+    "lat": 45.966128,
+    "lon": -0.960868
+  },
+  "26170033000200": {
+    "address": "1 AVENUE DE BELIGON, 17300 ROCHEFORT",
+    "lat": 45.966128,
+    "lon": -0.960868
+  },
+  "26170035500017": {
+    "address": "18 AV DU PORT, 17400 SAINT JEAN D'ANGELY",
+    "lat": 45.946562,
+    "lon": -0.529146
+  },
+  "26170037100014": {
+    "address": "RUE DE CARINENA, 17310 SAINT-PIERRE-D'OLERON",
+    "lat": 45.942651,
+    "lon": -1.305009
+  },
+  "26170038900016": {
+    "address": "12 RUE DU 8 MAI 1945, 17700 SURGERES",
+    "lat": 46.104233,
+    "lon": -0.738804
+  },
+  "26170039700019": {
+    "address": "20 AV DE ST SORDELIN, 17640 VAUX-SUR-MER",
+    "lat": 45.634743,
+    "lon": -1.061436
+  },
+  "26170039700050": {
+    "address": "CENTRE DE GERONTOLOGIE 24 RUE DU MONARD, 17600 LE GUA",
+    "lat": 45.725787,
+    "lon": -0.945102
+  },
+  "26170042100058": {
+    "address": "CHEMIN DE LA LONGEE, 17350 SAINT-SAVINIEN",
+    "lat": 45.875658,
+    "lon": -0.675716
+  },
+  "26170044700020": {
+    "address": "5 RUE DE VALENCAY, 17180 PERIGNY",
+    "lat": 46.155502,
+    "lon": -1.095802
+  },
+  "26170050400028": {
+    "address": "12 RUE DU GOUVERNEUR PEREYRA, 17110 SAINT-GEORGES-DE-DIDONNE",
+    "lat": 45.601783,
+    "lon": -1.007027
+  },
+  "26171011500013": {
+    "address": "30 BD DU DEBARQUEMENT, 17370 SAINT-TROJAN-LES-BAINS",
+    "lat": 45.818594,
+    "lon": -1.216273
+  },
+  "26171015600033": {
+    "address": "40 AVENUE CHARLES DE GAULLE, 17410 SAINT-MARTIN-DE-RE",
+    "lat": 46.197197,
+    "lon": -1.355836
+  },
+  "26171183200012": {
+    "address": "20 AVENUE DES MARRONNIERS, 17290 AIGREFEUILLE-D'AUNIS",
+    "lat": 46.115286,
+    "lon": -0.939383
+  },
+  "26790001700018": {
+    "address": "40 AVENUE CHARLES DE GAULLE, 79000 NIORT",
+    "lat": 46.315555,
+    "lon": -0.458516
+  },
+  "26790007400027": {
+    "address": "32 RUE LOUIS BLERIOT, 79170 BRIOUX-SUR-BOUTONNE",
+    "lat": 46.144522,
+    "lon": -0.229664
+  },
+  "26790009000023": {
+    "address": "1 RUE DES BOULANGERS, 79140 CERIZAY",
+    "lat": 46.821395,
+    "lon": -0.670548
+  },
+  "26790011600026": {
+    "address": "1 ALLEE DES ROITELETS, 79220 CHAMPDENIERS",
+    "lat": 46.485891,
+    "lon": -0.406025
+  },
+  "26790011600042": {
+    "address": "PLACE SAINT ANTOINE, 79220 CHAMPDENIERS",
+    "lat": 46.485655,
+    "lon": -0.402079
+  },
+  "26790018100038": {
+    "address": "6 ROUTE DE SERZAY, 79160 COULONGES-SUR-L'AUTIZE",
+    "lat": 46.47981,
+    "lon": -0.603894
+  },
+  "26790019900022": {
+    "address": "20 RUE DE LA LANDE, 79440 COURLAY",
+    "lat": 46.783303,
+    "lon": -0.568855
+  },
+  "26790031400027": {
+    "address": "3 BOULEVARD DES ACACIAS, 79390 THENEZAY",
+    "lat": 46.72121,
+    "lon": -0.024457
+  },
+  "26790032200012": {
+    "address": "3 RUE DROUYNEAU DE BRIE, 79100 THOUARS",
+    "lat": 46.976741,
+    "lon": -0.216782
+  },
+  "26790035500012": {
+    "address": "14 AV CAMILLE JOUFFRAULT, 79150 ARGENTONNAY",
+    "lat": 46.985379,
+    "lon": -0.452605
+  },
+  "26790040500015": {
+    "address": "13 RUE DE L'HOPITAL, 79700 MAULEON",
+    "lat": 46.923356,
+    "lon": -0.746863
+  },
+  "26790040500049": {
+    "address": "6 RUE DU CHEMIN VERT, 79700 MAULEON",
+    "lat": 46.922438,
+    "lon": -0.745563
+  },
+  "26790042100087": {
+    "address": "87 RUE DUGUESCLIN, 79170 CHIZE",
+    "lat": 46.119972,
+    "lon": -0.345994
+  },
+  "26790044700017": {
+    "address": "11 RUE GEORGES GRANDMAISON, 79350 FAYE-L'ABBESSE",
+    "lat": 46.829254,
+    "lon": -0.352756
+  },
+  "26790045400013": {
+    "address": "1 RUE DU STADE, 79190 LIMALONGES",
+    "lat": 46.130395,
+    "lon": 0.170248
+  },
+  "26790050400015": {
+    "address": "1 AV DE PARIS, 79240 MONCOUTANT-SUR-SEVRE",
+    "lat": 46.725444,
+    "lon": -0.587622
+  },
+  "26790052000011": {
+    "address": "28 RUE MME DE MONTESPAN, 79100 PLAINE-ET-VALLEES",
+    "lat": 46.950223,
+    "lon": -0.086242
+  },
+  "26790058700010": {
+    "address": "LE GRAND CHENE 35 AVENUE DES PLATANES, 79330 SAINT-VARENT",
+    "lat": 46.895759,
+    "lon": -0.241168
+  },
+  "26790064500024": {
+    "address": "13 RUE EDMOND SORIN, 79250 NUEIL-LES-AUBIERS",
+    "lat": 46.942034,
+    "lon": -0.584674
+  },
+  "26790065200038": {
+    "address": "28 RUE DU BARON, 79190 SAUZE-VAUSSAIS",
+    "lat": 46.132611,
+    "lon": 0.102853
+  },
+  "26790069400022": {
+    "address": "RUE DU PETIT LOGIS, 79230 PRAHECQ",
+    "lat": 46.258898,
+    "lon": -0.346465
+  },
+  "26790071000026": {
+    "address": "5 ALLEE PIERRE ROBLIN, 79430 LA CHAPELLE-SAINT-LAURENT",
+    "lat": 46.746103,
+    "lon": -0.478161
+  },
+  "26790074400025": {
+    "address": "CITE DU CLOU BOUCHET SQUARE GALILEE, 79000 NIORT",
+    "lat": 46.31592,
+    "lon": -0.479782
+  },
+  "26790074400082": {
+    "address": "LES BRIZEAUX 42 RUE DES JUSTICES, 79000 NIORT",
+    "lat": 46.339679,
+    "lon": -0.437056
+  },
+  "26790074400306": {
+    "address": "3 RUE DE FONTENAY, 79000 NIORT",
+    "lat": 46.328567,
+    "lon": -0.468391
+  },
+  "26790074400330": {
+    "address": "2 RUE PIETER BRUEGEL, 79000 NIORT",
+    "lat": 46.323,
+    "lon": -0.476367
+  },
+  "26790084300025": {
+    "address": "31 GRANDE RUE, 79340 VASLES",
+    "lat": 46.575136,
+    "lon": -0.015163
+  },
+  "26790089200014": {
+    "address": "201 RUE DE LA ROUSSILLE, 79000 NIORT",
+    "lat": 46.337208,
+    "lon": -0.511873
+  },
+  "26790094200041": {
+    "address": "26 B RUE DE L'ANJOU, 79130 SECONDIGNY",
+    "lat": 46.612253,
+    "lon": -0.420198
+  },
+  "26790101500011": {
+    "address": "CHATEAU DE VILLAINES, 79400 AZAY-LE-BRULE",
+    "lat": 46.408802,
+    "lon": -0.308877
+  },
+  "26790103100026": {
+    "address": "2 CHEMIN DE LA GARE, 79210 SAINT-HILAIRE-LA-PALUD",
+    "lat": 46.265221,
+    "lon": -0.713131
+  },
+  "26790108000023": {
+    "address": "2 ROUTE DE PARTHENAY, 79350 CHICHE",
+    "lat": 46.795892,
+    "lon": -0.356205
+  },
+  "26790110600026": {
+    "address": "21 IMPASSE DE LA VERNIERE, 79200 LE TALLUD",
+    "lat": 46.629174,
+    "lon": -0.30064
+  },
+  "26790111400020": {
+    "address": "RUE DU COMMERCE, 79160 VILLIERS-EN-PLAINE",
+    "lat": 46.407684,
+    "lon": -0.537926
+  },
+  "26790112200031": {
+    "address": "99 RUE DE L'AUMONERIE, 79510 COULON",
+    "lat": 46.327735,
+    "lon": -0.587488
+  },
+  "26790115500023": {
+    "address": "33 GRANDE RUE, 79200 LA PEYRATTE",
+    "lat": 46.672396,
+    "lon": -0.150074
+  },
+  "26790120500018": {
+    "address": "LE FIEF JOLY 51 RUE HENRI POINCARE, 79000 NIORT",
+    "lat": 46.31518,
+    "lon": -0.431225
+  },
+  "26790121300012": {
+    "address": "13 RUE DE BROSSARD, 79200 PARTHENAY",
+    "lat": 46.652207,
+    "lon": -0.220431
+  },
+  "26790377100025": {
+    "address": "28 PLACE DES CLOITRES, 79340 MENIGOUTE",
+    "lat": 46.495961,
+    "lon": -0.057595
+  },
+  "26791057800017": {
+    "address": "MAIRIE, 79800 SAINTE-EANNE",
+    "lat": 46.395491,
+    "lon": -0.138376
+  },
+  "26798141300052": {
+    "address": "1 RUE DE VAUGRU, 79120 LEZAY",
+    "lat": 46.261738,
+    "lon": -0.01025
+  },
+  "26798141300110": {
+    "address": "4 PL ARISTIDE BRIAND, 79500 MELLE",
+    "lat": 46.222895,
+    "lon": -0.142732
+  },
+  "26798141300136": {
+    "address": "12 RUE DE LA PIROUNELLE, 79110 CHEF-BOUTONNE",
+    "lat": 46.106963,
+    "lon": -0.067431
+  },
+  "26798146200026": {
+    "address": "1 RUE JEANNE MASLON, 79250 NUEIL-LES-AUBIERS",
+    "lat": 46.955552,
+    "lon": -0.589651
+  },
+  "26798153800015": {
+    "address": "SITE DES FLOTS BLEUS 51 RUE DES JUSTICES, 79000 NIORT",
+    "lat": 46.339961,
+    "lon": -0.437457
+  },
+  "26798153800049": {
+    "address": "1 RUE PIETER BRUEGEL, 79000 NIORT",
+    "lat": 46.323171,
+    "lon": -0.476004
+  },
+  "26798154600018": {
+    "address": "4 RUE DE LA COUDRAIE, 79000 NIORT",
+    "lat": 46.330482,
+    "lon": -0.437921
+  },
+  "28170026000017": {
+    "address": "85 BOULEVARD DE LA REPUBLIQUE, 17000 LA ROCHELLE",
+    "lat": 46.138209,
+    "lon": -1.152052
+  },
+  "30009546000022": {
+    "address": "14 RUE LEON BLUM, 79000 NIORT",
+    "lat": 46.325785,
+    "lon": -0.464961
+  },
+  "30072560300025": {
+    "address": "RUE DU GENERAL LECLERC, 17390 LA TREMBLADE",
+    "lat": 45.772635,
+    "lon": -1.141825
+  },
+  "30116075000503": {
+    "address": "LD LA TOURTILLIERE, 17138 PUILBOREAU",
+    "lat": 46.189026,
+    "lon": -1.100472
+  },
+  "30250921100025": {
+    "address": "RUE EUGENE MOUSNIER, 17600 SAUJON",
+    "lat": 45.673274,
+    "lon": -0.924351
+  },
+  "30265694700074": {
+    "address": "EHPAD LD LE CHATEAU DE CHARRON AGFPA, 17230 CHARRON",
+    "lat": 46.303698,
+    "lon": -1.095202
+  },
+  "30303606500017": {
+    "address": "6 PLACE SAINT SAUVEUR, 79700 MAULEON",
+    "lat": 46.928421,
+    "lon": -0.815718
+  },
+  "30689433800129": {
+    "address": "ALLEE DU QUEYRAS 1 AVENUE MARECHAL JUIN, 17000 LA ROCHELLE",
+    "lat": 46.159089,
+    "lon": -1.179837
+  },
+  "30980220500232": {
+    "address": "CENTRE POUR AUTISTES RUE FRANCOIS LHOSTE, 17300 ROCHEFORT",
+    "lat": 45.933791,
+    "lon": -0.979406
+  },
+  "30980220500695": {
+    "address": "AVENUE DE LA CHAGRINERIE, 17300 ROCHEFORT",
+    "lat": 45.95156,
+    "lon": -0.97354
+  },
+  "31144161200018": {
+    "address": "RUE DES AUBEPINES, 17300 ROCHEFORT",
+    "lat": 45.943524,
+    "lon": -0.986987
+  },
+  "31261148600175": {
+    "address": "ZI ST LIGUAIRE 29 RUE HENRI SELLIER, 79000 NIORT",
+    "lat": 46.315142,
+    "lon": -0.490134
+  },
+  "31261148600449": {
+    "address": "RUE JEAN YVON, 17260 GEMOZAC",
+    "lat": 45.571717,
+    "lon": -0.674476
+  },
+  "31338330900017": {
+    "address": "1 SQ MARIE CLAUDE MEMON, 17000 LA ROCHELLE",
+    "lat": 46.142956,
+    "lon": -1.147233
+  },
+  "31395450500027": {
+    "address": "RUE DU STADE, 79700 SAINT-AMAND-SUR-SEVRE",
+    "lat": 46.867839,
+    "lon": -0.793425
+  },
+  "31453833100039": {
+    "address": "26 RUE DU MOULIN DES JUSTICES, 17138 PUILBOREAU",
+    "lat": 46.173597,
+    "lon": -1.126677
+  },
+  "31669699600032": {
+    "address": "LA CRENUERE - RORTHAIS, 79700 MAULEON",
+    "lat": 46.906444,
+    "lon": -0.683248
+  },
+  "31858558500033": {
+    "address": "PLACE PORTE ST ANTOINE, 79220 CHAMPDENIERS",
+    "lat": 46.485655,
+    "lon": -0.402079
+  },
+  "31949400100039": {
+    "address": "CRECHE HALTE GARDERIE L ILE AUX ENFANT 8 RUE DES ECOLES, 79390 THENEZAY",
+    "lat": 46.698673,
+    "lon": -0.021033
+  },
+  "32368669100680": {
+    "address": "42 RUE DE LA REPUBLIQUE, 17320 MARENNES-HIERS-BROUAGE",
+    "lat": 45.821833,
+    "lon": -1.103712
+  },
+  "32432205600015": {
+    "address": "ZI DU GRAND ROSE 156 AV EMILE ZOLA, 79100 THOUARS",
+    "lat": 46.998317,
+    "lon": -0.206377
+  },
+  "32504850200018": {
+    "address": "CHEZ CHOBLET CHEZ CHOBELET, 17260 GEMOZAC",
+    "lat": 45.547821,
+    "lon": -0.697464
+  },
+  "32603740500015": {
+    "address": "12 RUE DU BOCAGE, 79700 MAULEON",
+    "lat": 46.977759,
+    "lon": -0.835657
+  },
+  "32838559600015": {
+    "address": "ZI RUE MONTGOLFIER, 79230 PRAHECQ",
+    "lat": 46.269359,
+    "lon": -0.37121
+  },
+  "32849827400013": {
+    "address": "29 RUE PIERRE LOTI, 17310 SAINT-PIERRE-D'OLERON",
+    "lat": 45.943572,
+    "lon": -1.302985
+  },
+  "33059829300018": {
+    "address": "2 RUE FRANCIS GARNIER, 79150 ARGENTONNAY",
+    "lat": 46.984219,
+    "lon": -0.447341
+  },
+  "33323325200019": {
+    "address": "84 ROUTE D'AIFFRES, 79000 NIORT",
+    "lat": 46.315665,
+    "lon": -0.452076
+  },
+  "33404146400010": {
+    "address": "AVENUE CHARLES DE GAULLE, 17620 SAINT-AGNANT",
+    "lat": 45.867213,
+    "lon": -0.963971
+  },
+  "33415947210218": {
+    "address": "2 AVENUE DE FETILLY, 17000 LA ROCHELLE",
+    "lat": 46.172351,
+    "lon": -1.15492
+  },
+  "33489960600019": {
+    "address": "171 AVENUE DE PARIS, 79000 NIORT",
+    "lat": 46.327384,
+    "lon": -0.44903
+  },
+  "33769489700014": {
+    "address": "LA MAISON DE L'ALTERNANCE 47 AVENUE DE POITIERS, 79170 BRIOUX-SUR-BOUTONNE",
+    "lat": 46.152423,
+    "lon": -0.210928
+  },
+  "34028200300011": {
+    "address": "LE BOURG 10 RUE DU PORT, 17260 CRAVANS",
+    "lat": 45.595184,
+    "lon": -0.714203
+  },
+  "34099154600029": {
+    "address": "10 RUE DES CARRIERES MOREAU, 79420 SAINT-LIN",
+    "lat": 46.52625,
+    "lon": -0.242282
+  },
+  "34117411800511": {
+    "address": "47 RUE EMILE COMBES, 17800 PONS",
+    "lat": 45.5774,
+    "lon": -0.549232
+  },
+  "34117411800750": {
+    "address": "RUE JEAN DE LA FONTAINE, 79000 NIORT",
+    "lat": 46.318907,
+    "lon": -0.476106
+  },
+  "34117411800768": {
+    "address": "RUE DE L'AUMONERIE, 79510 COULON",
+    "lat": 46.326369,
+    "lon": -0.587147
+  },
+  "34117411800867": {
+    "address": "1 IMPASSE DE LA CARRIERE, 17590 ARS-EN-RE",
+    "lat": 46.204899,
+    "lon": -1.528168
+  },
+  "34117411800941": {
+    "address": "71 AVENUE MARECHAL JUIN, 17110 SAINT-GEORGES-DE-DIDONNE",
+    "lat": 45.615741,
+    "lon": -0.989625
+  },
+  "34117411801717": {
+    "address": "15 B ROUTE DE LA DOUANE, 17690 ANGOULINS",
+    "lat": 46.104695,
+    "lon": -1.117304
+  },
+  "34517506100018": {
+    "address": "63 RUE EDMOND GRASSET PROLONGEE, 17440 AYTRE",
+    "lat": 46.132833,
+    "lon": -1.111559
+  },
+  "34537363300014": {
+    "address": "124 BOULEVARD DE POITIERS, 79300 BRESSUIRE",
+    "lat": 46.836498,
+    "lon": -0.477923
+  },
+  "34992789700018": {
+    "address": "66 AVENUE DU 25 AOUT 1944, 79140 CERIZAY",
+    "lat": 46.820138,
+    "lon": -0.675175
+  },
+  "35074539400014": {
+    "address": "LIEUDIT LES GORCES LD LES GORCES, 17120 EPARGNES",
+    "lat": null,
+    "lon": null
+  },
+  "35382265300013": {
+    "address": "MAIRIE, 17610 CHERAC",
+    "lat": 45.703737,
+    "lon": -0.438496
+  },
+  "37815842200022": {
+    "address": "4 IMPASSE GERMAIN ETOURNEAU, 17300 ROCHEFORT",
+    "lat": 45.933331,
+    "lon": -0.971191
+  },
+  "37815842200154": {
+    "address": "31 RUE DE LA BUTTE, 17140 LAGORD",
+    "lat": 46.191043,
+    "lon": -1.149217
+  },
+  "37855935500011": {
+    "address": "1 AVENUE DE LA REPUBLIQUE, 17560 BOURCEFRANC-LE-CHAPUS",
+    "lat": 45.845368,
+    "lon": -1.144935
+  },
+  "37857050100015": {
+    "address": "7 RUE BRISSON, 79000 NIORT",
+    "lat": 46.326117,
+    "lon": -0.464158
+  },
+  "37924397500024": {
+    "address": "21 RUE JULIA ET MAURICE MARCOU, 17700 SURGERES",
+    "lat": 46.112128,
+    "lon": -0.760099
+  },
+  "38032517500012": {
+    "address": "MAIRIE AVENUE DES TILLEULS, 17110 SAINT-GEORGES-DE-DIDONNE",
+    "lat": 45.6052,
+    "lon": -0.993167
+  },
+  "38038954400012": {
+    "address": "RUE PAUL MORCHAIN, 17300 ROCHEFORT",
+    "lat": 45.929883,
+    "lon": -0.969892
+  },
+  "38085761500013": {
+    "address": "17240 BOIS",
+    "lat": 45.479701,
+    "lon": -0.609855
+  },
+  "38146554100013": {
+    "address": "8 RUE L OMBRIERE, 17620 SAINT JEAN D'ANGLE",
+    "lat": 45.818982,
+    "lon": -0.945559
+  },
+  "38195424700015": {
+    "address": "19 BOULEVARD DE LA CITADELLE, 17120 COZES",
+    "lat": 45.580749,
+    "lon": -0.835287
+  },
+  "38270804800030": {
+    "address": "1 RUE CLEMENT MAROT, 17137 NIEUL-SUR-MER",
+    "lat": 46.205669,
+    "lon": -1.171577
+  },
+  "38375948700028": {
+    "address": "LA NOUE EN RE RUE DES AJONCS, 17740 SAINTE-MARIE-DE-RE",
+    "lat": 46.155214,
+    "lon": -1.337707
+  },
+  "38436086300029": {
+    "address": "1 RUE DES DALHIAS, 17600 SAUJON",
+    "lat": 45.677516,
+    "lon": -0.928972
+  },
+  "38539057000021": {
+    "address": "8 RUE DES ECOLES, 79390 THENEZAY",
+    "lat": 46.716534,
+    "lon": -0.027739
+  },
+  "38766601900055": {
+    "address": "IME CROIX ROUGE 2 RUE DE LATTRE DE TASSIGNY, 17430 TONNAY-CHARENTE",
+    "lat": 45.941923,
+    "lon": -0.884934
+  },
+  "39006861700021": {
+    "address": "65 AVENUE DE LIMOGES, 79000 NIORT",
+    "lat": 46.320264,
+    "lon": -0.451916
+  },
+  "39112392400022": {
+    "address": "1 RUE DU PRE DES ESSARTS, 17170 BENON",
+    "lat": 46.201962,
+    "lon": -0.81629
+  },
+  "39153048200010": {
+    "address": "PLACE DE LA MAIRIE, 17520 ARCHIAC",
+    "lat": 45.521796,
+    "lon": -0.3014
+  },
+  "39314574300026": {
+    "address": "40 BOULEVARD DU PARNASSE, 79200 CHATILLON-SUR-THOUET",
+    "lat": 46.664257,
+    "lon": -0.237369
+  },
+  "39751083500010": {
+    "address": "FOYER LES TILLEUILS PLACE DE L'EGLISE, 79210 SAINT-GEORGES-DE-REX",
+    "lat": 46.27787,
+    "lon": -0.654205
+  },
+  "40021845900016": {
+    "address": "ECOLE BELLE ETOILE ROUTE DE SAINT-POMPAIN, 79160 COULONGES-SUR-L'AUTIZE",
+    "lat": 46.479038,
+    "lon": -0.601486
+  },
+  "40055115600013": {
+    "address": "GROUPE SCOLAIRE, 17290 AIGREFEUILLE-D'AUNIS",
+    "lat": 46.117626,
+    "lon": -0.938076
+  },
+  "40109861100015": {
+    "address": "LES FLENEAUX 15 RUE EUGENE DELACROIX, 17138 PUILBOREAU",
+    "lat": 46.182637,
+    "lon": -1.114194
+  },
+  "40120804600011": {
+    "address": "LIEU DIT CANDE, 17430 CABARIOT",
+    "lat": 45.911389,
+    "lon": -0.839415
+  },
+  "40125156600048": {
+    "address": "24 ROUTE DES ECLUSES, 17600 SAUJON",
+    "lat": 45.676208,
+    "lon": -0.931685
+  },
+  "40125156600642": {
+    "address": "43/45 43 RUE DE LA BURGONCE, 79000 NIORT",
+    "lat": 46.329491,
+    "lon": -0.454499
+  },
+  "40125156600659": {
+    "address": "6 RUE DU GUE, 17000 LA ROCHELLE",
+    "lat": 46.177615,
+    "lon": -1.140792
+  },
+  "40125156600899": {
+    "address": "139/141 RES DES JARDINS DE SAINTES 139 RUE DE LA BOULE, 17100 SAINTES",
+    "lat": 45.751446,
+    "lon": -0.638965
+  },
+  "40125156600931": {
+    "address": "55 RUE DU MOULIN A VENT, 79000 NIORT",
+    "lat": 46.337693,
+    "lon": -0.432489
+  },
+  "40125156601236": {
+    "address": "31 AVENUE DE LA GANIPOTE, 17420 SAINT-PALAIS-SUR-MER",
+    "lat": 45.651808,
+    "lon": -1.085269
+  },
+  "40125156601244": {
+    "address": "92 T AV DU COLONEL TOURTET, 17110 SAINT-GEORGES-DE-DIDONNE",
+    "lat": 45.607822,
+    "lon": -0.992866
+  },
+  "40125156601608": {
+    "address": "11 ROUTE DE SAINT-PALAIS, 17200 SAINT-SULPICE-DE-ROYAN",
+    "lat": 45.672296,
+    "lon": -1.013018
+  },
+  "40125156601715": {
+    "address": "53 B AVENUE DE L'ETRADE, 17530 ARVERT",
+    "lat": 45.749493,
+    "lon": -1.133855
+  },
+  "40125156601772": {
+    "address": "36 RUE PIERRE DUGUA SIEUR DE MONS, 17200 ROYAN",
+    "lat": 45.629407,
+    "lon": -1.027085
+  },
+  "40125156601798": {
+    "address": "13 RUE DE LA POSTE, 17920 BREUILLET",
+    "lat": 45.693695,
+    "lon": -1.046424
+  },
+  "40125156601954": {
+    "address": "5 RUE DU MARECHAL JUIN, 17780 SOUBISE",
+    "lat": 45.924378,
+    "lon": -1.011644
+  },
+  "40125156602481": {
+    "address": "RUE DES PIOTS, 79230 VOUILLE",
+    "lat": 46.312193,
+    "lon": -0.364519
+  },
+  "40178017600012": {
+    "address": "58 RUE PIERRE ET MARIE CURIE, 17300 ROCHEFORT",
+    "lat": 45.931402,
+    "lon": -0.970908
+  },
+  "40204645200023": {
+    "address": "PARSAY, 79170 BRIEUIL-SUR-CHIZE",
+    "lat": 46.114813,
+    "lon": -0.327372
+  },
+  "40531022800029": {
+    "address": "BONNEMIE RTE DEPART 734 A BONNEMIE, 17310 SAINT-PIERRE-D OLERON",
+    "lat": 45.944108,
+    "lon": -1.318504
+  },
+  "40802870200012": {
+    "address": "MAIRIE, 79150 VOULMENTIN",
+    "lat": 46.900317,
+    "lon": -0.533324
+  },
+  "40851592200024": {
+    "address": "1 RUE PASTEUR, 17200 ROYAN",
+    "lat": 45.625698,
+    "lon": -1.027906
+  },
+  "41226255200018": {
+    "address": "ECOLE DES DOUANES RUE DU JURA, 17000 LA ROCHELLE",
+    "lat": 46.160288,
+    "lon": -1.218898
+  },
+  "41302731900016": {
+    "address": "MAIRIE, 17370 SAINT-TROJAN-LES-BAINS",
+    "lat": 45.837827,
+    "lon": -1.207551
+  },
+  "42092900200020": {
+    "address": "1 PLACE VERTE, 17300 VERGEROUX",
+    "lat": 45.960905,
+    "lon": -0.985764
+  },
+  "42245921400017": {
+    "address": "40-42 40 GRANDE RUE, 17330 BERNAY-SAINT-MARTIN",
+    "lat": 46.063479,
+    "lon": -0.624271
+  },
+  "42251244200035": {
+    "address": "SECTION DO 281 5 RUE JEAN BOUCHE, 17000 LA ROCHELLE",
+    "lat": 46.14995,
+    "lon": -1.14323
+  },
+  "42321453500027": {
+    "address": "17 RUE DE SAINTONGE, 17600 SAINT-ROMAIN-DE-BENET",
+    "lat": 45.690445,
+    "lon": -0.843879
+  },
+  "42397779200047": {
+    "address": "LES TERRASSES 22 RUE DU VIVIER, 79000 NIORT",
+    "lat": 46.332753,
+    "lon": -0.460567
+  },
+  "42917140800017": {
+    "address": "1 ESPLANADE DU CAPITOLE, 17100 SAINTES",
+    "lat": 45.745756,
+    "lon": -0.635872
+  },
+  "43196860100911": {
+    "address": "RUE DES GRANDS MURS, 79800 LA MOTHE-SAINT-HERAY",
+    "lat": 46.361064,
+    "lon": -0.105644
+  },
+  "43324099100011": {
+    "address": "118 AVENUE DE PARIS, 79000 NIORT",
+    "lat": 46.326427,
+    "lon": -0.450901
+  },
+  "43391243300029": {
+    "address": "FH EMMANUELLE IMPASSE GEORGES CLEMENCEAU, 17340 CHATELAILLON-PLAGE",
+    "lat": 46.068979,
+    "lon": -1.081436
+  },
+  "43391243300037": {
+    "address": "DOMAINE DE BERNESSARD, 17260 GEMOZAC",
+    "lat": 45.569781,
+    "lon": -0.69986
+  },
+  "43391243300078": {
+    "address": "MAS MAVIE IMPASSE GEORGES CLEMENCEAU, 17340 CHATELAILLON-PLAGE",
+    "lat": 46.068979,
+    "lon": -1.081436
+  },
+  "43391243300102": {
+    "address": "ESAT L'OEUVRE D'EMMANUELLE 15 CHEMIN DU MARAIS BLANC, 17340 CHATELAILLON-PLAGE",
+    "lat": 46.082196,
+    "lon": -1.086456
+  },
+  "43391243300110": {
+    "address": "MRS MARAIS DE CRISTAL IMPASSE GEORGES CLEMENCEAU, 17340 CHATELAILLON-PLAGE",
+    "lat": null,
+    "lon": null
+  },
+  "43391243300128": {
+    "address": "MAS OXYGENE IMPASSE GEORGES CLEMENCEAU, 17340 CHATELAILLON-PLAGE",
+    "lat": 46.068979,
+    "lon": -1.081436
+  },
+  "43391243300136": {
+    "address": "IMPRO LA CHRYSALIDE 300 ROUTE DES COUDREES, 17450 SAINT-LAURENT-DE-LA-PREE",
+    "lat": 45.983004,
+    "lon": -1.043828
+  },
+  "43391243300144": {
+    "address": "FOYER DE VIE LA MAISONNEE 300 ROUTE DES COUDREES, 17450 SAINT-LAURENT-DE-LA-PREE",
+    "lat": 45.983004,
+    "lon": -1.043828
+  },
+  "43391243300169": {
+    "address": "FH LA METAIRIE 14 RUE DE L'ARGONNE, 17260 GEMOZAC",
+    "lat": 45.570721,
+    "lon": -0.672432
+  },
+  "43391243300219": {
+    "address": "FOYER DE VIE SVAAH IMPASSE GEORGES CLEMENCEAU, 17340 CHATELAILLON-PLAGE",
+    "lat": 46.068979,
+    "lon": -1.081436
+  },
+  "43391243300235": {
+    "address": "MAISON ACC. SPECIALISEE HTE SAINTONGE DOMAINE DU CHATEAU DE BERNESSARD, 17260 GEMOZAC",
+    "lat": null,
+    "lon": null
+  },
+  "43395769300164": {
+    "address": "CLINIQUE HIPPOCRATE 31 RUE EUGENE MOUSNIER, 17600 SAUJON",
+    "lat": 45.673274,
+    "lon": -0.924351
+  },
+  "43395769300172": {
+    "address": "CLINIQUE VILLA DU PARC 18 RUE DE SAINTONGE, 17600 SAUJON",
+    "lat": 45.675318,
+    "lon": -0.92153
+  },
+  "43395769302137": {
+    "address": "CENTRE ALCOOLOGIQUE ALPHA 21 AVENUE DE PARIS, 17200 ROYAN",
+    "lat": 45.626122,
+    "lon": -1.046743
+  },
+  "43395769305189": {
+    "address": "EHPAD LA MAISON DU PAYS 17 RUE DE SAINTONGE, 17600 SAINT-ROMAIN-DE-BENET",
+    "lat": 45.690445,
+    "lon": -0.843879
+  },
+  "43395769306583": {
+    "address": "2 RUE DES DOUVES, 17380 TONNAY-BOUTONNE",
+    "lat": 45.968377,
+    "lon": -0.704897
+  },
+  "43395769306591": {
+    "address": "40 AVENUE DU GENERAL DE GAULLE, 17410 SAINT-MARTIN-DE-RE",
+    "lat": 46.197195,
+    "lon": -1.355838
+  },
+  "43997564000335": {
+    "address": "RES CLODOMIR ARNAUD 2 IMP LE SUPEROT, 79270 LA ROCHENARD",
+    "lat": 46.205867,
+    "lon": -0.585327
+  },
+  "43997564001457": {
+    "address": "RESIDENCE LES TROIS ROIX 150 ROUTE DE BRIOUX, 79270 FRONTENAY-ROHAN-ROHAN",
+    "lat": 46.246539,
+    "lon": -0.534778
+  },
+  "44225698800019": {
+    "address": "1 RUE DES IRIS, 79000 BESSINES",
+    "lat": 46.300684,
+    "lon": -0.490607
+  },
+  "44441820600017": {
+    "address": "12 RUE DE LA FONTAINE, 17700 SAINT-SATURNIN-DU-BOIS",
+    "lat": 46.137986,
+    "lon": -0.673253
+  },
+  "44495812800019": {
+    "address": "MAIRIE DU THOU 15 RUE DU CHAMP DE FOIRE, 17290 LE THOU",
+    "lat": 46.08515,
+    "lon": -0.922086
+  },
+  "44781860000465": {
+    "address": "9 RUE DU GALUCHET, 79000 NIORT",
+    "lat": 46.325832,
+    "lon": -0.488377
+  },
+  "44945320800018": {
+    "address": "RUE DU FIEF CLUZEAU, 17220 LA JARNE",
+    "lat": 46.124663,
+    "lon": -1.070072
+  },
+  "45195819300018": {
+    "address": "15 RUE DUBOIS AUBRY, 17310 SAINT-PIERRE-D'OLERON",
+    "lat": 45.940976,
+    "lon": -1.312917
+  },
+  "47748151900015": {
+    "address": "2 RUE DE LA REPUBLIQUE, 17137 L'HOUMEAU",
+    "lat": 46.195571,
+    "lon": -1.186206
+  },
+  "47958893100010": {
+    "address": "LES RURALIES CHAMBRE D AGRICULTURE LA PLAINE DE LA COUARDE, 79230 VOUILLE",
+    "lat": 46.299716,
+    "lon": -0.21159
+  },
+  "48008096900300": {
+    "address": "40 RUE DU VANNEAU, 17170 SAINT-JEAN-DE-LIVERSAY",
+    "lat": 46.274953,
+    "lon": -0.875956
+  },
+  "48008096900441": {
+    "address": "13 B BD GAUTRET, 17500 JONZAC",
+    "lat": 45.447493,
+    "lon": -0.429351
+  },
+  "48008096901001": {
+    "address": "4 IMPASSE BOUJU, 17250 TRIZAY",
+    "lat": 45.902513,
+    "lon": -0.92137
+  },
+  "48539754100049": {
+    "address": "5 RUE MARECHAL JUIN, 17780 SOUBISE",
+    "lat": 45.924378,
+    "lon": -1.011644
+  },
+  "49034652500010": {
+    "address": "48 RUE PIERRE WIEHN, 17480 LE CHATEAU-D'OLERON",
+    "lat": 45.88899,
+    "lon": -1.197002
+  },
+  "49896352900165": {
+    "address": "93 RUE DES 4 MARIE, 79410 ECHIRE",
+    "lat": 46.390951,
+    "lon": -0.416255
+  },
+  "50062264200014": {
+    "address": "BD RAYMOND VOUHE, 79100 THOUARS",
+    "lat": 46.975557,
+    "lon": -0.201062
+  },
+  "50062264200022": {
+    "address": "17 RUE DE L'EGLISE, 79100 LOUZY",
+    "lat": 47.013784,
+    "lon": -0.184608
+  },
+  "50148040400042": {
+    "address": "LE DOMAINE DES HAUTES VARENNES 17 RUE DE L'OCEAN, 17138 SAINT-XANDRE",
+    "lat": 46.205935,
+    "lon": -1.10337
+  },
+  "50478395200048": {
+    "address": "6 ROUTE DE FONTENAY LE COMTE, 17170 SAINT-CYR-DU-DORET",
+    "lat": 46.280926,
+    "lon": -0.806801
+  },
+  "51477965100025": {
+    "address": "2 RUE DES CERISIERS, 17120 FLOIRAC",
+    "lat": 45.48905,
+    "lon": -0.726554
+  },
+  "51843436000013": {
+    "address": "BP 7 23 RUE DU COLLEGE, 17250 SAINT-PORCHAIRE",
+    "lat": 45.820225,
+    "lon": -0.770791
+  },
+  "52150496900077": {
+    "address": "MAISON RETRAITE DARCY BRUN, 17750 ETAULES",
+    "lat": 45.735629,
+    "lon": -1.104782
+  },
+  "52150496900135": {
+    "address": "G A I A 97 T RUE THIERS, 17300 ROCHEFORT",
+    "lat": 45.937236,
+    "lon": -0.963335
+  },
+  "52678009300013": {
+    "address": "22 RUE MONTLOUIS, 17100 SAINTES",
+    "lat": 45.749786,
+    "lon": -0.643577
+  },
+  "52738028100016": {
+    "address": "18 RUE DE SAINTONGE, 17600 SAUJON",
+    "lat": 45.675318,
+    "lon": -0.92153
+  },
+  "53005676100014": {
+    "address": "4 COURS CHARLES DE GAULLE, 17100 SAINTES",
+    "lat": 45.742847,
+    "lon": -0.626089
+  },
+  "53130553000010": {
+    "address": "42 AV WILSON, 17300 ROCHEFORT",
+    "lat": 45.945803,
+    "lon": -0.962623
+  },
+  "53210710900037": {
+    "address": "32 RUE DE NICE, 17220 SAINT-ROGATIEN",
+    "lat": 46.146802,
+    "lon": -1.072872
+  },
+  "53277858600018": {
+    "address": "9 AVENUE LEON GAMBETTA, 17300 ROCHEFORT",
+    "lat": 45.938875,
+    "lon": -0.967133
+  },
+  "63178014500035": {
+    "address": "9 AVENUE DES ORMEAUX, 17690 ANGOULINS",
+    "lat": 46.101663,
+    "lon": -1.09702
+  },
+  "65552024500060": {
+    "address": "35 RUE DE CHERMIGNAC, 17100 SAINTES",
+    "lat": 45.728793,
+    "lon": -0.650118
+  },
+  "71545005200025": {
+    "address": "222 AVENUE DE ROCHEFORT, 17200 ROYAN",
+    "lat": 45.653289,
+    "lon": -1.023477
+  },
+  "71685016900013": {
+    "address": "3 B BOULEVARD DE LATTRE DE TASSIGNY, 17110 SAINT-GEORGES-DE-DIDONNE",
+    "lat": 45.602464,
+    "lon": -1.002707
+  },
+  "75331332900454": {
+    "address": "16 RUE DES 3 COIGNEAUX, 79000 NIORT",
+    "lat": 46.320366,
+    "lon": -0.459733
+  },
+  "75331332900462": {
+    "address": "3 RUE DE LA BELLE ETOILE, 79410 CHERVEUX",
+    "lat": 46.414176,
+    "lon": -0.358231
+  },
+  "77556469300031": {
+    "address": "LD LE BREUIL, 17230 SAINT OUEN D'AUNIS",
+    "lat": 46.2261,
+    "lon": -1.020759
+  },
+  "77556469300098": {
+    "address": "CHATEAU DE BOUHET, 17540 BOUHET",
+    "lat": 46.145191,
+    "lon": -0.876052
+  },
+  "77556469300114": {
+    "address": "LIEU DIT LE BREUIL 1 RUE DE LA CHAPELLE, 17230 SAINT OUEN D'AUNIS",
+    "lat": 46.228957,
+    "lon": -1.013291
+  },
+  "77556469300122": {
+    "address": "LE BREUIL, 17230 SAINT-OUEN-D'AUNIS",
+    "lat": 46.2261,
+    "lon": -1.020759
+  },
+  "77556469300163": {
+    "address": "22 RUE DE LA MOTTE BLANCHE, 17290 LE THOU",
+    "lat": 46.097506,
+    "lon": -0.953179
+  },
+  "77556469300171": {
+    "address": "CITE LA FOURMIE AVENUE DE LA GARE, 17700 SURGERES",
+    "lat": 46.108681,
+    "lon": -0.752289
+  },
+  "77556469300221": {
+    "address": "ALLEE MARECHAL DE LATTRE DE TASSIGNY, 17000 LA ROCHELLE",
+    "lat": 46.156703,
+    "lon": -1.177024
+  },
+  "77556469300411": {
+    "address": "ZI DES 4 CHEVALIERS 6 AVENUE ERIC TABARLY, 17180 PERIGNY",
+    "lat": 46.155099,
+    "lon": -1.111782
+  },
+  "77558666200311": {
+    "address": "3 RUE DU CHAMP DE FOIRE, 17150 MIRAMBEAU",
+    "lat": 45.373477,
+    "lon": -0.563912
+  },
+  "77558666200329": {
+    "address": "L'OCEANE D'OLERON ZAC DES GRANDES LANDES, 17370 LE GRAND-VILLAGE-PLAGE",
+    "lat": null,
+    "lon": null
+  },
+  "77558666200550": {
+    "address": "EHPAD LE MOULIN DU VAL DU BRUANT RTE NATIONALE, 17250 SAINT-PORCHAIRE",
+    "lat": 45.820874,
+    "lon": -0.784216
+  },
+  "77567227207145": {
+    "address": "LE CHATEAU LES CAPUCINS 2 RUE DE LATTRE DE TASSIGNY, 17430 TONNAY-CHARENTE",
+    "lat": 45.941923,
+    "lon": -0.884934
+  },
+  "77567227210503": {
+    "address": "VILLA RICHELIEU RUE PHILIPPE VINCENT, 17000 LA ROCHELLE",
+    "lat": 46.154063,
+    "lon": -1.174172
+  },
+  "77568873200194": {
+    "address": "14 RUE DE MANAKARA, 79200 PARTHENAY",
+    "lat": 46.640092,
+    "lon": -0.246794
+  },
+  "77568873209039": {
+    "address": "10 RUE BARBEDETTE, 17440 AYTRE",
+    "lat": 46.131929,
+    "lon": -1.116362
+  },
+  "77570970201646": {
+    "address": "200 AVENUE SALVADOR ALLENDE, 79000 NIORT",
+    "lat": 46.332157,
+    "lon": -0.485628
+  },
+  "78128494800028": {
+    "address": "AU PAVE, 17210 CHEVANCEAUX",
+    "lat": 45.303743,
+    "lon": -0.233786
+  },
+  "78128906100017": {
+    "address": "17260 CRAVANS",
+    "lat": 45.59269,
+    "lon": -0.713711
+  },
+  "78130874700026": {
+    "address": "22 ROUTE D'ANGOULEME, 17160 MATHA",
+    "lat": 45.867248,
+    "lon": -0.305223
+  },
+  "78130875400014": {
+    "address": "1 AVENUE PAUL MONMOINE, 17160 MATHA",
+    "lat": 45.86678,
+    "lon": -0.32272
+  },
+  "78131825800014": {
+    "address": "LA JALLET 29 RUE DES TILLEULS, 17400 ESSOUVERT",
+    "lat": 45.976061,
+    "lon": -0.513813
+  },
+  "78131963700026": {
+    "address": "21 RUE SAINT JACQUES, 17800 PONS",
+    "lat": 45.580426,
+    "lon": -0.545162
+  },
+  "78132001500030": {
+    "address": "17250 PONT L'ABBE D'ARNOULT",
+    "lat": 45.824143,
+    "lon": -0.868648
+  },
+  "78132004900013": {
+    "address": "6 RUE CLAIRE PERTUS, 17250 PONT-L'ABBE-D'ARNOULT",
+    "lat": 45.829002,
+    "lon": -0.87565
+  },
+  "78132691300014": {
+    "address": "5 AVENUE DE LA FOSSE AUX MATS, 17300 ROCHEFORT",
+    "lat": 45.929287,
+    "lon": -0.956165
+  },
+  "78134323100200": {
+    "address": "493 AVENUE DE PARIS, 79000 NIORT",
+    "lat": 46.337572,
+    "lon": -0.418777
+  },
+  "78134323100234": {
+    "address": "1 PUYRAVEAU, 79220 CHAMPDENIERS",
+    "lat": 46.472355,
+    "lon": -0.375128
+  },
+  "78134340500069": {
+    "address": "1 RUE ANITA CONTI, 17180 PERIGNY",
+    "lat": 46.166642,
+    "lon": -1.102246
+  },
+  "78134340500077": {
+    "address": "11 RUE AMBROISE PARE, 17100 SAINTES",
+    "lat": 45.74709,
+    "lon": -0.650696
+  },
+  "78134354600045": {
+    "address": "BP, 50306 1 RUE TOUFAIRE 17300 ROCHEFORT",
+    "lat": 45.940395,
+    "lon": -0.958436
+  },
+  "78134357900020": {
+    "address": "LES REAUX, 17440 AYTRE",
+    "lat": 46.132095,
+    "lon": -1.111894
+  },
+  "78134357900046": {
+    "address": "LA VIGERIE, 17350 SAINT-SAVINIEN",
+    "lat": 45.901527,
+    "lon": -0.718216
+  },
+  "78134357900129": {
+    "address": "36 ROUTE DE JONZAC, 17240 SAINT-GENIS-DE-SAINTONGE",
+    "lat": 45.477291,
+    "lon": -0.564147
+  },
+  "78134357900178": {
+    "address": "MARLONGES NORD 4 RUE DU MARAIS, 17290 CHAMBON",
+    "lat": 46.118969,
+    "lon": -0.862933
+  },
+  "78134357900244": {
+    "address": "LD LA RICHARDIERE, 17350 SAINT-SAVINIEN",
+    "lat": 45.884347,
+    "lon": -0.663745
+  },
+  "78134357900251": {
+    "address": "LD LA RICHARDIERE, 17350 SAINT-SAVINIEN",
+    "lat": 45.884347,
+    "lon": -0.663745
+  },
+  "78134357900269": {
+    "address": "17240 SAINT-GENIS-DE-SAINTONGE",
+    "lat": 45.480255,
+    "lon": -0.566556
+  },
+  "78134357900343": {
+    "address": "58 RUE SADI CARNOT, 17500 JONZAC",
+    "lat": 45.445973,
+    "lon": -0.43281
+  },
+  "78134357900376": {
+    "address": "BP 14 6 RUE DE L'ACADIE, 17500 JONZAC",
+    "lat": 45.451546,
+    "lon": -0.442543
+  },
+  "78134357900483": {
+    "address": "ZI NORD 46 B ROUTE DE SAINT GENIS, 17500 SAINT-GERMAIN-DE-LUSIGNAN",
+    "lat": 45.450394,
+    "lon": -0.472789
+  },
+  "78134357900491": {
+    "address": "IME LES BOUCHOLEURS 40 AVENUE DE L'ABBE GUICHARD, 17340 CHATELAILLON-PLAGE",
+    "lat": 46.055258,
+    "lon": -1.087528
+  },
+  "78134357900517": {
+    "address": "FOYER LES TOURNESOLS 3 RUE DU MARECHAL JUIN, 17780 SOUBISE",
+    "lat": 45.924749,
+    "lon": -1.012207
+  },
+  "78134357900533": {
+    "address": "ZA LA BOBINERIE IME LES COTEAUX RUE DE LA ROUE, 17810 SAINT-GEORGES-DES-COTEAUX",
+    "lat": 45.751616,
+    "lon": -0.66803
+  },
+  "78134357900566": {
+    "address": "4 RUE HENRI LE CHATELIER, 17180 PERIGNY",
+    "lat": 46.167536,
+    "lon": -1.100376
+  },
+  "78134357900624": {
+    "address": "12 ROUTE DE COUX, 17530 ARVERT",
+    "lat": 45.761797,
+    "lon": -1.120697
+  },
+  "78134367800335": {
+    "address": "18 RUE DU VALPASTOUR, 17220 SAINT-MEDARD-D'AUNIS",
+    "lat": 46.1567,
+    "lon": -0.975252
+  },
+  "78134367800368": {
+    "address": "EHPAD CHAMP DES NOYERS 10 RUE DES BARAQUES, 17540 SAINT-SAUVEUR-D'AUNIS",
+    "lat": 46.213604,
+    "lon": -0.884577
+  },
+  "78134367800376": {
+    "address": "11 CHAUSSEE DU CALVAIRE, 17400 SAINT-JEAN-D'ANGELY",
+    "lat": 45.945445,
+    "lon": -0.525942
+  },
+  "78134367800384": {
+    "address": "7 RUE SAINTE CECILE, 17139 DOMPIERRE-SUR-MER",
+    "lat": 46.190283,
+    "lon": -1.076611
+  },
+  "78135487300015": {
+    "address": "2 PETITE RUE DU PORT, 17650 SAINT-DENIS-D'OLERON",
+    "lat": 46.032956,
+    "lon": -1.377549
+  },
+  "78135594600018": {
+    "address": "1 ROUTE DE MARENNES, 17250 SAINTE-GEMME",
+    "lat": 45.749991,
+    "lon": -0.909333
+  },
+  "78135632400017": {
+    "address": "15 AVENUE DE SAINTES, 17240 SAINT-GENIS-DE-SAINTONGE",
+    "lat": 45.483115,
+    "lon": -0.567426
+  },
+  "78136153000012": {
+    "address": "2 RUE DE ROIFFE, 17700 SAINT-PIERRE-LA-NOUE",
+    "lat": 46.076908,
+    "lon": -0.796219
+  },
+  "78136551500019": {
+    "address": "80 RUE GAMBETTA, 17400 SAINT-JEAN-D'ANGELY",
+    "lat": 45.94599,
+    "lon": -0.524594
+  },
+  "78140214400013": {
+    "address": "3 RUE DES HALLES, 79600 AIRVAULT",
+    "lat": 46.82568,
+    "lon": -0.140706
+  },
+  "78140392800018": {
+    "address": "14 RUE DE LA BIBLIOTHEQUE, 79150 ARGENTONNAY",
+    "lat": 46.984189,
+    "lon": -0.446359
+  },
+  "78140447000010": {
+    "address": "RUE PICHAULT DE LA MARTINIERE, 79290 LORETZ-D'ARGENTON",
+    "lat": 47.041684,
+    "lon": -0.262092
+  },
+  "78140726700025": {
+    "address": "3 PLACE DE L'EGLISE, 79160 BECELEUF",
+    "lat": 46.470525,
+    "lon": -0.507835
+  },
+  "78140766300017": {
+    "address": "50 RUE DE LA PAIX, 79150 ARGENTONNAY",
+    "lat": 46.982838,
+    "lon": -0.463193
+  },
+  "78140836400011": {
+    "address": "1 LIEU DIT LE TERRA, 79290 VAL EN VIGNES",
+    "lat": 47.051911,
+    "lon": -0.300109
+  },
+  "78141158200013": {
+    "address": "9 RUE DES SARRASINS, 79300 BRESSUIRE",
+    "lat": 46.821872,
+    "lon": -0.419822
+  },
+  "78141299400019": {
+    "address": "4 RUE DE LA FONTAINE, 79300 BRESSUIRE",
+    "lat": 46.830032,
+    "lon": -0.489824
+  },
+  "78141304200016": {
+    "address": "26 B RTE DE BRESSUIRE, 79300 BRESSUIRE",
+    "lat": 46.837647,
+    "lon": -0.549452
+  },
+  "78141307500024": {
+    "address": "NOIRTERRE 4 ALLEE DES JARDINS DE L'ECOLE, 79300 BRESSUIRE",
+    "lat": 46.868069,
+    "lon": -0.38947
+  },
+  "78141311700016": {
+    "address": "36 RUE DE LA GRANGE, 79300 BRESSUIRE",
+    "lat": 46.837558,
+    "lon": -0.48477
+  },
+  "78141312500019": {
+    "address": "22 RUE DE LA BARITAUDERIE, 79300 BRESSUIRE",
+    "lat": 46.838815,
+    "lon": -0.475844
+  },
+  "78141384400015": {
+    "address": "4 RUE DU DOCTEUR BRILLAUD, 79300 BRESSUIRE",
+    "lat": 46.837015,
+    "lon": -0.489278
+  },
+  "78141384400023": {
+    "address": "23 PLACE SAINT JEAN, 79300 BRESSUIRE",
+    "lat": 46.841857,
+    "lon": -0.494109
+  },
+  "78141808200017": {
+    "address": "MAISON DE RETRAITE LD PUYRAVEAU, 79220 CHAMPDENIERS",
+    "lat": 46.472321,
+    "lon": -0.376352
+  },
+  "78142157300028": {
+    "address": "26 RUE BUISSONNIERE, 79700 MAULEON",
+    "lat": 46.916727,
+    "lon": -0.711675
+  },
+  "78142216700010": {
+    "address": "27 RUE SAINTE ANNE, 79700 MAULEON",
+    "lat": 46.926086,
+    "lon": -0.752051
+  },
+  "78142222500016": {
+    "address": "MOULINS 76 RUE DES MEUNIERS, 79700 MAULEON",
+    "lat": 46.953998,
+    "lon": -0.795474
+  },
+  "78142229000010": {
+    "address": "5 RUE DE LA SAGESSE, 79700 MAULEON",
+    "lat": 46.922038,
+    "lon": -0.752244
+  },
+  "78142250600019": {
+    "address": "RUE DE LA ROCHEJAQUELEIN, 79700 MAULEON",
+    "lat": 46.940145,
+    "lon": -0.690264
+  },
+  "78142253000027": {
+    "address": "2 RUE SAINT-GABRIEL, 79700 MAULEON",
+    "lat": 46.920762,
+    "lon": -0.754292
+  },
+  "78142290200028": {
+    "address": "4 AV SAINT EXUPERY, 79200 CHATILLON-SUR-THOUET",
+    "lat": 46.660712,
+    "lon": -0.234268
+  },
+  "78143546600011": {
+    "address": "RUE DE LA COMMANDERIE, 79200 GOURGE",
+    "lat": 46.72697,
+    "lon": -0.168291
+  },
+  "78144036700014": {
+    "address": "ROUTE D'USSEAU, 79210 MAUZE-SUR-LE-MIGNON",
+    "lat": 46.193632,
+    "lon": -0.66426
+  },
+  "78144401300010": {
+    "address": "1 AV DU GENERALE DE GAULLE, 79240 MONCOUTANT-SUR-SEVRE",
+    "lat": 46.7204,
+    "lon": -0.590123
+  },
+  "78145251100814": {
+    "address": "1 RUE JACQUES VANDIER, 79000 NIORT",
+    "lat": 46.309551,
+    "lon": -0.48129
+  },
+  "78145392300208": {
+    "address": "114 AVENUE DE LIMOGES, 79000 NIORT",
+    "lat": 46.318254,
+    "lon": -0.440055
+  },
+  "78145392300240": {
+    "address": "LA MAISONNEE DE JERICHO 4 RUE CLAUDE MASSE, 17000 LA ROCHELLE",
+    "lat": 46.163015,
+    "lon": -1.160676
+  },
+  "78145678500026": {
+    "address": "FV BRESSUIRE 13 LIEU DIT LA BASSE METAIRIE, 79300 BRESSUIRE",
+    "lat": 46.860491,
+    "lon": -0.42813
+  },
+  "78145678500042": {
+    "address": "ADAPEI 79 - ESAT D'AIFFRES IMPASSE DE LA JAMINE, 79230 AIFFRES",
+    "lat": 46.291804,
+    "lon": -0.40951
+  },
+  "78145678500059": {
+    "address": "RTE DE VRINES RUE DES PAPILLONS BLANCS, 79100 THOUARS",
+    "lat": 46.988866,
+    "lon": -0.229785
+  },
+  "78145678500067": {
+    "address": "48 ROUTE DU PONT SOUTAIN, 79200 POMPAIRE",
+    "lat": 46.627362,
+    "lon": -0.259827
+  },
+  "78145678500083": {
+    "address": "BP 44 IMPASSE DES HARDILLIERS, 79300 BRESSUIRE",
+    "lat": 46.842939,
+    "lon": -0.495577
+  },
+  "78145678500091": {
+    "address": "STE PEZENNE 35 RUE DU COTEAU SAINT-HUBERT, 79000 NIORT",
+    "lat": 46.341951,
+    "lon": -0.479753
+  },
+  "78145678500125": {
+    "address": "ADAPEI 79 - ESAT DE POMPOIS 13 RUE DE LA GOSSELINIERE - LD POMPOIS, 79100 SAINTE-VERGE",
+    "lat": 47.012931,
+    "lon": -0.247807
+  },
+  "78145678500133": {
+    "address": "79200 LA PEYRATTE",
+    "lat": 46.665742,
+    "lon": -0.156067
+  },
+  "78145678500158": {
+    "address": "RTE DE PARTHENAY ZI RUE GEORGES CLEMENCEAU, 79400 SAINT-MAIXENT-L'ECOLE",
+    "lat": 46.415821,
+    "lon": -0.206327
+  },
+  "78145678500174": {
+    "address": "ADAPEI 79 - MAS/FAM DE CHAURAY 60 RUE VICTOR, 79180 CHAURAY",
+    "lat": 46.360039,
+    "lon": -0.382032
+  },
+  "78145678500190": {
+    "address": "ADAPEI 79 - ESAT DE MELLE RUE DE LA CHAGNEE, 79500 MELLE",
+    "lat": 46.227716,
+    "lon": -0.151877
+  },
+  "78145678500208": {
+    "address": "ROUTE DE SERZAY, 79160 COULONGES-SUR-L'AUTIZE",
+    "lat": 46.478217,
+    "lon": -0.606221
+  },
+  "78145678500240": {
+    "address": "SAINT MARTIN LES MELLE RTE DE LA MOTHE ST HERAY, 79500 MELLE",
+    "lat": 46.226413,
+    "lon": -0.154815
+  },
+  "78145678500257": {
+    "address": "RESIDENCE  LES VIGNES 73 CHEMIN DE CHAUSSERAIE, 79250 NUEIL-LES-AUBIERS",
+    "lat": 46.960149,
+    "lon": -0.591225
+  },
+  "78145678500323": {
+    "address": "RUE RAOUL FOLLEREAU, 79200 POMPAIRE",
+    "lat": 46.637076,
+    "lon": -0.240959
+  },
+  "78145678500364": {
+    "address": "5 RUE DES JONCHERES, 79500 MELLE",
+    "lat": 46.230896,
+    "lon": -0.135151
+  },
+  "78145678500372": {
+    "address": "ADAPEI 79-HABITAT VIE SOCIALE AIFFRES IMPASSE DE LA JAMINE, 79230 AIFFRES",
+    "lat": 46.291804,
+    "lon": -0.40951
+  },
+  "78145678500398": {
+    "address": "ADAPEI 79-HABITAT VIE SOCIALE DE MELLE RUE DE LA CHAGNEE, 79500 MELLE",
+    "lat": 46.227716,
+    "lon": -0.151877
+  },
+  "78145678500414": {
+    "address": "ADAPEI 79 - LES ATELIERS BRESSUIRAIS 85 BOULEVARD DE THOUARS, 79300 BRESSUIRE",
+    "lat": 46.850489,
+    "lon": -0.465628
+  },
+  "78145678500422": {
+    "address": "ADAPEI 79-ATELIERS DE LA BRESSANDIERE 1 IMP NEDES, 79200 CHATILLON-SUR-THOUET",
+    "lat": 46.671911,
+    "lon": -0.255143
+  },
+  "78145678500448": {
+    "address": "ADAPEI79-HABITAT VIE SOCIALE LE TALLUD RTE D'ALLONNE, 79200 LE TALLUD",
+    "lat": null,
+    "lon": null
+  },
+  "78145678500455": {
+    "address": "ADAPEI 79 - HVS THOUARS 3 ALLEE PAUL CEZANNE, 79100 THOUARS",
+    "lat": 46.993968,
+    "lon": -0.211127
+  },
+  "78145678500463": {
+    "address": "1 PLACE DES PASSEREAUX, 79320 MONCOUTANT-SUR-SEVRE",
+    "lat": 46.723154,
+    "lon": -0.595842
+  },
+  "78145971400130": {
+    "address": "8 RUE AIME BONPLAND, 79000 NIORT",
+    "lat": 46.338072,
+    "lon": -0.400106
+  },
+  "78146720400017": {
+    "address": "4 RUE DE L ECOLE, 79700 LA PETITE-BOISSIERE",
+    "lat": 46.882915,
+    "lon": -0.743045
+  },
+  "78147265900015": {
+    "address": "79500 MARCILLE",
+    "lat": 46.188728,
+    "lon": -0.128032
+  },
+  "78147307900015": {
+    "address": "RTE DE CLAVE, 79400 SAINT-GEORGES-DE-NOISNE",
+    "lat": 46.477215,
+    "lon": -0.253398
+  },
+  "78147574400020": {
+    "address": "2 RTE DE LA CAPE, 79600 SAINT LOUP LAMAIRE",
+    "lat": 46.783459,
+    "lon": -0.163763
+  },
+  "78147768200012": {
+    "address": "25 RUE JEAN JAURES, 79400 SAINT-MAIXENT-L'ECOLE",
+    "lat": 46.411696,
+    "lon": -0.20818
+  },
+  "78147768200020": {
+    "address": "17 RUE ANATOLE FRANCE, 79400 SAINT-MAIXENT-L'ECOLE",
+    "lat": 46.410312,
+    "lon": -0.206024
+  },
+  "78148025600028": {
+    "address": "12 RUE DU CALVAIRE, 79700 SAINT-PIERRE-DES-ECHAUBROGNES",
+    "lat": 46.98957,
+    "lon": -0.744943
+  },
+  "78148515600017": {
+    "address": "FRECUL FRECUL, 79130 SECONDIGNY",
+    "lat": 46.604613,
+    "lon": -0.400343
+  },
+  "78149077600015": {
+    "address": "1 RUE JULES MICHELET, 79100 THOUARS",
+    "lat": 46.978551,
+    "lon": -0.210029
+  },
+  "78184263800137": {
+    "address": "RESIDENCE LA GUYARDERIE LA GUYARDERIE, 17100 SAINTES",
+    "lat": 45.756074,
+    "lon": -0.64514
+  },
+  "78436145300029": {
+    "address": "1 B BD PINEAU, 17370 SAINT-TROJAN-LES-BAINS",
+    "lat": 45.828968,
+    "lon": -1.199628
+  },
+  "78436145300037": {
+    "address": "PAVILLON 3 1 BOULEVARD DU DOCTEUR PINEAU, 17370 SAINT-TROJAN-LES-BAINS",
+    "lat": 45.829571,
+    "lon": -1.199661
+  },
+  "78436145300086": {
+    "address": "LE DOMAINE DU GRAND PRE 21 RUE DES ECOLES, 17600 CORME-ROYAL",
+    "lat": 45.744516,
+    "lon": -0.81317
+  },
+  "78436145300102": {
+    "address": "RUE DU TREUIL BOIS, 17320 SAINT-JUST-LUZAC",
+    "lat": 45.79967,
+    "lon": -1.038528
+  },
+  "78436145300110": {
+    "address": "2 RUE ETIENNE TETAUD, 17560 BOURCEFRANC-LE-CHAPUS",
+    "lat": 45.848699,
+    "lon": -1.154872
+  },
+  "78990436400021": {
+    "address": "15 RUE DE SAINTONGE, 17220 SAINTE-SOULLE",
+    "lat": 46.189057,
+    "lon": -1.0113
+  },
+  "80764364800015": {
+    "address": "ZI DE LA METAIRIE 5 ALLEE DE LA BARATTE, 17700 SURGERES",
+    "lat": 46.105876,
+    "lon": -0.772375
+  },
+  "80967416100033": {
+    "address": "LD LES PIERRIERES, 17400 SAINT JULIEN DE L'ESCAP",
+    "lat": 45.931429,
+    "lon": -0.486169
+  },
+  "81177830700017": {
+    "address": "15 RUE ANDRE GALLE, 79000 NIORT",
+    "lat": 46.305304,
+    "lon": -0.4414
+  },
+  "81374248300031": {
+    "address": "79036 NIORT CEDEX 9 ROUTE DE CHAURAY, 79000 NIORT",
+    "lat": 46.335,
+    "lon": -0.428701
+  },
+  "81778665000017": {
+    "address": "ZAC LES FIEFS DE VILLENEUVE 17 RUE GASPARD MONGE, 17000 LA ROCHELLE",
+    "lat": 46.153703,
+    "lon": -1.118745
+  },
+  "81778665000025": {
+    "address": "ZAC LES FIEFS DE VILLENEUVE 15 RUE GASPARD MONGE, 17000 LA ROCHELLE",
+    "lat": 46.153754,
+    "lon": -1.118628
+  },
+  "82112647100019": {
+    "address": "43 RUE DE LA REPUBLIQUE, 17460 THENAC",
+    "lat": 45.662646,
+    "lon": -0.651525
+  },
+  "82972174500026": {
+    "address": "MAISON DE RETRAITE SPECIALISEE 9 RUE SAINTE CECILE, 17139 DOMPIERRE-SUR-MER",
+    "lat": 46.190472,
+    "lon": -1.077349
+  },
+  "83140484300037": {
+    "address": "49 RUE DU STADE, 17000 LA ROCHELLE",
+    "lat": 46.160886,
+    "lon": -1.181012
+  },
+  "83216113700027": {
+    "address": "26 RUE DES ERONNELLES, 17620 ECHILLAIS",
+    "lat": 45.900364,
+    "lon": -0.959779
+  },
+  "83920751100024": {
+    "address": "21 AVENUE DENFERT ROCHEREAU, 17000 LA ROCHELLE",
+    "lat": 46.165401,
+    "lon": -1.189489
+  },
+  "84379587300010": {
+    "address": "ECOLE PUBLIQUE, 79600 LOUIN",
+    "lat": 46.80306,
+    "lon": -0.160592
+  },
+  "84411843000025": {
+    "address": "FORT DES SAUMONARDS, 17190 SAINT GEORGES D'OLERON",
+    "lat": 45.975942,
+    "lon": -1.241149
+  },
+  "84953307000017": {
+    "address": "61 ROUTE DU VANNEAU, 79210 ARCAIS",
+    "lat": 46.29698,
+    "lon": -0.677954
+  },
+  "85240678400060": {
+    "address": "2 RUE DE LA REPUBLIQUE, 17137 L'HOUMEAU",
+    "lat": 46.195571,
+    "lon": -1.186206
+  },
+  "87926750800023": {
+    "address": "4 RUE ALFRED KASTLER, 17000 LA ROCHELLE",
+    "lat": 46.139836,
+    "lon": -1.159018
+  },
+  "88131505500015": {
+    "address": "21 PLACE CHARLES DE GAULLE, 17138 PUILBOREAU",
+    "lat": 46.186095,
+    "lon": -1.117102
+  },
+  "88185296600012": {
+    "address": "LYCEE EMILE COMBES 9 RUE DES CORDELIERS, 17800 PONS",
+    "lat": 45.578046,
+    "lon": -0.550341
+  },
+  "88431182000010": {
+    "address": "60 B AVENUE EDMOND GRASSET, 17440 AYTRE",
+    "lat": 46.132317,
+    "lon": -1.11065
+  },
+  "88875175700020": {
+    "address": "ZA BEAUSSAIS 7 RUE VASCO DE GAMA, 79260 LA CRECHE",
+    "lat": 46.351067,
+    "lon": -0.343741
+  },
+  "88875175700038": {
+    "address": "ZA LES GRANGES 28 RUE D'HORSHAM, 79400 SAINT-MAIXENT-L'ECOLE",
+    "lat": 46.420184,
+    "lon": -0.205401
+  },
+  "90018967100028": {
+    "address": "FERME DE MAGNE 1 ROUTE DE MARENNES, 17250 SAINTE-GEMME",
+    "lat": 45.749991,
+    "lon": -0.909333
+  },
+  "91221131500011": {
+    "address": "42 LA TOUZETTERIE, 17400 ASNIERES-LA-GIRAUD",
+    "lat": 45.913329,
+    "lon": -0.507332
+  },
+  "92167478400019": {
+    "address": "49 RUE DU FIEF D'AMOURETTE, 79000 NIORT",
+    "lat": 46.333089,
+    "lon": -0.422377
+  },
+  "92167478400027": {
+    "address": "3 RUE DE L'ANGELIQUE, 79000 BESSINES",
+    "lat": 46.298909,
+    "lon": -0.493677
+  },
+  "92195048100025": {
+    "address": "122 RUE SAMUEL CHAMPLAIN, 17600 LE GUA",
+    "lat": 45.731163,
+    "lon": -0.955188
+  },
+  "92203150500022": {
+    "address": "USINE DE MELLE 1 AV CAIL SAINT LEGER DE LA MARTINIER, 79500 MELLE",
+    "lat": 46.219895,
+    "lon": -0.134234
+  },
+  "92531862800037": {
+    "address": "6 RUE DE BONIFAUT, 17310 SAINT-PIERRE-D'OLERON",
+    "lat": 45.947403,
+    "lon": -1.30543
+  },
+  "92865366600018": {
+    "address": "7 ROUTE DE PORT-D'ENVAUX, 17100 SAINTES",
+    "lat": 45.764451,
+    "lon": -0.641468
+  },
+  "93185064800011": {
+    "address": "19 RUE D'HORSHAM, 79400 SAINT-MAIXENT-L'ECOLE",
+    "lat": 46.420967,
+    "lon": -0.206532
+  },
+  "93377164400020": {
+    "address": "7 ALLEE DES ECUREUILS, 17220 SAINTE-SOULLE",
+    "lat": 46.201461,
+    "lon": -1.029404
+  },
+  "93515238900018": {
+    "address": "20 RUE DE LA DORDOUILLE, 17510 NERE",
+    "lat": 45.972513,
+    "lon": -0.235308
+  },
+  "93827774600013": {
+    "address": "6 BOULEVARD VLADIMIR, 17100 SAINTES",
+    "lat": 45.755879,
+    "lon": -0.653188
+  },
+  "93909505500025": {
+    "address": "29 RUE ALBIN DELAGE, 17100 SAINTES",
+    "lat": 45.749614,
+    "lon": -0.637434
+  },
+  "95106590300019": {
+    "address": "ZONE ARTISANALE 5 ROUTE DE LA BROUSSE, 17120 GREZAC",
+    "lat": 45.586979,
+    "lon": -0.851328
+  },
+  "95163675200028": {
+    "address": "12 RUE DU GRAND FIEF, 17100 LES GONDS",
+    "lat": 45.712687,
+    "lon": -0.630441
+  },
+  "95401575600024": {
+    "address": "20 CHEMIN DE LA GELOUSIERE, 79220 SAINT-CHRISTOPHE-SUR-ROC",
+    "lat": 46.445076,
+    "lon": -0.349418
+  },
+  "97929116800024": {
+    "address": "4 RUE DES ECUREUILS, 17138 SAINT-XANDRE",
+    "lat": 46.208633,
+    "lon": -1.102107
+  },
+  "97942068400016": {
+    "address": "3 RUE DES RENARDS, 17139 DOMPIERRE-SUR-MER",
+    "lat": 46.19444,
+    "lon": -1.05876
+  }
+}

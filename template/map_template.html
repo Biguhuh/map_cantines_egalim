@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cantines &amp; EGALIM — Charente-Maritime (17) &amp; Deux-Sèvres (79)</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"></script>
+
+<style>
+  :root{--bg:#0f172a;--panel:#111c34;--panel2:#16233f;--ink:#e6edf7;--muted:#9fb0c9;--accent:#38bdf8;--line:#24344f;}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;font-family:"Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+  #app{display:grid;grid-template-columns:350px 1fr;grid-template-rows:1fr auto;height:100vh}
+  #sidebar{grid-row:1/3;background:var(--panel);border-right:1px solid var(--line);overflow-y:auto;padding:18px}
+  #mapwrap{grid-row:1/2;position:relative}
+  #map{position:absolute;inset:0}
+  footer{grid-column:2/3;background:var(--panel);border-top:1px solid var(--line);padding:8px 16px;font-size:11.5px;color:var(--muted);font-style:italic}
+  h1{font-size:17px;margin:0 0 2px}
+  .sub{font-size:12px;color:var(--muted);margin-bottom:16px}
+  .card{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:14px}
+  .card h2{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);margin:0 0 8px}
+  label.file{display:block;border:1px dashed #3a4d70;border-radius:8px;padding:10px;text-align:center;cursor:pointer;font-size:12.5px;color:var(--muted);margin-bottom:8px;transition:.15s}
+  label.file:hover{border-color:var(--accent);color:var(--ink);background:#0e1a30}
+  label.file.loaded{border-color:#1a9850;color:#cdeccf;border-style:solid}
+  input[type=file]{display:none}
+  .row{display:flex;align-items:center;gap:8px;font-size:13px;margin:6px 0}
+  select,button,input[type=text]{background:#0e1a30;color:var(--ink);border:1px solid var(--line);border-radius:7px;padding:7px 9px;font-size:13px;width:100%}
+  button{cursor:pointer;font-weight:600}
+  button:hover{border-color:var(--accent)}
+  button.ghost{background:transparent}
+  .switch{display:flex;align-items:center;gap:8px;font-size:13px;margin:5px 0}
+  .switch input{width:16px;height:16px;accent-color:var(--accent)}
+  .legend-item{display:flex;align-items:center;gap:8px;font-size:12px;margin:4px 0}
+  .dot{width:14px;height:14px;border-radius:50%;border:1px solid rgba(255,255,255,.4);flex:none}
+  .stat{display:flex;justify-content:space-between;font-size:13px;padding:3px 0;border-bottom:1px dotted var(--line)}
+  .stat b{color:var(--accent)}
+  .hint{font-size:11px;color:var(--muted);line-height:1.5}
+  .hint a{color:var(--accent)}
+  #status{font-size:12px;color:var(--muted);min-height:16px;margin-top:6px}
+  .tdlist{font-size:11.5px;color:#cdeccf;margin-top:4px}
+  .tdlist span{display:inline-block;background:#0e2a1a;border:1px solid #1a5a35;border-radius:20px;padding:1px 8px;margin:2px 3px 0 0}
+  /* barre de recherche flottante & déplaçable */
+  #searchBox{position:absolute;top:12px;left:12px;z-index:1000;width:340px;max-width:75%;
+             background:rgba(17,28,52,.97);border:1px solid var(--line);border-radius:10px;box-shadow:0 4px 18px rgba(0,0,0,.4)}
+  #dragHandle{display:flex;align-items:center;gap:8px;cursor:grab;padding:7px 10px;border-bottom:1px solid var(--line);
+              font-size:12px;color:var(--muted);user-select:none;border-radius:10px 10px 0 0;background:#0e1a30}
+  #dragHandle:active{cursor:grabbing}
+  #dragHandle .grip{letter-spacing:2px;color:#4a5f85}
+  #searchBody{padding:8px}
+  #searchBody .row{margin:0}
+  #searchInput{flex:1}
+  #searchBtn{width:auto;padding:7px 12px}
+  #searchHits{margin-top:6px;max-height:230px;overflow:auto;display:none}
+  .hit{padding:6px 8px;border-radius:6px;font-size:12.5px;cursor:pointer;border-bottom:1px solid #1c2b47}
+  .hit:hover{background:#0e1a30}
+  .hit .k{font-size:10px;color:var(--accent);text-transform:uppercase;margin-right:6px}
+  .hit small{color:var(--muted)}
+  /* popup au survol : grand cadre confortable */
+  .leaflet-popup-content{font-size:13px;line-height:1.5;margin:12px 16px;min-width:240px}
+  .leaflet-popup-content-wrapper{border-radius:12px}
+  .leaflet-popup-content b{color:#0b3d91;font-size:14px}
+  .pill{display:inline-block;background:#eef;border-radius:20px;padding:1px 8px;font-size:11px;color:#334}
+  .badge{font-weight:700}
+  /* Fenêtre de comparaison */
+  #cmpModal{position:fixed;inset:0;background:rgba(4,9,18,.66);display:none;align-items:center;justify-content:center;z-index:3000}
+  #cmpModal.open{display:flex}
+  #cmpBox{width:min(940px,94vw);max-height:88vh;overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:0 16px 50px rgba(0,0,0,.55);padding:18px}
+  .cmpHead{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .cmpTabs{display:flex;gap:8px;margin:6px 0 12px}
+  .cmpTab{width:auto;padding:7px 12px;background:#0e1a30;border:1px solid var(--line);border-radius:7px;color:var(--ink);cursor:pointer;font-weight:600}
+  .cmpTab.active{border-color:var(--accent);color:var(--accent)}
+  table.cmp{width:100%;border-collapse:collapse;font-size:12.5px}
+  table.cmp th,table.cmp td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+  table.cmp th{position:sticky;top:0;background:var(--panel2);cursor:pointer;user-select:none;color:var(--muted);white-space:nowrap}
+  table.cmp th.num,table.cmp td.num{text-align:right}
+  table.cmp tr:hover td{background:#0e1a30}
+  .bar{height:8px;border-radius:5px;background:#0e2440;overflow:hidden;width:90px;display:inline-block;vertical-align:middle;margin-right:6px}
+  .bar>i{display:block;height:100%}
+  .mut{color:var(--muted)}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <aside id="sidebar">
+    <h1>🍽️ Cantines &amp; EGALIM</h1>
+    <div class="sub">Charente-Maritime (17) &amp; Deux-Sèvres (79)</div>
+
+    <div class="card">
+      <h2>1 · Données intégrées</h2>
+      <div class="hint" style="margin-bottom:6px">✅ <b>__CANTINES_COUNT__ cantines</b> géolocalisées (positions immuables).</div>
+      <div class="hint" style="margin-bottom:8px">✅ <b>Données EGALIM __YEARS_RANGE__</b> intégrées (télédéclarations). Choisis l'année dans « Affichage » ci-dessous.</div>
+      <div class="tdlist" id="tdlist"></div>
+      <details style="margin-top:8px">
+        <summary class="hint" style="cursor:pointer;color:var(--accent)">➕ Ajouter d'autres années (optionnel)</summary>
+        <label class="file" id="lblTd" style="margin-top:8px">
+          <input type="file" id="fileTd" accept=".csv,.tsv,.txt" multiple />
+          📊 Glisser un/des CSV de télédéclaration<br><small>(fusion auto par SIRET)</small>
+        </label>
+      </details>
+      <div class="hint" style="margin-top:6px">
+        Source : <a href="https://www.data.gouv.fr/datasets/resultats-de-campagnes-de-teledeclaration-des-cantines" target="_blank">Télédéclaration EGALIM</a> (data.gouv.fr).
+      </div>
+      <div id="status"></div>
+    </div>
+
+    <div class="card">
+      <h2>2 · Affichage</h2>
+      <div class="switch"><input type="checkbox" id="tog17" checked><label for="tog17">Charente-Maritime (17)</label></div>
+      <div class="switch"><input type="checkbox" id="tog79" checked><label for="tog79">Deux-Sèvres (79)</label></div>
+      <div class="row" style="margin-top:10px">
+        <span style="flex:none;color:var(--muted)">Colorer par&nbsp;:</span>
+        <select id="colorBy">
+          <option value="none">Type de cuisine</option>
+          <option value="bio">% Bio (EGALIM)</option>
+          <option value="egalim">% Durable &amp; qualité (EGALIM)</option>
+        </select>
+      </div>
+      <div class="row">
+        <span style="flex:none;color:var(--muted)">Année EGALIM&nbsp;:</span>
+        <select id="yearSel"><option value="">— (charger une télédéclaration)</option></select>
+      </div>
+      <div class="row">
+        <span style="flex:none;color:var(--muted)">Établissement&nbsp;:</span>
+        <select id="etabFilter">
+          <option value="all">Tous types</option>
+          <option value="college">Collèges (gérés par le Département)</option>
+          <option value="ecole">Écoles (gérées par la comm. de communes)</option>
+          <option value="creche">Crèches (gérées par la comm. de communes)</option>
+        </select>
+      </div>
+      <div class="switch" style="margin-top:8px"><input type="checkbox" id="togCluster" checked><label for="togCluster">Regrouper les points (cluster)</label></div>
+    </div>
+
+    <div class="card"><h2>Légende</h2><div id="legend"></div></div>
+    <div class="card"><h2>3 · Statistiques</h2><div id="stats"></div></div>
+    <button id="btnCmp" style="margin-bottom:10px">⚖️ Comparer les structures gérantes</button>
+    <button class="ghost" id="btnFit">🎯 Recentrer sur 17 &amp; 79</button>
+  </aside>
+
+  <div id="mapwrap">
+    <div id="map"></div>
+    <div id="searchBox">
+      <div id="dragHandle"><span class="grip">⠿⠿</span> 🔎 Recherche <small style="margin-left:auto;opacity:.7">(déplaçable)</small></div>
+      <div id="searchBody">
+        <div class="row">
+          <input type="text" id="searchInput" placeholder="Commune ou nom de cantine…" list="dl" autocomplete="off"/>
+          <button id="searchBtn">Aller</button>
+        </div>
+        <datalist id="dl"></datalist>
+        <div id="searchHits"></div>
+      </div>
+    </div>
+  </div>
+  <footer>Cantines géolocalisées (registre + SIRENE) · Données EGALIM 2021-2024 (télédéclarations). Données mises à jour le __GENERATED_AT__. Support réalisé avec l'aide d'une IA générative ; les analyses, interprétations et décisions relèvent de l'auteur.</footer>
+</div>
+
+<div id="cmpModal">
+  <div id="cmpBox">
+    <div class="cmpHead">
+      <h2 style="margin:0;color:var(--accent)">⚖️ Comparaison des structures gérantes</h2>
+      <button id="cmpClose" class="ghost" style="width:auto;padding:6px 12px">✕ Fermer</button>
+    </div>
+    <div class="hint" style="margin:8px 0 4px">Collèges → gérés par le <b>Département</b> · Écoles &amp; crèches → gérées par la <b>communauté de communes (EPCI)</b>. Moyennes EGALIM (bio &amp; durable/qualité) calculées sur l'année <b><span id="cmpYear"></span></b>.</div>
+    <div class="cmpTabs">
+      <button class="cmpTab active" data-tab="struct">Structures entre elles</button>
+      <button class="cmpTab" data-tab="within">Cantines d'une même structure</button>
+    </div>
+    <div id="cmpStruct" class="cmpPane">
+      <div class="row" style="margin-bottom:8px">
+        <span style="flex:none;color:var(--muted)">Périmètre&nbsp;:</span>
+        <select id="cmpScope" style="max-width:320px">
+          <option value="all">Toutes les structures</option>
+          <option value="dep">Départements (collèges)</option>
+          <option value="epci">Communautés de communes (écoles &amp; crèches)</option>
+        </select>
+      </div>
+      <div id="cmpStructTable"></div>
+    </div>
+    <div id="cmpWithin" class="cmpPane" style="display:none">
+      <div class="row" style="margin-bottom:8px">
+        <span style="flex:none;color:var(--muted)">Structure&nbsp;:</span>
+        <select id="cmpStructSel" style="max-width:460px"></select>
+      </div>
+      <div id="cmpWithinTable"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ===== Données cantines EMBARQUÉES (immuables) ===== */
+const CANTINES = __CANTINES_JSON__;
+/* ===== Données EGALIM 2021-2024 EMBARQUÉES (télédéclarations) ===== */
+const TD_EMBED = __TD_EMBED_JSON__;
+
+const EPCI_BY_INSEE=__EPCI_JSON__;
+
+const DEPT_GEST={"17":"Département de la Charente-Maritime","79":"Département des Deux-Sèvres"};
+const ETAB_LABEL={college:"Collège",ecole:"École",creche:"Crèche"};
+function classifyEtab(s){s=s||"";if(s.indexOf("Secondaire collège")>=0)return "college";if(s.indexOf("Crèche")>=0)return "creche";if(s.indexOf("Ecole primaire")>=0)return "ecole";return null;}
+function gestionnaireFor(rec){
+  const t=classifyEtab(rec.sector);
+  if(!t)return null;
+  if(t==="college")return {key:"DEP-"+rec.dept,name:DEPT_GEST[rec.dept]||("Département "+rec.dept),kind:"Département",scope:"les collèges",etab:"college"};
+  const epci=EPCI_BY_INSEE[rec.ins]||("Communauté non identifiée ("+rec.dept+")");
+  return {key:"EPCI-"+epci,name:epci,kind:"Communauté de communes",scope:"les écoles & crèches",etab:"ecole_creche"};
+}
+let STRUCT={};
+function buildStructures(){
+  STRUCT={};
+  currentMarkers.forEach(r=>{
+    if(!r.gest)return;
+    const k=r.gest.key;
+    const S=STRUCT[k]||(STRUCT[k]={key:k,name:r.gest.name,kind:r.gest.kind,scope:r.gest.scope,dept:r.dept,etab:r.gest.etab,recs:[],bio:[],eg:[]});
+    S.recs.push(r);
+    if(r.bio!=null)S.bio.push(r.bio);
+    if(r.egalim!=null)S.eg.push(r.egalim);
+  });
+  Object.values(STRUCT).forEach(S=>{
+    S.avgBio=S.bio.length?S.bio.reduce((a,b)=>a+b,0)/S.bio.length:null;
+    S.avgEg=S.eg.length?S.eg.reduce((a,b)=>a+b,0)/S.eg.length:null;
+    S.nData=Math.max(S.bio.length,S.eg.length);
+    S.nTot=S.recs.length;
+  });
+  currentMarkers.forEach(r=>{
+    if(!r.gest)return;
+    const S=STRUCT[r.gest.key];
+    r._structAvg={avgBio:S.avgBio,avgEg:S.avgEg,nData:S.nData,nTot:S.nTot};
+  });
+}
+
+const DEPTS=["17","79"];
+const map=L.map('map',{preferCanvas:true}).setView([46.1,-0.6],8);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(map);
+
+let deptLayer=L.geoJSON(null,{style:{color:'#38bdf8',weight:2,fill:false,dashArray:'4 3'}}).addTo(map);
+let clusterGroup=L.markerClusterGroup({showCoverageOnHover:false,maxClusterRadius:45});
+let plainGroup=L.layerGroup();
+let currentMarkers=[];
+let communeInfo={};          // codeINSEE -> {ll:[lat,lon], nom}
+let tdByYear={};             // year -> {siret -> {bio,egalim}}
+let loadedTdFiles=[];
+let markersBounds=null;      // pour le bouton Recentrer (robuste)
+
+/* ---------- Contours + centres/nom des communes ---------- */
+async function loadContours(){
+  for(const d of DEPTS){try{const r=await fetch(`https://geo.api.gouv.fr/departements/${d}?geometry=contour&format=geojson`);deptLayer.addData(await r.json());}catch(e){}}
+}
+async function loadCommunes(){
+  for(const d of DEPTS){
+    try{
+      const r=await fetch(`https://geo.api.gouv.fr/departements/${d}/communes?fields=centre,nom&format=json`);
+      (await r.json()).forEach(c=>{if(c.centre&&c.centre.coordinates)communeInfo[c.code]={ll:[c.centre.coordinates[1],c.centre.coordinates[0]],nom:c.nom};});
+    }catch(e){}
+  }
+  buildDatalist();
+  // replace les 8 cantines sans coords sur le centre de commune, si dispo
+  let fixed=0;
+  currentMarkers.forEach((r,i)=>{
+    if(!r.exact && r.ins && communeInfo[r.ins]){
+      const j=jitter(r.siret,i);const ll=[communeInfo[r.ins].ll[0]+j[0],communeInfo[r.ins].ll[1]+j[1]];
+      r.lat=ll[0];r.lon=ll[1];r.marker.setLatLng(ll);fixed++;
+    }
+  });
+  computeBounds();
+}
+
+/* ---------- Utils ---------- */
+function num(v){if(v==null||v==="")return null;let s=(""+v).replace(/\s/g,'').replace('%','').replace(',','.');const n=parseFloat(s);return isNaN(n)?null:n;}
+function digits(v){return (v==null?'':(""+v)).replace(/\D/g,'');}
+function jitter(siret,idx){let h=0,s=(siret||'')+'#'+idx;for(let i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))>>>0;const a=(h%1000)/1000*2*Math.PI,r=((h>>>10)%1000)/1000*0.011;return [Math.sin(a)*r,Math.cos(a)*r*1.4];}
+function findKey(fields,patterns){const low=fields.map(f=>({raw:f,l:f.toLowerCase()}));for(const p of patterns){const h=low.find(f=>p.every(t=>f.l.includes(t)));if(h)return h.raw;}return null;}
+function parseCSV(f){return new Promise((res,rej)=>Papa.parse(f,{header:true,skipEmptyLines:true,complete:r=>res(r.data),error:rej}));}
+function detectYear(name,rows,fields){const kY=findKey(fields,[['annee','teled'],['ann\u00e9e'],['annee'],['year'],['campagne']]);if(kY){const v=rows.map(r=>digits(r[kY])).filter(x=>/^20\d{2}$/.test(x));if(v.length)return{perRowKey:kY};}const m=(name||'').match(/20\d{2}/);return{fixed:m?m[0]:'n/a'};}
+function normalize(s){return (s||'').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();}
+
+/* ---------- Types de cuisine (minuscules dans les données) ---------- */
+const TYPE_LABEL={site:'Cuisine sur place',site_cooked_elsewhere:'Satellite (repas livré)',central:'Cuisine centrale',central_serving:'Centrale + convives'};
+const TYPE_COLOR={site:'#1a9850',site_cooked_elsewhere:'#38bdf8',central:'#fc8d59',central_serving:'#b17ad6'};
+function ratioColor(v){if(v==null)return'#8b98ad';if(v>=40)return'#1a9850';if(v>=30)return'#a6d96a';if(v>=20)return'#fee08b';if(v>=10)return'#fc8d59';return'#d73027';}
+
+/* ---------- Construction des marqueurs depuis les données embarquées ---------- */
+function buildMarkers(){
+  clusterGroup.clearLayers();plainGroup.clearLayers();currentMarkers=[];
+  let exact=0;
+  CANTINES.forEach((c,i)=>{
+    let lat=c.lat,lon=c.lon,isExact=(lat!=null&&lon!=null);
+    if(isExact)exact++;
+    if(lat==null){ // placé plus tard via commune ; en attendant, centre approx du dép.
+      const base=c.d==='17'?[45.75,-0.9]:[46.4,-0.4];const j=jitter(c.si,i);lat=base[0]+j[0];lon=base[1]+j[1];
+    }
+    const rec={dept:c.d,lat,lon,exact:isExact,ins:c.ins,siret:digits(c.si),
+      name:c.n,city:c.c,cp:c.cp,addr:c.a,type:(c.t||''),sector:c.s||'',
+      mt:c.mt||'',em:c.em||'',ym:c.ym||'',dm:c.dm||'',bio:null,egalim:null};
+    const m=L.circleMarker([lat,lon],{radius:6,weight:1,color:'#0b1220',fillOpacity:.9});
+    rec.etab=classifyEtab(rec.sector);
+    rec.gest=gestionnaireFor(rec);
+    rec.marker=m;currentMarkers.push(rec);
+  });
+  applyEgalimToMarkers();applyColors();applyFilters();updateStats();updateLegend();buildDatalist();computeBounds();
+  setStatus(`✅ ${currentMarkers.length.toLocaleString('fr')} cantines · ${exact.toLocaleString('fr')} géolocalisées précisément 🎯`);
+}
+
+function computeBounds(){
+  const pts=currentMarkers.map(r=>[r.lat,r.lon]).filter(p=>isFinite(p[0])&&isFinite(p[1]));
+  if(pts.length)markersBounds=L.latLngBounds(pts);
+  recenter(); // premier cadrage
+}
+function recenter(){
+  // priorité aux contours ; repli sur les points ; garde-fou final
+  try{const b=deptLayer.getBounds();if(b&&b.isValid()){map.fitBounds(b,{padding:[25,25]});return;}}catch(e){}
+  if(markersBounds&&markersBounds.isValid()){map.fitBounds(markersBounds,{padding:[25,25]});return;}
+  map.setView([46.1,-0.6],8);
+}
+
+/* popup (au survol) — grand cadre, contenu riche ; PLUS de popup au clic */
+function contentHTML(r,year){
+  const bio=r.bio!=null?`<span class="badge">${r.bio.toFixed(0)}%</span> bio`:'—';
+  const eg=r.egalim!=null?`<span class="badge">${r.egalim.toFixed(0)}%</span> durable & qualité`:'—';
+  const loc=r.exact?'🎯 position exacte':'≈ centre commune';
+  const repas=r.ym?`<br>🍽️ ${(+r.ym).toLocaleString('fr')} repas/an${r.dm?` (${(+r.dm).toLocaleString('fr')}/jour)`:''}`:'';
+  const gest=[r.em&&({public:'public',private:'privé'}[r.em]||r.em),r.mt&&({direct:'gestion directe',conceded:'gestion concédée'}[r.mt]||r.mt)].filter(Boolean).join(' · ');
+  const g=r.gest, sa=r._structAvg||{};
+  const gestBloc = g ? `<div style="margin-top:7px;padding-top:6px;border-top:1px solid #e2e6ee">🏛️ <b>${g.name}</b><br><span style="font-size:11px;color:#556">${g.kind} · gère ${g.scope}</span><br><span style="font-size:12px">📊 Moyenne structure${year?` (${year})`:''} : <b>${sa.avgBio!=null?sa.avgBio.toFixed(0)+'%':'—'}</b> bio · <b>${sa.avgEg!=null?sa.avgEg.toFixed(0)+'%':'—'}</b> durable <span style="opacity:.7">(${sa.nData||0}/${sa.nTot||0} cantines)</span></span></div>` : '';
+  return `<b>${r.name}</b><br>
+    ${r.addr?('🏠 '+r.addr+'<br>'):''}
+    ${r.city?('📍 '+r.city+' '):''}<span class="pill">Dép. ${r.dept}</span><br>
+    ${r.type?('🍳 '+(TYPE_LABEL[r.type]||r.type)+'<br>'):''}
+    ${r.sector?('🏷️ '+r.sector+'<br>'):''}
+    ${gest?('🏛️ '+gest):''}${repas}
+    <div style="margin-top:6px">🌱 ${bio}<br>♻️ ${eg}${year?` <span class="pill">${year}</span>`:''}</div>
+    ${gestBloc}
+    <div style="margin-top:5px;font-size:11px;opacity:.7">${loc}</div>`;
+}
+function applyEgalimToMarkers(){
+  const year=document.getElementById('yearSel').value;
+  const idx=year&&tdByYear[year]?tdByYear[year]:null;
+  currentMarkers.forEach(r=>{const td=idx&&r.siret?idx[r.siret]:null;r.bio=td?td.bio:null;r.egalim=td?td.egalim:null;});
+  buildStructures();
+  currentMarkers.forEach(r=>{
+    const html=contentHTML(r,year);
+    if(!r.marker.getPopup())
+      r.marker.bindPopup(html,{maxWidth:360,minWidth:250,autoPan:false,closeButton:false});
+    else r.marker.setPopupContent(html);
+  });
+  bindHover();
+}
+/* ouvre le popup au survol (remplace l'ancienne tooltip) et le referme en douceur */
+let _closeTimer=null;
+function bindHover(){
+  currentMarkers.forEach(r=>{
+    const m=r.marker;
+    if(m._hoverBound)return;m._hoverBound=true;
+    m.on('mouseover',function(){clearTimeout(_closeTimer);this.openPopup();});
+    m.on('mouseout',function(){const mk=this;_closeTimer=setTimeout(()=>mk.closePopup(),220);});
+  });
+}
+
+function colorFor(m,mode){if(mode==='bio')return ratioColor(m.bio);if(mode==='egalim')return ratioColor(m.egalim);return TYPE_COLOR[m.type]||'#8b98ad';}
+function applyColors(){const mode=document.getElementById('colorBy').value;currentMarkers.forEach(r=>r.marker.setStyle({fillColor:colorFor(r,mode)}));}
+function applyFilters(){
+  const on17=document.getElementById('tog17').checked,on79=document.getElementById('tog79').checked,useCl=document.getElementById('togCluster').checked;
+  const ef=document.getElementById('etabFilter').value;
+  clusterGroup.clearLayers();plainGroup.clearLayers();map.removeLayer(clusterGroup);map.removeLayer(plainGroup);
+  const tgt=useCl?clusterGroup:plainGroup;
+  currentMarkers.forEach(r=>{
+    const deptOk=(r.dept==='17'&&on17)||(r.dept==='79'&&on79);
+    const etabOk=(ef==='all')||(r.etab===ef);
+    if(deptOk&&etabOk)tgt.addLayer(r.marker);
+  });
+  tgt.addTo(map);
+}
+
+/* ---------- Télédéclarations multi-fichiers ---------- */
+function egalimExtractor(fields){
+  const kBioR=findKey(fields,[['ratio','bio'],['bio','pourcent'],['part','bio'],['taux','bio'],['bio','%']]);
+  const kEgR =findKey(fields,[['ratio','egalim'],['ratio','durable'],['part','durable'],['taux','egalim'],['durable','pourcent']]);
+  const kTot =findKey(fields,[['value','total','ht'],['valeur','total'],['total','ht'],['montant','total']]);
+  const kBioA=findKey(fields,[['value','bio','ht'],['valeur','bio'],['montant','bio'],['bio','ht']]);
+  const kEgA =findKey(fields,[['value','egalim'],['valeur','egalim'],['value','durable'],['valeur','durable'],['egalim','ht']]);
+  return row=>{let bio=num(row[kBioR]),eg=num(row[kEgR]);if(bio!=null&&bio<=1.0001)bio*=100;if(eg!=null&&eg<=1.0001)eg*=100;
+    if((bio==null||eg==null)&&kTot){const t=num(row[kTot]);if(t&&t>0){if(bio==null&&kBioA){const a=num(row[kBioA]);if(a!=null)bio=a/t*100;}if(eg==null&&kEgA){const a=num(row[kEgA]);if(a!=null)eg=a/t*100;}}}
+    return{bio,egalim:eg};};
+}
+document.getElementById('fileTd').addEventListener('change',async e=>{
+  const files=[...e.target.files];if(!files.length)return;
+  for(const f of files){
+    setStatus('Lecture : '+f.name+' …');const rows=await parseCSV(f);if(!rows.length)continue;
+    const fields=Object.keys(rows[0]);const kSiret=findKey(fields,[['siret'],['siren']]);const yr=detectYear(f.name,rows,fields);const ex=egalimExtractor(fields);let n=0;
+    for(const row of rows){const s=digits(row[kSiret]);if(!s)continue;let y=yr.perRowKey?digits(row[yr.perRowKey]):yr.fixed;if(!/^20\d{2}$/.test(y))y=yr.fixed||'n/a';const{bio,egalim}=ex(row);if(bio==null&&egalim==null)continue;(tdByYear[y]=tdByYear[y]||{})[s]={bio,egalim};n++;}
+    loadedTdFiles.push(`${f.name} → ${yr.perRowKey?'multi-années':yr.fixed} (${n})`);
+  }
+  refreshYearSelector();renderTdList();markLoaded('lblTd',`✔ ${Object.keys(tdByYear).filter(y=>y!=='n/a').length||loadedTdFiles.length} campagne(s)`);
+  applyEgalimToMarkers();applyColors();updateStats();updateLegend();e.target.value='';
+});
+function renderTdList(){
+  const embed=Object.keys(tdByYear).filter(y=>/^20\d{2}$/.test(y)).sort()
+    .map(y=>`<span>EGALIM ${y} (${Object.keys(tdByYear[y]).length})</span>`);
+  const extra=loadedTdFiles.map(t=>`<span style="background:#0e2440;border-color:#1a3a6a">${t}</span>`);
+  document.getElementById('tdlist').innerHTML=embed.concat(extra).join('');
+}
+/* charge les données EGALIM 2021-2024 embarquées dans tdByYear */
+function loadEmbeddedTd(){
+  Object.entries(TD_EMBED).forEach(([y,obj])=>{
+    const d={};
+    Object.entries(obj).forEach(([s,a])=>{d[s]={bio:a[0],egalim:a[1]};});
+    tdByYear[y]=d;
+  });
+  refreshYearSelector();
+  renderTdList();
+}
+function refreshYearSelector(){const years=Object.keys(tdByYear).filter(y=>/^20\d{2}$/.test(y)).sort();const sel=document.getElementById('yearSel');const prev=sel.value;sel.innerHTML=years.length?years.map(y=>`<option value="${y}">${y}</option>`).join(''):'<option value="">— (charger une télédéclaration)</option>';sel.value=years.includes(prev)?prev:(years[years.length-1]||'');}
+
+/* ---------- Légende & stats ---------- */
+function updateLegend(){
+  const mode=document.getElementById('colorBy').value,el=document.getElementById('legend');
+  if(mode==='none')el.innerHTML=Object.entries(TYPE_LABEL).map(([k,v])=>`<div class="legend-item"><span class="dot" style="background:${TYPE_COLOR[k]}"></span>${v}</div>`).join('')+`<div class="legend-item"><span class="dot" style="background:#8b98ad"></span>Autre / inconnu</div>`;
+  else{const label=mode==='bio'?'% Bio':'% Durable & qualité';const rows=[['≥ 40 %','#1a9850'],['30–40 %','#a6d96a'],['20–30 %','#fee08b'],['10–20 %','#fc8d59'],['< 10 %','#d73027'],['Non déclaré','#8b98ad']];el.innerHTML=`<div class="hint" style="margin-bottom:6px">${label}</div>`+rows.map(([t,c])=>`<div class="legend-item"><span class="dot" style="background:${c}"></span>${t}</div>`).join('');}
+}
+function updateStats(){
+  const year=document.getElementById('yearSel').value;const s={17:{n:0,bio:[],eg:[],ex:0},79:{n:0,bio:[],eg:[],ex:0}};
+  currentMarkers.forEach(r=>{s[r.dept].n++;if(r.exact)s[r.dept].ex++;if(r.bio!=null)s[r.dept].bio.push(r.bio);if(r.egalim!=null)s[r.dept].eg.push(r.egalim);});
+  const avg=a=>a.length?(a.reduce((x,y)=>x+y,0)/a.length).toFixed(1)+'%':'—';
+  const block=(d,l)=>`<div style="margin-bottom:8px"><div style="font-weight:700;color:var(--accent)">${l}</div>
+     <div class="stat"><span>Cantines</span><b>${s[d].n.toLocaleString('fr')}</b></div>
+     <div class="stat"><span>Géolocalisées 🎯</span><b>${s[d].ex.toLocaleString('fr')}</b></div>
+     <div class="stat"><span>Bio moyen${year?' ('+year+')':''}</span><b>${avg(s[d].bio)}</b></div>
+     <div class="stat"><span>Durable moyen${year?' ('+year+')':''}</span><b>${avg(s[d].eg)}</b></div>
+     <div class="stat"><span>Sites télédéclarés</span><b>${s[d].bio.length||s[d].eg.length}</b></div></div>`;
+  document.getElementById('stats').innerHTML=block('17','Charente-Maritime (17)')+block('79','Deux-Sèvres (79)');
+}
+
+/* ---------- Recherche commune / cantine ---------- */
+function buildDatalist(){
+  const dl=document.getElementById('dl');const set=new Set();
+  Object.values(communeInfo).forEach(c=>set.add(c.nom));
+  currentMarkers.forEach(r=>{if(r.name)set.add(r.name);});
+  dl.innerHTML=[...set].slice(0,2500).map(v=>`<option value="${v.replace(/"/g,'')}">`).join('');
+}
+function doSearch(){
+  const q=normalize(document.getElementById('searchInput').value);const box=document.getElementById('searchHits');
+  if(!q){box.style.display='none';return;}
+  const hits=[];
+  Object.entries(communeInfo).forEach(([code,c])=>{if(normalize(c.nom).includes(q))hits.push({kind:'Commune',label:c.nom,sub:'INSEE '+code,ll:c.ll,zoom:13});});
+  currentMarkers.forEach(r=>{if(normalize(r.name).includes(q)||normalize(r.city).includes(q))hits.push({kind:'Cantine',label:r.name,sub:(r.city||'')+' · '+r.dept,ll:[r.lat,r.lon],zoom:16,marker:r.marker});});
+  hits.sort((a,b)=>normalize(a.label).indexOf(q)-normalize(b.label).indexOf(q));
+  const top=hits.slice(0,30);
+  if(!top.length){box.innerHTML='<div class="hit"><small>Aucun résultat.</small></div>';box.style.display='block';return;}
+  box.innerHTML=top.map((h,i)=>`<div class="hit" data-i="${i}"><span class="k">${h.kind}</span>${h.label} <small>${h.sub}</small></div>`).join('');
+  box.style.display='block';
+  [...box.querySelectorAll('.hit')].forEach(el=>{const i=+el.dataset.i;if(isNaN(i))return;el.onclick=()=>goTo(top[i]);});
+  if(top.length)goTo(top[0]);
+}
+function goTo(h){
+  map.setView(h.ll,h.zoom,{animate:true});
+  if(h.marker){if(clusterGroup.hasLayer(h.marker)){clusterGroup.zoomToShowLayer(h.marker,()=>h.marker.openPopup());}else{h.marker.openPopup();}}
+}
+document.getElementById('searchBtn').addEventListener('click',doSearch);
+document.getElementById('searchInput').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();doSearch();}});
+
+/* ---------- Barre de recherche DÉPLAÇABLE ---------- */
+(function makeDraggable(){
+  const box=document.getElementById('searchBox'),handle=document.getElementById('dragHandle');
+  // empêche la carte de capter les clics/scroll sur la boîte
+  L.DomEvent.disableClickPropagation(box);L.DomEvent.disableScrollPropagation(box);
+  let drag=false,offX=0,offY=0;
+  handle.addEventListener('pointerdown',e=>{
+    drag=true;box.style.right='auto';const r=box.getBoundingClientRect(),p=box.parentElement.getBoundingClientRect();
+    offX=e.clientX-r.left;offY=e.clientY-r.top;handle.setPointerCapture(e.pointerId);e.preventDefault();
+  });
+  handle.addEventListener('pointermove',e=>{
+    if(!drag)return;const p=box.parentElement.getBoundingClientRect();
+    let x=e.clientX-p.left-offX,y=e.clientY-p.top-offY;
+    x=Math.max(0,Math.min(x,p.width-box.offsetWidth));y=Math.max(0,Math.min(y,p.height-box.offsetHeight));
+    box.style.left=x+'px';box.style.top=y+'px';
+  });
+  handle.addEventListener('pointerup',e=>{drag=false;try{handle.releasePointerCapture(e.pointerId);}catch(_){}}); 
+})();
+
+/* ---------- Events ---------- */
+['tog17','tog79','togCluster','etabFilter'].forEach(id=>document.getElementById(id).addEventListener('change',applyFilters));
+document.getElementById('colorBy').addEventListener('change',()=>{applyColors();updateLegend();});
+document.getElementById('yearSel').addEventListener('change',()=>{applyEgalimToMarkers();applyColors();updateStats();if(document.getElementById('cmpModal').classList.contains('open')){document.getElementById('cmpYear').textContent=document.getElementById('yearSel').value||'—';renderCmpStruct();fillStructSel();}});
+document.getElementById('btnFit').addEventListener('click',recenter);
+function setStatus(t){document.getElementById('status').textContent=t;}
+function markLoaded(id,t){const el=document.getElementById(id);el.classList.add('loaded');el.innerHTML=t;}
+
+/* ---------- Fenêtre de comparaison des structures gérantes ---------- */
+let cmpSort={key:'name',dir:1};
+function structList(scope){
+  let arr=Object.values(STRUCT);
+  if(scope==='dep')arr=arr.filter(S=>S.etab==='college');
+  else if(scope==='epci')arr=arr.filter(S=>S.etab==='ecole_creche');
+  return arr;
+}
+function barHTML(v,color){if(v==null)return '<span class="mut">—</span>';const w=Math.max(3,Math.min(100,v));return `<span class="bar"><i style="width:${w}%;background:${color}"></i></span>${v.toFixed(0)}%`;}
+function renderCmpStruct(){
+  const scope=document.getElementById('cmpScope').value;
+  let arr=structList(scope);
+  const k=cmpSort.key,dir=cmpSort.dir;
+  arr.sort((a,b)=>{
+    if(k==='name')return dir*a.name.localeCompare(b.name);
+    if(k==='kind')return dir*a.kind.localeCompare(b.kind);
+    let va,vb;
+    if(k==='n'){va=a.nTot;vb=b.nTot;}
+    else if(k==='bio'){va=a.avgBio==null?-1:a.avgBio;vb=b.avgBio==null?-1:b.avgBio;}
+    else {va=a.avgEg==null?-1:a.avgEg;vb=b.avgEg==null?-1:b.avgEg;}
+    return dir*(va-vb);
+  });
+  const ar=kk=>cmpSort.key===kk?(cmpSort.dir>0?' ▲':' ▼'):'';
+  let h=`<table class="cmp"><thead><tr>
+    <th data-k="name">Structure gérante${ar('name')}</th>
+    <th data-k="kind">Type${ar('kind')}</th>
+    <th class="num" data-k="n">Cantines${ar('n')}</th>
+    <th class="num" data-k="bio">Bio moyen${ar('bio')}</th>
+    <th class="num" data-k="eg">Durable moyen${ar('eg')}</th></tr></thead><tbody>`;
+  arr.forEach(S=>{h+=`<tr><td>${S.name}</td><td class="mut">${S.kind}</td><td class="num">${S.nData}/${S.nTot}</td><td class="num">${barHTML(S.avgBio,'#1a9850')}</td><td class="num">${barHTML(S.avgEg,'#38bdf8')}</td></tr>`;});
+  if(!arr.length)h+='<tr><td colspan="5" class="mut">Aucune structure sur ce périmètre.</td></tr>';
+  h+='</tbody></table>';
+  document.getElementById('cmpStructTable').innerHTML=h;
+  document.querySelectorAll('#cmpStructTable th[data-k]').forEach(th=>th.onclick=()=>{const kk=th.dataset.k;if(cmpSort.key===kk)cmpSort.dir*=-1;else cmpSort={key:kk,dir:(kk==='name'||kk==='kind')?1:-1};renderCmpStruct();});
+}
+function fillStructSel(){
+  const sel=document.getElementById('cmpStructSel');
+  const prev=sel.value;
+  const arr=Object.values(STRUCT).sort((a,b)=>a.name.localeCompare(b.name));
+  sel.innerHTML=arr.map(S=>`<option value="${S.key}">${S.name} — ${S.kind} (${S.nTot})</option>`).join('');
+  if(prev&&STRUCT[prev])sel.value=prev;
+  renderCmpWithin();
+}
+function renderCmpWithin(){
+  const key=document.getElementById('cmpStructSel').value;const S=STRUCT[key];
+  const box=document.getElementById('cmpWithinTable');
+  if(!S){box.innerHTML='<div class="mut">—</div>';return;}
+  const recs=S.recs.slice().sort((a,b)=>{const va=a.bio==null?-1:a.bio,vb=b.bio==null?-1:b.bio;return vb-va;});
+  let h=`<div class="hint" style="margin-bottom:8px">Moyenne de référence : 🌱 <b>${S.avgBio!=null?S.avgBio.toFixed(0)+'%':'—'}</b> bio · ♻️ <b>${S.avgEg!=null?S.avgEg.toFixed(0)+'%':'—'}</b> durable — ${S.nData}/${S.nTot} cantines déclarées.</div>`;
+  h+=`<table class="cmp"><thead><tr><th>Cantine</th><th>Commune</th><th class="num">Bio</th><th class="num">Durable</th><th class="num">Écart bio / moy.</th></tr></thead><tbody>`;
+  recs.forEach(r=>{
+    const d=(r.bio!=null&&S.avgBio!=null)?(r.bio-S.avgBio):null;
+    const dtxt=d==null?'<span class="mut">—</span>':`<span style="color:${d>=0?'#7ee081':'#f38b8b'}">${d>=0?'+':''}${d.toFixed(0)} pt</span>`;
+    h+=`<tr><td>${r.name}</td><td class="mut">${r.city||''}</td><td class="num">${r.bio!=null?r.bio.toFixed(0)+'%':'<span class=\"mut\">—</span>'}</td><td class="num">${r.egalim!=null?r.egalim.toFixed(0)+'%':'<span class=\"mut\">—</span>'}</td><td class="num">${dtxt}</td></tr>`;
+  });
+  h+='</tbody></table>';
+  box.innerHTML=h;
+}
+function openCmp(){document.getElementById('cmpYear').textContent=document.getElementById('yearSel').value||'—';renderCmpStruct();fillStructSel();document.getElementById('cmpModal').classList.add('open');}
+document.getElementById('btnCmp').addEventListener('click',openCmp);
+document.getElementById('cmpClose').addEventListener('click',()=>document.getElementById('cmpModal').classList.remove('open'));
+document.getElementById('cmpModal').addEventListener('click',e=>{if(e.target.id==='cmpModal')e.target.classList.remove('open');});
+document.getElementById('cmpScope').addEventListener('change',renderCmpStruct);
+document.getElementById('cmpStructSel').addEventListener('change',renderCmpWithin);
+document.querySelectorAll('.cmpTab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.cmpTab').forEach(x=>x.classList.remove('active'));t.classList.add('active');
+  const tab=t.dataset.tab;
+  document.getElementById('cmpStruct').style.display=tab==='struct'?'':'none';
+  document.getElementById('cmpWithin').style.display=tab==='within'?'':'none';
+}));
+
+/* ---------- Démarrage ---------- */
+updateLegend();
+loadEmbeddedTd();                       // données EGALIM 2021-2024 embarquées (défaut = 2024)
+buildMarkers();                         // cantines embarquées -> affichage immédiat + jointure EGALIM
+loadContours().then(recenter);          // contours puis cadrage
+loadCommunes();                         // centres de communes (recherche + repli 8 cantines)
+</script>
+</body>
+</html>

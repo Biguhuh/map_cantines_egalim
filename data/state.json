@@ -1,0 +1,24 @@
+{
+  "registre": {
+    "last_modified": "2026-08-27T23:00:59+00:00",
+    "url": "https://cellar-c2.services.clever-cloud.com/ma-cantine-egalim-prod/media/open_data/registre_cantines.csv?v=202608280101"
+  },
+  "teledeclarations": {
+    "2021": {
+      "last_modified": "2026-02-22T22:00:12+00:00",
+      "url": "https://cellar-c2.services.clever-cloud.com/ma-cantine-egalim-prod/media/open_data/campagne_td_2021.csv?v=20260222"
+    },
+    "2022": {
+      "last_modified": "2026-02-22T22:00:20+00:00",
+      "url": "https://cellar-c2.services.clever-cloud.com/ma-cantine-egalim-prod/media/open_data/campagne_td_2022.csv?v=20260222"
+    },
+    "2023": {
+      "last_modified": "2026-02-22T22:00:34+00:00",
+      "url": "https://cellar-c2.services.clever-cloud.com/ma-cantine-egalim-prod/media/open_data/campagne_td_2023.csv?v=20260222"
+    },
+    "2024": {
+      "last_modified": "2026-02-22T22:01:00+00:00",
+      "url": "https://cellar-c2.services.clever-cloud.com/ma-cantine-egalim-prod/media/open_data/campagne_td_2024.csv?v=20260222"
+    }
+  }
+}
