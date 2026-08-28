@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-<script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"></script>
 
 <style>
   :root{--bg:#0f172a;--panel:#111c34;--panel2:#16233f;--ink:#e6edf7;--muted:#9fb0c9;--accent:#38bdf8;--line:#24344f;}
@@ -25,10 +24,6 @@
   .sub{font-size:12px;color:var(--muted);margin-bottom:16px}
   .card{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:14px}
   .card h2{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);margin:0 0 8px}
-  label.file{display:block;border:1px dashed #3a4d70;border-radius:8px;padding:10px;text-align:center;cursor:pointer;font-size:12.5px;color:var(--muted);margin-bottom:8px;transition:.15s}
-  label.file:hover{border-color:var(--accent);color:var(--ink);background:#0e1a30}
-  label.file.loaded{border-color:#1a9850;color:#cdeccf;border-style:solid}
-  input[type=file]{display:none}
   .row{display:flex;align-items:center;gap:8px;font-size:13px;margin:6px 0}
   select,button,input[type=text]{background:#0e1a30;color:var(--ink);border:1px solid var(--line);border-radius:7px;padding:7px 9px;font-size:13px;width:100%}
   button{cursor:pointer;font-weight:600}
@@ -97,13 +92,6 @@
       <div class="hint" style="margin-bottom:6px">✅ <b>1 108 cantines</b> géolocalisées (positions immuables).</div>
       <div class="hint" style="margin-bottom:8px">✅ <b>Données EGALIM 2021 → 2024</b> intégrées (télédéclarations). Choisis l'année dans « Affichage » ci-dessous.</div>
       <div class="tdlist" id="tdlist"></div>
-      <details style="margin-top:8px">
-        <summary class="hint" style="cursor:pointer;color:var(--accent)">➕ Ajouter d'autres années (optionnel)</summary>
-        <label class="file" id="lblTd" style="margin-top:8px">
-          <input type="file" id="fileTd" accept=".csv,.tsv,.txt" multiple />
-          📊 Glisser un/des CSV de télédéclaration<br><small>(fusion auto par SIRET)</small>
-        </label>
-      </details>
       <div class="hint" style="margin-top:6px">
         Source : <a href="https://www.data.gouv.fr/datasets/resultats-de-campagnes-de-teledeclaration-des-cantines" target="_blank">Télédéclaration EGALIM</a> (data.gouv.fr).
       </div>
@@ -245,7 +233,6 @@ let plainGroup=L.layerGroup();
 let currentMarkers=[];
 let communeInfo={};          // codeINSEE -> {ll:[lat,lon], nom}
 let tdByYear={};             // year -> {siret -> {bio,egalim}}
-let loadedTdFiles=[];
 let markersBounds=null;      // pour le bouton Recentrer (robuste)
 
 /* ---------- Contours + centres/nom des communes ---------- */
@@ -272,12 +259,8 @@ async function loadCommunes(){
 }
 
 /* ---------- Utils ---------- */
-function num(v){if(v==null||v==="")return null;let s=(""+v).replace(/\s/g,'').replace('%','').replace(',','.');const n=parseFloat(s);return isNaN(n)?null:n;}
 function digits(v){return (v==null?'':(""+v)).replace(/\D/g,'');}
 function jitter(siret,idx){let h=0,s=(siret||'')+'#'+idx;for(let i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))>>>0;const a=(h%1000)/1000*2*Math.PI,r=((h>>>10)%1000)/1000*0.011;return [Math.sin(a)*r,Math.cos(a)*r*1.4];}
-function findKey(fields,patterns){const low=fields.map(f=>({raw:f,l:f.toLowerCase()}));for(const p of patterns){const h=low.find(f=>p.every(t=>f.l.includes(t)));if(h)return h.raw;}return null;}
-function parseCSV(f){return new Promise((res,rej)=>Papa.parse(f,{header:true,skipEmptyLines:true,complete:r=>res(r.data),error:rej}));}
-function detectYear(name,rows,fields){const kY=findKey(fields,[['annee','teled'],['ann\u00e9e'],['annee'],['year'],['campagne']]);if(kY){const v=rows.map(r=>digits(r[kY])).filter(x=>/^20\d{2}$/.test(x));if(v.length)return{perRowKey:kY};}const m=(name||'').match(/20\d{2}/);return{fixed:m?m[0]:'n/a'};}
 function normalize(s){return (s||'').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();}
 
 /* ---------- Types de cuisine (minuscules dans les données) ---------- */
@@ -377,35 +360,13 @@ function applyFilters(){
   tgt.addTo(map);
 }
 
-/* ---------- Télédéclarations multi-fichiers ---------- */
-function egalimExtractor(fields){
-  const kBioR=findKey(fields,[['ratio','bio'],['bio','pourcent'],['part','bio'],['taux','bio'],['bio','%']]);
-  const kEgR =findKey(fields,[['ratio','egalim'],['ratio','durable'],['part','durable'],['taux','egalim'],['durable','pourcent']]);
-  const kTot =findKey(fields,[['value','total','ht'],['valeur','total'],['total','ht'],['montant','total']]);
-  const kBioA=findKey(fields,[['value','bio','ht'],['valeur','bio'],['montant','bio'],['bio','ht']]);
-  const kEgA =findKey(fields,[['value','egalim'],['valeur','egalim'],['value','durable'],['valeur','durable'],['egalim','ht']]);
-  return row=>{let bio=num(row[kBioR]),eg=num(row[kEgR]);if(bio!=null&&bio<=1.0001)bio*=100;if(eg!=null&&eg<=1.0001)eg*=100;
-    if((bio==null||eg==null)&&kTot){const t=num(row[kTot]);if(t&&t>0){if(bio==null&&kBioA){const a=num(row[kBioA]);if(a!=null)bio=a/t*100;}if(eg==null&&kEgA){const a=num(row[kEgA]);if(a!=null)eg=a/t*100;}}}
-    return{bio,egalim:eg};};
-}
-document.getElementById('fileTd').addEventListener('change',async e=>{
-  const files=[...e.target.files];if(!files.length)return;
-  for(const f of files){
-    setStatus('Lecture : '+f.name+' …');const rows=await parseCSV(f);if(!rows.length)continue;
-    const fields=Object.keys(rows[0]);const kSiret=findKey(fields,[['siret'],['siren']]);const yr=detectYear(f.name,rows,fields);const ex=egalimExtractor(fields);let n=0;
-    for(const row of rows){const s=digits(row[kSiret]);if(!s)continue;let y=yr.perRowKey?digits(row[yr.perRowKey]):yr.fixed;if(!/^20\d{2}$/.test(y))y=yr.fixed||'n/a';const{bio,egalim}=ex(row);if(bio==null&&egalim==null)continue;(tdByYear[y]=tdByYear[y]||{})[s]={bio,egalim};n++;}
-    loadedTdFiles.push(`${f.name} → ${yr.perRowKey?'multi-années':yr.fixed} (${n})`);
-  }
-  refreshYearSelector();renderTdList();markLoaded('lblTd',`✔ ${Object.keys(tdByYear).filter(y=>y!=='n/a').length||loadedTdFiles.length} campagne(s)`);
-  applyEgalimToMarkers();applyColors();updateStats();updateLegend();e.target.value='';
-});
+/* ---------- Télédéclarations ---------- */
 function renderTdList(){
   const embed=Object.keys(tdByYear).filter(y=>/^20\d{2}$/.test(y)).sort()
     .map(y=>`<span>EGALIM ${y} (${Object.keys(tdByYear[y]).length})</span>`);
-  const extra=loadedTdFiles.map(t=>`<span style="background:#0e2440;border-color:#1a3a6a">${t}</span>`);
-  document.getElementById('tdlist').innerHTML=embed.concat(extra).join('');
+  document.getElementById('tdlist').innerHTML=embed.join('');
 }
-/* charge les données EGALIM 2021-2024 embarquées dans tdByYear */
+/* charge les données EGALIM embarquées dans tdByYear */
 function loadEmbeddedTd(){
   Object.entries(TD_EMBED).forEach(([y,obj])=>{
     const d={};
@@ -415,7 +376,7 @@ function loadEmbeddedTd(){
   refreshYearSelector();
   renderTdList();
 }
-function refreshYearSelector(){const years=Object.keys(tdByYear).filter(y=>/^20\d{2}$/.test(y)).sort();const sel=document.getElementById('yearSel');const prev=sel.value;sel.innerHTML=years.length?years.map(y=>`<option value="${y}">${y}</option>`).join(''):'<option value="">— (charger une télédéclaration)</option>';sel.value=years.includes(prev)?prev:(years[years.length-1]||'');}
+function refreshYearSelector(){const years=Object.keys(tdByYear).filter(y=>/^20\d{2}$/.test(y)).sort();const sel=document.getElementById('yearSel');const prev=sel.value;sel.innerHTML=years.length?years.map(y=>`<option value="${y}">${y}</option>`).join(''):'<option value="">—</option>';sel.value=years.includes(prev)?prev:(years[years.length-1]||'');}
 
 /* ---------- Légende & stats ---------- */
 function updateLegend(){
@@ -489,7 +450,6 @@ document.getElementById('colorBy').addEventListener('change',()=>{applyColors();
 document.getElementById('yearSel').addEventListener('change',()=>{applyEgalimToMarkers();applyColors();updateStats();if(document.getElementById('cmpModal').classList.contains('open')){document.getElementById('cmpYear').textContent=document.getElementById('yearSel').value||'—';renderCmpStruct();fillStructSel();}});
 document.getElementById('btnFit').addEventListener('click',recenter);
 function setStatus(t){document.getElementById('status').textContent=t;}
-function markLoaded(id,t){const el=document.getElementById(id);el.classList.add('loaded');el.innerHTML=t;}
 
 /* ---------- Fenêtre de comparaison des structures gérantes ---------- */
 let cmpSort={key:'name',dir:1};
