@@ -20,6 +20,24 @@
   #mapwrap{grid-row:1/2;position:relative}
   #map{position:absolute;inset:0}
   footer{grid-column:2/3;background:var(--panel);border-top:1px solid var(--line);padding:8px 16px;font-size:11.5px;color:var(--muted);font-style:italic}
+  #sidebarToggle{display:none}
+  #sidebarBackdrop{display:none}
+  @media (max-width:768px){
+    #app{grid-template-columns:1fr}
+    #sidebar{
+      position:fixed;top:0;left:0;bottom:0;width:86vw;max-width:340px;z-index:2000;
+      box-shadow:2px 0 24px rgba(0,0,0,.5);transform:translateX(-100%);transition:transform .25s ease;
+    }
+    #sidebar.open{transform:translateX(0)}
+    #mapwrap{grid-column:1/-1}
+    footer{grid-column:1/-1}
+    #sidebarToggle{
+      display:flex;align-items:center;justify-content:center;position:absolute;top:12px;right:12px;z-index:1500;
+      width:42px;height:42px;border-radius:10px;background:var(--panel);border:1px solid var(--line);
+      color:var(--ink);font-size:19px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.4)
+    }
+    #sidebarBackdrop.open{display:block;position:fixed;inset:0;background:rgba(4,9,18,.55);z-index:1900}
+  }
   h1{font-size:17px;margin:0 0 2px}
   .sub{font-size:12px;color:var(--muted);margin-bottom:16px}
   .card{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:14px}
@@ -112,7 +130,7 @@
       </div>
       <div class="row">
         <span style="flex:none;color:var(--muted)">Année EGALIM&nbsp;:</span>
-        <select id="yearSel"><option value="">— (charger une télédéclaration)</option></select>
+        <select id="yearSel"><option value="">—</option></select>
       </div>
       <div class="row">
         <span style="flex:none;color:var(--muted)">Établissement&nbsp;:</span>
@@ -134,6 +152,7 @@
 
   <div id="mapwrap">
     <div id="map"></div>
+    <button id="sidebarToggle" aria-label="Ouvrir le panneau">☰</button>
     <div id="searchBox">
       <div id="dragHandle"><span class="grip">⠿⠿</span> 🔎 Recherche <small style="margin-left:auto;opacity:.7">(déplaçable)</small></div>
       <div id="searchBody">
@@ -147,6 +166,7 @@
     </div>
   </div>
   <footer>Cantines géolocalisées (registre + SIRENE) · Données EGALIM 2021-2024 (télédéclarations). Données mises à jour le __GENERATED_AT__. Support réalisé avec l'aide d'une IA générative ; les analyses, interprétations et décisions relèvent de l'auteur.</footer>
+  <div id="sidebarBackdrop"></div>
 </div>
 
 <div id="cmpModal">
@@ -450,6 +470,14 @@ document.getElementById('colorBy').addEventListener('change',()=>{applyColors();
 document.getElementById('yearSel').addEventListener('change',()=>{applyEgalimToMarkers();applyColors();updateStats();if(document.getElementById('cmpModal').classList.contains('open')){document.getElementById('cmpYear').textContent=document.getElementById('yearSel').value||'—';renderCmpStruct();fillStructSel();}});
 document.getElementById('btnFit').addEventListener('click',recenter);
 function setStatus(t){document.getElementById('status').textContent=t;}
+
+/* ---------- Tiroir latéral (mobile) ---------- */
+(function(){
+  const sidebar=document.getElementById('sidebar'),toggle=document.getElementById('sidebarToggle'),backdrop=document.getElementById('sidebarBackdrop');
+  const close=()=>{sidebar.classList.remove('open');backdrop.classList.remove('open');};
+  toggle.addEventListener('click',()=>{sidebar.classList.toggle('open');backdrop.classList.toggle('open');});
+  backdrop.addEventListener('click',close);
+})();
 
 /* ---------- Fenêtre de comparaison des structures gérantes ---------- */
 let cmpSort={key:'name',dir:1};
