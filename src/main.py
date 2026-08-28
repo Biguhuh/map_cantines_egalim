@@ -40,7 +40,7 @@ def main():
     print(f"{len(rows)} cantines retenues.")
 
     geocode_cache = geocode.load_cache()
-    geocode.ensure_locations(valid_sirets, geocode_cache)
+    geocode.ensure_locations(rows, geocode_cache)
     geocode.save_cache(geocode_cache)
 
     cantines = build_data.build_cantines(rows, geocode_cache)

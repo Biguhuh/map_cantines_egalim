@@ -323,6 +323,19 @@ function recenter(){
 }
 
 /* popup (au survol) — grand cadre, contenu riche ; PLUS de popup au clic */
+/* liste les valeurs bio/durable des autres années connues, pour voir une tendance sans changer le sélecteur */
+function historyHTML(siret,currentYear){
+  const years=Object.keys(tdByYear).filter(y=>/^20\d{2}$/.test(y)&&y!==currentYear).sort();
+  const rows=years.map(y=>{
+    const td=tdByYear[y][siret];
+    if(!td||(td.bio==null&&td.egalim==null))return null;
+    const b=td.bio!=null?td.bio.toFixed(0)+'%':'—';
+    const e=td.egalim!=null?td.egalim.toFixed(0)+'%':'—';
+    return `<div style="display:flex;justify-content:space-between;gap:10px;padding:1px 0"><span style="opacity:.65">${y}</span><span>🌱 ${b} · ♻️ ${e}</span></div>`;
+  }).filter(Boolean);
+  if(!rows.length)return '';
+  return `<div style="margin-top:6px;padding-top:6px;border-top:1px solid #e2e6ee;font-size:11.5px">📈 <b>Historique</b>${rows.join('')}</div>`;
+}
 function contentHTML(r,year){
   const bio=r.bio!=null?`<span class="badge">${r.bio.toFixed(0)}%</span> bio`:'—';
   const eg=r.egalim!=null?`<span class="badge">${r.egalim.toFixed(0)}%</span> durable & qualité`:'—';
@@ -338,6 +351,7 @@ function contentHTML(r,year){
     ${r.sector?('🏷️ '+r.sector+'<br>'):''}
     ${gest?('🏛️ '+gest):''}${repas}
     <div style="margin-top:6px">🌱 ${bio}<br>♻️ ${eg}${year?` <span class="pill">${year}</span>`:''}</div>
+    ${historyHTML(r.siret,year)}
     ${gestBloc}
     <div style="margin-top:5px;font-size:11px;opacity:.7">${loc}</div>`;
 }

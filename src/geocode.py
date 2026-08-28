@@ -16,6 +16,7 @@ import time
 import requests
 
 from . import config
+from .utils import digits
 
 
 def load_cache():
@@ -61,14 +62,21 @@ def fetch_sirene_address(siret, session):
     return None
 
 
-def geocode_address(address, session):
-    """Retourne (lat, lon) via la BAN, ou (None, None) si pas de résultat fiable."""
+def geocode_address(address, session, citycode=None):
+    """Retourne (lat, lon) via la BAN, ou (None, None) si pas de résultat fiable.
+
+    `citycode` (code INSEE de la commune attendue) est transmis comme filtre dur
+    de l'API, pas comme simple indice de score : sans lui, une adresse mal
+    formée (numéro dupliqué, abréviation SIRENE non standard...) peut matcher
+    en texte libre une rue homonyme dans une tout autre région, avec un score
+    suffisant pour passer le seuil. Avec le filtre, on obtient soit le bon
+    point, soit aucun résultat — jamais un point dans le mauvais département.
+    """
     try:
-        r = session.get(
-            config.BAN_SEARCH_API,
-            params={"q": address, "limit": 1},
-            timeout=config.REQUEST_TIMEOUT,
-        )
+        params = {"q": address, "limit": 1}
+        if citycode:
+            params["citycode"] = citycode
+        r = session.get(config.BAN_SEARCH_API, params=params, timeout=config.REQUEST_TIMEOUT)
         if r.status_code != 200:
             return None, None
         features = r.json().get("features", [])
@@ -83,19 +91,26 @@ def geocode_address(address, session):
         return None, None
 
 
-def ensure_locations(sirets, cache, pause=0.12, log=print):
-    """Complète `cache` (dict SIRET -> {address, lat, lon}) pour les SIRET manquants."""
-    missing = [s for s in sirets if s and s not in cache]
+def ensure_locations(rows, cache, pause=0.12, log=print):
+    """Complète `cache` (dict SIRET -> {address, lat, lon}) pour les cantines manquantes.
+
+    `rows` : lignes du registre déjà filtrées sur les départements ciblés.
+    """
+    missing = {}
+    for row in rows:
+        siret = digits(row.get("siret"))
+        if siret and siret not in cache and siret not in missing:
+            missing[siret] = row.get("city_insee_code")
     if not missing:
         return cache
     log(f"Géolocalisation de {len(missing)} nouvelle(s) cantine(s)…")
     session = requests.Session()
     session.headers["User-Agent"] = "map_cantines_egalim (contact via GitHub repo)"
-    for i, siret in enumerate(missing, 1):
+    for i, (siret, insee) in enumerate(missing.items(), 1):
         address = fetch_sirene_address(siret, session)
         lat = lon = None
         if address:
-            lat, lon = geocode_address(address, session)
+            lat, lon = geocode_address(address, session, citycode=insee)
         cache[siret] = {"address": address, "lat": lat, "lon": lon}
         if i % 50 == 0 or i == len(missing):
             log(f"  … {i}/{len(missing)}")

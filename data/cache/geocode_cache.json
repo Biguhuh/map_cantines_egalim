@@ -351,8 +351,8 @@
   },
   "19171122500018": {
     "address": "21 23 21 AVENUE EMILE ZOLA, 17200 ROYAN",
-    "lat": 48.826238,
-    "lon": 2.238067
+    "lat": null,
+    "lon": null
   },
   "19171159700010": {
     "address": "4 ALLEE DU COLLEGE, 17160 MATHA",
@@ -916,8 +916,8 @@
   },
   "20003647300482": {
     "address": "RUE PKG DE LA GOUTTE DE LAIT, 17100 SAINTES",
-    "lat": 44.280025,
-    "lon": 4.089562
+    "lat": null,
+    "lon": null
   },
   "20003647300490": {
     "address": "17 AVENUE DE BELLEVUE, 17100 SAINTES",
@@ -1151,8 +1151,8 @@
   },
   "20008009100057": {
     "address": "ST-GERMAIN-DE-MARENCENNES RTE DE PERE, 17700 SAINT-PIERRE-LA-NOUE",
-    "lat": 46.065749,
-    "lon": -0.79496
+    "lat": 46.078471,
+    "lon": -0.794467
   },
   "20008132100016": {
     "address": "57 PL CHARLES DE GAULLE, 79290 LORETZ-D'ARGENTON",
@@ -1676,8 +1676,8 @@
   },
   "21170163600014": {
     "address": "2 RUE SAINT LAURENT, 17500 FONTAINES-D'OZILLAC",
-    "lat": 45.385686,
-    "lon": -0.379997
+    "lat": null,
+    "lon": null
   },
   "21170166900015": {
     "address": "9 RUE DE LA MAIRIE, 17290 FORGES",
@@ -2581,8 +2581,8 @@
   },
   "21170449900014": {
     "address": "RUE ALSACE LORRAINE, 17430 TONNAY-CHARENTE",
-    "lat": null,
-    "lon": null
+    "lat": 45.943088,
+    "lon": -0.889603
   },
   "21170449900063": {
     "address": "RUE SALVADOR ALLENDE, 17430 TONNAY-CHARENTE",
@@ -3061,8 +3061,8 @@
   },
   "21790204800016": {
     "address": "7 ROUTE DE BRIOUX, 79170 PERIGNE",
-    "lat": null,
-    "lon": null
+    "lat": 46.186715,
+    "lon": -0.254084
   },
   "21790208900036": {
     "address": "8 RUE DES 4 VENTS, 79200 LA PEYRATTE",
@@ -3871,8 +3871,8 @@
   },
   "30116075000503": {
     "address": "LD LA TOURTILLIERE, 17138 PUILBOREAU",
-    "lat": 46.189026,
-    "lon": -1.100472
+    "lat": 46.180283,
+    "lon": -1.109011
   },
   "30250921100025": {
     "address": "RUE EUGENE MOUSNIER, 17600 SAUJON",
@@ -4276,8 +4276,8 @@
   },
   "40802870200012": {
     "address": "MAIRIE, 79150 VOULMENTIN",
-    "lat": 46.900317,
-    "lon": -0.533324
+    "lat": 46.943628,
+    "lon": -0.514356
   },
   "40851592200024": {
     "address": "1 RUE PASTEUR, 17200 ROYAN",
@@ -4466,8 +4466,8 @@
   },
   "47958893100010": {
     "address": "LES RURALIES CHAMBRE D AGRICULTURE LA PLAINE DE LA COUARDE, 79230 VOUILLE",
-    "lat": 46.299716,
-    "lon": -0.21159
+    "lat": 46.326796,
+    "lon": -0.354967
   },
   "48008096900300": {
     "address": "40 RUE DU VANNEAU, 17170 SAINT-JEAN-DE-LIVERSAY",
@@ -5276,13 +5276,13 @@
   },
   "84953307000017": {
     "address": "61 ROUTE DU VANNEAU, 79210 ARCAIS",
-    "lat": 46.29698,
-    "lon": -0.677954
+    "lat": null,
+    "lon": null
   },
   "85240678400060": {
     "address": "2 RUE DE LA REPUBLIQUE, 17137 L'HOUMEAU",
-    "lat": 46.195571,
-    "lon": -1.186206
+    "lat": null,
+    "lon": null
   },
   "87926750800023": {
     "address": "4 RUE ALFRED KASTLER, 17000 LA ROCHELLE",
@@ -5321,8 +5321,8 @@
   },
   "91221131500011": {
     "address": "42 LA TOUZETTERIE, 17400 ASNIERES-LA-GIRAUD",
-    "lat": 45.913329,
-    "lon": -0.507332
+    "lat": 45.893345,
+    "lon": -0.519467
   },
   "92167478400019": {
     "address": "49 RUE DU FIEF D'AMOURETTE, 79000 NIORT",
