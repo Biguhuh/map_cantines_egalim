@@ -35,6 +35,7 @@ CARTES_URL = "https://biguhuh.github.io/map_cantines_egalim/cartes/"
 # Page de la galerie des cartes, à la racine du site (dépôt Biguhuh.github.io).
 GALLERY_URL = "https://biguhuh.github.io/cartes-egalim.html"
 GALLERY_FILE = config.ROOT.parent / "Biguhuh.github.io" / "cartes-egalim.html"
+DEPT_NAMES = {"17": "Charente-Maritime", "79": "Deux-Sèvres"}
 
 # Objectifs EGALIM pour la restauration collective.
 OBJ_BIO = 20
@@ -364,9 +365,9 @@ def main():
         raise SystemExit(f"Année {annee} absente des données (disponibles : {', '.join(sorted(td))})")
 
     session = requests.Session()
-    codes = epcis_of_departments(config.DEPARTMENTS, session) if args.tous else [args.epci]
+    deps = epcis_of_departments(config.DEPARTMENTS, session) if args.tous else {args.epci: None}
     generated = []
-    for code in codes:
+    for code, dep in deps.items():
         epci = fetch_epci(code, session)
         communes = fetch_communes(code, session)
         results = commune_results(communes, cantines, td[annee])
@@ -380,7 +381,7 @@ def main():
 
         n_with = sum(1 for r in results.values() if r["total"])
         n_decl = sum(1 for r in results.values() if r["declared"])
-        generated.append((epci, out, len(communes), n_with, n_decl))
+        generated.append((epci, dep, out, len(communes), n_with, n_decl))
         print(f"{epci['nom']} ({annee}) : {len(communes)} communes, {n_with} avec cantine, "
               f"{n_decl} avec télédéclaration -> {out}")
 
@@ -393,14 +394,17 @@ def main():
 
 
 def epcis_of_departments(departements, session):
-    """Codes SIREN des intercommunalités ayant au moins une commune dans ces départements."""
-    codes = set()
+    """{code SIREN: département} des intercommunalités ayant au moins une commune dans ces
+    départements. Une intercommunalité à cheval est rangée dans le premier département listé."""
+    deps = {}
     for dep in departements:
         r = session.get(f"{GEO_API}/departements/{dep}/communes", params={"fields": "codeEpci"},
                         timeout=config.REQUEST_TIMEOUT)
         r.raise_for_status()
-        codes.update(c["codeEpci"] for c in r.json() if c.get("codeEpci"))
-    return sorted(codes)
+        for c in r.json():
+            if c.get("codeEpci"):
+                deps.setdefault(c["codeEpci"], dep)
+    return dict(sorted(deps.items()))
 
 
 def render_map_page(epci, annee, svg, svg_name):
@@ -472,15 +476,32 @@ def render_map_page(epci, annee, svg, svg_name):
 
 
 def render_gallery(generated, annee):
-    """Page de la galerie (racine du site) : une vignette cliquable par carte."""
-    items = "\n".join(
-        f'    <a class="card" href="{CARTES_URL}{escape(out.with_suffix(".html").name)}">\n'
-        f'      <img src="{CARTES_URL}{escape(out.name)}" alt="Carte EGALIM {annee} de la {escape(epci["nom"])}" loading="lazy">\n'
-        f'      <h2>{escape(epci["nom"])}</h2>\n'
-        f'      <p>{n_decl} communes déclarées sur {n_with} avec cantine · {n_communes} communes</p>\n'
-        f'    </a>'
-        for epci, out, n_communes, n_with, n_decl in sorted(generated, key=lambda g: g[0]["nom"].replace('"', "").casefold())
-    )
+    """Page de la galerie (racine du site) : un onglet par département, une vignette
+    cliquable par carte."""
+    def card(epci, out, n_communes, n_with, n_decl):
+        return (
+            f'      <a class="card" href="{CARTES_URL}{escape(out.with_suffix(".html").name)}">\n'
+            f'        <img src="{CARTES_URL}{escape(out.name)}" alt="Carte EGALIM {annee} de la {escape(epci["nom"])}" loading="lazy">\n'
+            f'        <h2>{escape(epci["nom"])}</h2>\n'
+            f'        <p>{n_decl} communes déclarées sur {n_with} avec cantine · {n_communes} communes</p>\n'
+            f'      </a>')
+
+    deps = [d for d in config.DEPARTMENTS if any(g[1] == d for g in generated)]
+    tabs, panels = [], []
+    for i, dep in enumerate(deps):
+        name = DEPT_NAMES.get(dep, f"Département {dep}")
+        rows = sorted((g for g in generated if g[1] == dep), key=lambda g: g[0]["nom"].replace('"', "").casefold())
+        tabs.append(
+            f'    <button role="tab" id="tab-{dep}" aria-controls="dep-{dep}" data-dep="{dep}" '
+            f'aria-selected="{"true" if i == 0 else "false"}" tabindex="{0 if i == 0 else -1}">'
+            f'{escape(name)} ({dep}) <span>{len(rows)}</span></button>')
+        cards = "\n".join(card(epci, out, n_c, n_w, n_d) for epci, _, out, n_c, n_w, n_d in rows)
+        panels.append(
+            f'  <section class="dep" id="dep-{dep}" role="tabpanel" aria-labelledby="tab-{dep}">\n'
+            f'    <h2 class="dep-title">{escape(name)} ({dep})</h2>\n'
+            f'    <div class="grid">\n{cards}\n    </div>\n'
+            f'  </section>')
+    tabs_html, panels_html = "\n".join(tabs), "\n".join(panels)
     return f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -489,6 +510,7 @@ def render_gallery(generated, annee):
 <title>Cartes EGALIM {annee} par intercommunalité</title>
 <meta name="description" content="Cartes EGALIM {annee} figées, une par intercommunalité de Charente-Maritime et des Deux-Sèvres.">
 <!-- Page générée par map_cantines_egalim/src/static_map.py (--tous) : ne pas modifier à la main. -->
+<script>document.documentElement.classList.add("js");</script>
 <style>
   :root {{
     --bg: #f7f7f5;
@@ -523,6 +545,19 @@ def render_gallery(generated, annee):
   header p {{ color: var(--muted); margin: 0 0 8px; font-size: 15px; line-height: 1.55;
              text-align: justify; hyphens: auto; }}
   header a {{ color: var(--accent); }}
+  /* Onglets par département. Sans JavaScript, les onglets restent cachés et les départements
+     s'affichent l'un sous l'autre, chacun avec son titre. */
+  .tabs {{ display: none; gap: 4px; border-bottom: 1px solid var(--border); margin-bottom: 24px; flex-wrap: wrap; }}
+  .js .tabs {{ display: flex; }}
+  .tabs button {{ font: inherit; font-size: 15px; font-weight: 600; background: none; border: 0; cursor: pointer;
+                 color: var(--muted); padding: 10px 14px; border-bottom: 3px solid transparent; margin-bottom: -1px; }}
+  .tabs button:hover {{ color: var(--text); }}
+  .tabs button[aria-selected="true"] {{ color: var(--accent); border-bottom-color: var(--accent); }}
+  .tabs button span {{ font-weight: 400; font-size: 13px; color: var(--muted); margin-left: 4px; }}
+  .dep + .dep {{ margin-top: 40px; }}
+  .dep-title {{ font-size: 20px; margin: 0 0 16px; }}
+  .js .dep-title {{ display: none; }}
+  .js .dep + .dep {{ margin-top: 0; }}
   .grid {{ display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }}
   a.card {{
     display: block;
@@ -553,10 +588,37 @@ def render_gallery(generated, annee):
     <p>Pour explorer cantine par cantine, voir la
       <a href="https://biguhuh.github.io/map_cantines_egalim/">carte interactive</a>.</p>
   </header>
-  <div class="grid">
-{items}
+  <div class="tabs" role="tablist" aria-label="Départements">
+{tabs_html}
   </div>
+{panels_html}
 </main>
+<script>
+  // Onglets : l'onglet actif suit l'adresse (#17, #79) pour pouvoir partager le lien d'un département.
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  function show(dep, focus) {{
+    if (!tabs.some(t => t.dataset.dep === dep)) dep = tabs[0].dataset.dep;
+    tabs.forEach(t => {{
+      const on = t.dataset.dep === dep;
+      t.setAttribute("aria-selected", on);
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById("dep-" + t.dataset.dep).hidden = !on;
+      if (on && focus) t.focus();
+    }});
+  }}
+  tabs.forEach((t, i) => {{
+    t.addEventListener("click", () => {{ history.replaceState(null, "", "#" + t.dataset.dep); show(t.dataset.dep); }});
+    t.addEventListener("keydown", e => {{
+      const d = {{ArrowRight: 1, ArrowLeft: -1}}[e.key];
+      if (!d) return;
+      const next = tabs[(i + d + tabs.length) % tabs.length];
+      history.replaceState(null, "", "#" + next.dataset.dep);
+      show(next.dataset.dep, true);
+    }});
+  }});
+  addEventListener("hashchange", () => show(location.hash.slice(1)));
+  show(location.hash.slice(1));
+</script>
 </body>
 </html>
 """
