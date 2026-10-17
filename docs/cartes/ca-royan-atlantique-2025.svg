@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" width="1400" height="1000" font-family="Segoe UI, Helvetica, Arial, sans-serif">
 <rect width="1400" height="1000" fill="#ffffff"/>
-<a href="https://biguhuh.github.io/cartes-egalim.html"><text x="30" y="26" font-size="13" fill="#5c6773">← Toutes les cartes</text></a>
+<a class="nav" href="https://biguhuh.github.io/cartes-egalim.html"><text x="30" y="26" font-size="13" fill="#5c6773">← Toutes les cartes</text></a>
 <text x="30" y="60" font-size="28" font-weight="700" fill="#1b2733">Cantines scolaires de la CA Royan Atlantique — EGALIM 2025</text>
 <text x="30" y="90" font-size="16" fill="#5c6773">Par commune : part de produits <tspan font-weight="700">bio</tspan> au centre, part de produits <tspan font-weight="700">durables &amp; de qualité</tspan> sur l'anneau. Écoles et crèches.</text>
 <g stroke="#c9ced4" stroke-width="1" stroke-linejoin="round">

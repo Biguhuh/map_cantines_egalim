@@ -249,7 +249,7 @@ def render_svg(epci, communes, results, annee):
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
         f'font-family="Segoe UI, Helvetica, Arial, sans-serif">',
         f'<rect width="{W}" height="{H}" fill="{C_BG}"/>',
-        f'<a href="{GALLERY_URL}"><text x="30" y="26" font-size="13" fill="{C_MUTED}">← Toutes les cartes</text></a>',
+        f'<a class="nav" href="{GALLERY_URL}"><text x="30" y="26" font-size="13" fill="{C_MUTED}">← Toutes les cartes</text></a>',
         f'<text x="30" y="60" font-size="28" font-weight="700" fill="{C_INK}">'
         f'Cantines scolaires de la {escape(epci["nom"])} — EGALIM {annee}</text>',
         f'<text x="30" y="90" font-size="16" fill="{C_MUTED}">Par commune : part de produits <tspan font-weight="700">bio</tspan> '
@@ -374,7 +374,9 @@ def main():
         out = (args.out if not args.tous and args.out else
                CARTES_DIR / f"{slugify(epci['nom'])}-{annee}.svg")
         out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(render_svg(epci, communes, results, annee), encoding="utf-8")
+        svg = render_svg(epci, communes, results, annee)
+        out.write_text(svg, encoding="utf-8")
+        out.with_suffix(".html").write_text(render_map_page(epci, annee, svg, out.name), encoding="utf-8")
 
         n_with = sum(1 for r in results.values() if r["total"])
         n_decl = sum(1 for r in results.values() if r["declared"])
@@ -401,10 +403,78 @@ def epcis_of_departments(departements, session):
     return sorted(codes)
 
 
+def render_map_page(epci, annee, svg, svg_name):
+    """Page d'une carte : la carte en grand, et de quoi la télécharger en PDF A4 ou en SVG.
+
+    Le PDF passe par la fenêtre d'impression du navigateur, réglée en A4 dans l'orientation
+    de la carte : c'est le seul moyen sans dépendance de produire un A4 fidèle au vectoriel."""
+    m = re.search(r'viewBox="0 0 (\d+) (\d+)"', svg)
+    w, h = int(m.group(1)), int(m.group(2))
+    orientation = "landscape" if w >= h else "portrait"
+    # La carte est intégrée telle quelle (et non via <img>) pour que la page puisse en masquer
+    # le lien de navigation à l'impression ; ses dimensions fixes sont laissées au CSS.
+    inline_svg = re.sub(r' width="\d+" height="\d+"', "", svg, count=1)
+    title = f"Cantines scolaires de la {epci['nom']} — EGALIM {annee}"
+    return f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{escape(title)}</title>
+<style>
+  :root {{ --bg: #f7f7f5; --text: #1a1a1a; --muted: #5a5a5a; --accent: #2f6f4f; --border: #e3e2dd; --btn-bg: #ffffff; }}
+  @media (prefers-color-scheme: dark) {{
+    :root {{ --bg: #14161a; --text: #f0f0ee; --muted: #a3a6ab; --accent: #6fcf97; --border: #2c2f35; --btn-bg: #1d2025; }}
+  }}
+  * {{ box-sizing: border-box; }}
+  body {{ margin: 0; background: var(--bg); color: var(--text);
+         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }}
+  .bar {{ max-width: 1440px; margin: 0 auto; padding: 20px 16px 12px; display: flex; flex-wrap: wrap;
+         align-items: center; justify-content: space-between; gap: 12px; }}
+  .back {{ font-size: 14px; color: var(--muted); text-decoration: none; }}
+  .back:hover {{ color: var(--accent); }}
+  .actions {{ display: flex; flex-wrap: wrap; gap: 8px; }}
+  .btn {{ font: inherit; font-size: 14px; font-weight: 600; padding: 9px 14px; border-radius: 8px; cursor: pointer;
+         border: 1px solid var(--border); background: var(--btn-bg); color: var(--text); text-decoration: none; }}
+  .btn.primary {{ background: var(--accent); border-color: var(--accent); color: #fff; }}
+  @media (prefers-color-scheme: dark) {{ .btn.primary {{ color: #10161d; }} }}
+  .btn:hover {{ border-color: var(--accent); }}
+  .hint {{ max-width: 1440px; margin: 0 auto; padding: 0 16px 12px; font-size: 13px; color: var(--muted); }}
+  .map {{ max-width: 1440px; margin: 0 auto 40px; padding: 0 16px; }}
+  .map svg {{ display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 10px; background: #fff; }}
+  .map svg .nav {{ display: none; }}
+  @page {{ size: A4 {orientation}; margin: 8mm; }}
+  @media print {{
+    body {{ background: #fff; }}
+    .bar, .hint {{ display: none; }}
+    .map {{ max-width: none; margin: 0; padding: 0; }}
+    /* La carte tient sur une seule page A4, dans ses proportions. */
+    .map svg {{ border: 0; border-radius: 0; width: auto; height: auto;
+               max-width: 100%; max-height: {"194mm" if orientation == "landscape" else "281mm"}; margin: 0 auto; }}
+  }}
+</style>
+</head>
+<body>
+<div class="bar">
+  <a class="back" href="{GALLERY_URL}">← Toutes les cartes</a>
+  <div class="actions">
+    <button class="btn primary" type="button" onclick="window.print()">⬇ Télécharger en PDF (A4)</button>
+    <a class="btn" href="{escape(svg_name)}" download>Image SVG</a>
+  </div>
+</div>
+<p class="hint">Pour le PDF, choisissez « Enregistrer au format PDF » comme imprimante. La page est déjà réglée en A4 {"paysage" if orientation == "landscape" else "portrait"}.</p>
+<div class="map">
+{inline_svg}
+</div>
+</body>
+</html>
+"""
+
+
 def render_gallery(generated, annee):
     """Page de la galerie (racine du site) : une vignette cliquable par carte."""
     items = "\n".join(
-        f'    <a class="card" href="{CARTES_URL}{escape(out.name)}">\n'
+        f'    <a class="card" href="{CARTES_URL}{escape(out.with_suffix(".html").name)}">\n'
         f'      <img src="{CARTES_URL}{escape(out.name)}" alt="Carte EGALIM {annee} de la {escape(epci["nom"])}" loading="lazy">\n'
         f'      <h2>{escape(epci["nom"])}</h2>\n'
         f'      <p>{n_decl} communes déclarées sur {n_with} avec cantine · {n_communes} communes</p>\n'
