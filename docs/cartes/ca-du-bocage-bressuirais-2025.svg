@@ -42,7 +42,7 @@
 <text x="577.3" y="482.3" text-anchor="middle" font-size="11.5" fill="#1b2733" stroke="#ffffff" stroke-width="3" paint-order="stroke">Bressuire</text>
 <text x="370.6" y="551.4" text-anchor="middle" font-size="11.5" fill="#1b2733" stroke="#ffffff" stroke-width="3" paint-order="stroke">Cerizay</text>
 <text x="545.9" y="641.7" text-anchor="middle" font-size="11.5" fill="#1b2733" stroke="#ffffff" stroke-width="3" paint-order="stroke">Chanteloup</text>
-<text x="583.5" y="685.7" text-anchor="middle" font-size="11.5" fill="#1b2733" stroke="#ffffff" stroke-width="3" paint-order="stroke">La Chapelle-Saint-Laurent</text>
+<text x="566.5" y="664.2" text-anchor="end" font-size="11.5" fill="#1b2733" stroke="#ffffff" stroke-width="3" paint-order="stroke">La Chapelle-Saint-Laurent</text>
 <text x="278.7" y="362.6" text-anchor="middle" font-size="11.5" fill="#1b2733" stroke="#ffffff" stroke-width="3" paint-order="stroke">Mauléon</text>
 <text x="652.5" y="700.6" text-anchor="middle" font-size="11.5" fill="#1b2733" stroke="#ffffff" stroke-width="3" paint-order="stroke">Clessé</text>
 <text x="338.9" y="477.0" text-anchor="middle" font-size="11.5" fill="#1b2733" stroke="#ffffff" stroke-width="3" paint-order="stroke">Combrand</text>
@@ -50,9 +50,9 @@
 <text x="531.5" y="771.4" text-anchor="middle" font-size="11.5" fill="#1b2733" stroke="#ffffff" stroke-width="3" paint-order="stroke">Largeasse</text>
 <text x="451.4" y="722.4" text-anchor="middle" font-size="11.5" fill="#1b2733" stroke="#ffffff" stroke-width="3" paint-order="stroke">Moncoutant-sur-Sèvre</text>
 <text x="606.1" y="768.8" text-anchor="middle" font-size="11.5" fill="#1b2733" stroke="#ffffff" stroke-width="3" paint-order="stroke">Neuvy-Bouin</text>
-<text x="298.5" y="457.3" text-anchor="middle" font-size="11.5" fill="#1b2733" stroke="#ffffff" stroke-width="3" paint-order="stroke">La Petite-Boissière</text>
+<text x="298.5" y="414.8" text-anchor="middle" font-size="11.5" fill="#1b2733" stroke="#ffffff" stroke-width="3" paint-order="stroke">La Petite-Boissière</text>
 <text x="394.1" y="464.9" text-anchor="middle" font-size="11.5" fill="#1b2733" stroke="#ffffff" stroke-width="3" paint-order="stroke">Le Pin</text>
-<text x="251.6" y="463.8" text-anchor="middle" font-size="11.5" fill="#1b2733" stroke="#ffffff" stroke-width="3" paint-order="stroke">Saint-Amand-sur-Sèvre</text>
+<text x="234.6" y="442.3" text-anchor="end" font-size="11.5" fill="#1b2733" stroke="#ffffff" stroke-width="3" paint-order="stroke">Saint-Amand-sur-Sèvre</text>
 <text x="292.1" y="307.9" text-anchor="middle" font-size="11.5" fill="#1b2733" stroke="#ffffff" stroke-width="3" paint-order="stroke">Saint-Pierre-des-Échaubrognes</text>
 <circle cx="485.3" cy="792.3" r="13" fill="#fdae61" stroke="#1b2733" stroke-opacity=".35"/><circle cx="485.3" cy="792.3" r="8.5" fill="#fdae61" stroke="#ffffff" stroke-width="1.6"/>
 <circle cx="577.3" cy="456.8" r="13" fill="#fdae61" stroke="#1b2733" stroke-opacity=".35"/><circle cx="577.3" cy="456.8" r="8.5" fill="#1a9850" stroke="#ffffff" stroke-width="1.6"/>

@@ -186,6 +186,40 @@ def marker(x, y, res, r_out=13, r_in=8.5):
             f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r_in}" fill="{fill}" stroke="{C_BG}" stroke-width="1.6"/>')
 
 
+def place_labels(points, r, size):
+    """Place le nom de chaque commune sous son rond, ou à défaut au-dessus, à droite, à
+    gauche ou en diagonale : la première position qui ne touche ni un autre nom ni un autre rond. Sinon, celle
+    qui empiète le moins. Largeur du texte estimée (pas de moteur de rendu ici)."""
+    def box(lx, ly, anchor, w):
+        left = {"middle": lx - w / 2, "start": lx, "end": lx - w}[anchor]
+        return (left - 2, ly - size, left + w + 2, ly + size * 0.3)
+
+    def overlap(a, b):
+        return max(0, min(a[2], b[2]) - max(a[0], b[0])) * max(0, min(a[3], b[3]) - max(a[1], b[1]))
+
+    rings_ = [(x - r, y - r, x + r, y + r) for x, y, _, _ in points]
+    placed, result = [], []
+    for i, (x, y, name, _) in enumerate(points):
+        w = len(name) * size * 0.6
+        d = r * 0.7
+        candidates = [
+            (x, y + r + size + 1, "middle"),
+            (x, y - r - 4, "middle"),
+            (x + r + 4, y + size * 0.35, "start"),
+            (x - r - 4, y + size * 0.35, "end"),
+            (x + d, y + d + size, "start"),
+            (x - d, y + d + size, "end"),
+            (x + d, y - d - 2, "start"),
+            (x - d, y - d - 2, "end"),
+        ]
+        obstacles = placed + [b for j, b in enumerate(rings_) if j != i]
+        scored = [(sum(overlap(box(*cand, w), o) for o in obstacles), k, cand) for k, cand in enumerate(candidates)]
+        _, _, best = min(scored)
+        placed.append(box(*best, w))
+        result.append(best)
+    return result
+
+
 def render_svg(epci, communes, results, annee):
     ranked = sorted(
         (c for c in communes if results[c["code"]]["total"]),
@@ -224,16 +258,18 @@ def render_svg(epci, communes, results, annee):
     out.append("</g>")
 
     # Ronds + noms (les communes sans cantine recensée n'ont pas de rond)
-    labels, marks = [], []
+    points = []
     for c in communes:
         res = results[c["code"]]
-        if not res["total"]:
-            continue
-        x, y = proj(*c["centre"]["coordinates"])
-        marks.append(marker(x, y, res, r_out, r_in))
-        labels.append(
-            f'<text x="{x:.1f}" y="{y + r_out + label_size + 1:.1f}" text-anchor="middle" font-size="{label_size}" fill="{C_INK}" '
-            f'stroke="{C_BG}" stroke-width="3" paint-order="stroke">{escape(c["nom"])}</text>')
+        if res["total"]:
+            x, y = proj(*c["centre"]["coordinates"])
+            points.append((x, y, c["nom"], res))
+    marks = [marker(x, y, res, r_out, r_in) for x, y, _, res in points]
+    labels = [
+        f'<text x="{lx:.1f}" y="{ly:.1f}" text-anchor="{anchor}" font-size="{label_size}" fill="{C_INK}" '
+        f'stroke="{C_BG}" stroke-width="3" paint-order="stroke">{escape(name)}</text>'
+        for (lx, ly, anchor), (_, _, name, _) in zip(place_labels(points, r_out, label_size), points)
+    ]
     out += labels + marks
 
     # Classement
@@ -404,7 +440,8 @@ def render_gallery(generated, annee):
   .back:hover {{ color: var(--accent); }}
   header {{ margin-bottom: 32px; max-width: 780px; }}
   h1 {{ font-size: 28px; margin: 0 0 12px; line-height: 1.25; }}
-  header p {{ color: var(--muted); margin: 0 0 8px; font-size: 15px; line-height: 1.55; }}
+  header p {{ color: var(--muted); margin: 0 0 8px; font-size: 15px; line-height: 1.55;
+             text-align: justify; hyphens: auto; }}
   header a {{ color: var(--accent); }}
   .grid {{ display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }}
   a.card {{
@@ -422,7 +459,7 @@ def render_gallery(generated, annee):
   .card img {{ display: block; width: 100%; aspect-ratio: 7 / 5; object-fit: cover; object-position: top left;
               border-radius: 8px; background: #fff; border: 1px solid var(--border); }}
   .card h2 {{ margin: 12px 4px 4px; font-size: 16px; color: var(--accent); }}
-  .card p {{ margin: 0 4px; font-size: 13px; color: var(--muted); }}
+  .card p {{ margin: 0 4px; font-size: 13px; color: var(--muted); text-align: justify; hyphens: auto; }}
 </style>
 </head>
 <body>
