@@ -119,3 +119,8 @@ seuls les libellés fixes du template (titre, cases à cocher 17/79,
 libellés des départements gestionnaires des collèges) sont à ajuster
 manuellement dans [`template/map_template.html`](template/map_template.html)
 si de nouveaux départements sont ajoutés.
+
+## Licence
+
+Le code est sous licence MIT (voir [LICENSE](LICENSE)) : réutilisation libre, en gardant la mention de copyright.
+Les données affichées restent sous leur licence d'origine, la Licence Ouverte 2.0 (voir [Sources des données](#sources-des-données)).
