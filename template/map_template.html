@@ -325,7 +325,7 @@ function recenter(){
 /* popup (au survol) — grand cadre, contenu riche ; PLUS de popup au clic */
 /* liste les valeurs bio/durable des autres années connues, pour voir une tendance sans changer le sélecteur */
 function historyHTML(siret,currentYear){
-  const years=Object.keys(tdByYear).filter(y=>/^20\d{2}$/.test(y)&&y!==currentYear).sort();
+  const years=Object.keys(tdByYear).filter(y=>/^20\d{2}$/.test(y)&&y!==currentYear).sort().reverse();
   const rows=years.map(y=>{
     const td=tdByYear[y][siret];
     if(!td||(td.bio==null&&td.egalim==null))return null;
