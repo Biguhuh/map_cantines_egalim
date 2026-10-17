@@ -41,20 +41,68 @@ DEPT_NAMES = {"17": "Charente-Maritime", "79": "Deux-Sèvres"}
 OBJ_BIO = 20
 OBJ_DURABLE = 50
 
-# Classes de couleur, de la meilleure à la moins bonne : (couleur, seuil bio, seuil durable).
-# Sous l'objectif, magenta (moins de la moitié) puis rose. Au-dessus, trois verts de plus
-# en plus foncés : beaucoup de communes atteignent l'objectif, et pas toutes de la même façon.
-# Paliers verts calés sur la répartition 2025 (quart supérieur ≈ 30 % bio / 60 % durable).
-# Palette dérivée de ColorBrewer PiYG, lisible par les daltoniens : en simulation (Machado
-# 2009), l'écart CIEDE2000 minimal entre deux classes reste ≥ 21 en protanopie, deutéranopie
-# et tritanopie (l'ancienne palette rouge-orange-vert tombait à 2 : orange = vert clair).
-CLASSES = [
-    ("#1f5214", 40, 70),
-    ("#5aa02c", 30, 60),
-    ("#c9e89b", OBJ_BIO, OBJ_DURABLE),
-    ("#ef9fcc", OBJ_BIO // 2, OBJ_DURABLE // 2),
-    ("#a6106d", 0, 0),
-]
+# Classes, de la meilleure à la moins bonne : (seuil bio, seuil durable). Sous l'objectif,
+# deux classes (au moins la moitié, moins de la moitié) ; au-dessus, trois paliers : beaucoup
+# de communes atteignent l'objectif, et pas toutes de la même façon. Paliers calés sur la
+# répartition 2025 (quart supérieur ≈ 30 % bio / 60 % durable).
+THRESHOLDS = [(40, 70), (30, 60), (OBJ_BIO, OBJ_DURABLE), (OBJ_BIO // 2, OBJ_DURABLE // 2), (0, 0)]
+
+# Deux palettes, une couleur par classe ci-dessus. Écarts mesurés en simulation de daltonisme
+# (Machado 2009, CIEDE2000 minimal entre deux classes) :
+# - « classique » : rouge → orange → verts, la convention la plus parlante. Les clartés très
+#   séparées la gardent lisible en deutéranopie (écart ≥ 9) ; la protanopie, où le rouge
+#   paraît sombre, reste hors de portée de toute palette rouge-vert (écart ≈ 4).
+# - « daltonien » : dérivée de ColorBrewer PiYG, magenta et rose sous l'objectif ; écart ≥ 21
+#   en protanopie, deutéranopie et tritanopie.
+# La page de chaque carte et la galerie proposent de passer de l'une à l'autre.
+PALETTES = {
+    "classique": {
+        "colors": ["#1a6b32", "#58b04f", "#f3f9c4", "#fa9f3c", "#b0171f"],
+        "low_names": ("Orange", "Rouge"),
+        "suffix": "",
+        "other_note": "Version aux couleurs adaptées aux daltoniens",
+    },
+    "daltonien": {
+        "colors": ["#1f5214", "#5aa02c", "#c9e89b", "#ef9fcc", "#a6106d"],
+        "low_names": ("Rose", "Magenta"),
+        "suffix": "-daltonien",
+        "other_note": "Version aux couleurs classiques",
+    },
+}
+
+# Interrupteur classique / daltoniens, commun aux pages de cartes et à la galerie. Le choix est
+# mémorisé dans le navigateur (même clé partout) et posé sur <html data-palette> dès le <head>,
+# pour éviter d'afficher d'abord la mauvaise version. Les éléments portant data-classique et
+# data-daltonien (lien de téléchargement, vignettes) suivent le choix. Sans JavaScript, le
+# bouton reste caché et la version classique s'affiche.
+PALETTE_HEAD_SCRIPT = """<script>
+  document.documentElement.classList.add("js");
+  try { if (localStorage.getItem("egalim-palette") === "daltonien") document.documentElement.dataset.palette = "daltonien"; } catch (e) {}
+</script>"""
+PALETTE_TOGGLE_CSS = """  .palette-toggle { display: none; }
+  .js .palette-toggle { display: inline-block; }
+  .palette-toggle[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }"""
+PALETTE_TOGGLE_BUTTON = ('<button class="btn palette-toggle" type="button" aria-pressed="false">'
+                         'Couleurs adaptées aux daltoniens</button>')
+PALETTE_TOGGLE_SCRIPT = """<script>
+  (function () {
+    var root = document.documentElement, btn = document.querySelector(".palette-toggle");
+    function apply(p) {
+      if (p === "daltonien") root.dataset.palette = "daltonien"; else delete root.dataset.palette;
+      if (btn) btn.setAttribute("aria-pressed", p === "daltonien");
+      document.querySelectorAll("[data-classique][data-daltonien]").forEach(function (el) {
+        var v = el.getAttribute("data-" + p);
+        if (el.tagName === "IMG") el.src = v; else el.href = v;
+      });
+    }
+    apply(root.dataset.palette || "classique");
+    if (btn) btn.addEventListener("click", function () {
+      var p = root.dataset.palette === "daltonien" ? "classique" : "daltonien";
+      try { localStorage.setItem("egalim-palette", p); } catch (e) {}
+      apply(p);
+    });
+  })();
+</script>"""
 C_NODATA = "#b9bcc2"
 C_INK, C_MUTED, C_LINE, C_BG = "#1b2733", "#5c6773", "#c9ced4", "#ffffff"
 C_COMMUNE, C_COMMUNE_EMPTY = "#eef1f4", "#f8f9fa"
@@ -133,12 +181,12 @@ def commune_results(communes, cantines, td_year):
 # Rendu SVG
 # ---------------------------------------------------------------------------
 
-def level_color(value, kind):
+def level_color(value, kind, colors):
     """Couleur de la classe d'une valeur, kind valant "bio" ou "durable"."""
     if value is None:
         return C_NODATA
-    col = 1 if kind == "bio" else 2
-    return next(cls[0] for cls in CLASSES if value >= cls[col])
+    col = 0 if kind == "bio" else 1
+    return next(color for color, t in zip(colors, THRESHOLDS) if value >= t[col])
 
 
 def rings(geometry):
@@ -187,12 +235,12 @@ def pct(v):
     return "—" if v is None else f"{v:.0f} %"
 
 
-def marker(x, y, res, r_out=13, r_in=8.5):
+def marker(x, y, res, colors, r_out=13, r_in=8.5):
     if not res["declared"]:
         return (f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r_out - 2.5}" fill="{C_BG}" '
                 f'stroke="{C_NODATA}" stroke-width="2.5" stroke-dasharray="3 2.5"/>')
-    ring = level_color(res["durable"], "durable")
-    fill = level_color(res["bio"], "bio")
+    ring = level_color(res["durable"], "durable", colors)
+    fill = level_color(res["bio"], "bio", colors)
     return (f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r_out}" fill="{ring}" stroke="{C_INK}" stroke-opacity=".75" stroke-width="1.2"/>'
             f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r_in}" fill="{fill}" stroke="{C_BG}" stroke-width="1.6"/>')
 
@@ -245,7 +293,10 @@ def map_title(epci, annee):
     return f"Cantines scolaires de la {epci['nom']} — EGALIM {annee}"
 
 
-def render_svg(epci, communes, results, annee):
+def render_svg(epci, communes, results, annee, palette="classique"):
+    pal = PALETTES[palette]
+    colors = pal["colors"]
+    title_id = f"carte-titre{pal['suffix']}"  # unique : les deux versions cohabitent sur la page
     ranked = rank_communes(communes, results)
     # Le classement fixe la hauteur : une grande intercommunalité allonge l'image plutôt
     # que de tasser les lignes. Au-delà de 60 communes, ronds et noms rapetissent.
@@ -263,8 +314,8 @@ def render_svg(epci, communes, results, annee):
         # Une image pour les lecteurs d'écran, plutôt qu'une suite de textes épars ; le
         # classement détaillé est donné en tableau sur la page de la carte.
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
-        f'font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-labelledby="carte-titre">',
-        f'<title id="carte-titre">{escape(map_title(epci, annee))} : carte et classement des communes selon '
+        f'font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-labelledby="{title_id}">',
+        f'<title id="{title_id}">{escape(map_title(epci, annee))} : carte et classement des communes selon '
         f'leur part de produits bio et de produits durables &amp; de qualité.</title>',
         f'<rect width="{W}" height="{H}" fill="{C_BG}"/>',
         f'<a class="nav" href="{GALLERY_URL}"><text x="30" y="26" font-size="13" fill="{C_MUTED}">← Toutes les cartes</text></a>',
@@ -289,7 +340,7 @@ def render_svg(epci, communes, results, annee):
         if res["total"]:
             x, y = proj(*c["centre"]["coordinates"])
             points.append((x, y, c["nom"], res))
-    marks = [marker(x, y, res, r_out, r_in) for x, y, _, res in points]
+    marks = [marker(x, y, res, colors, r_out, r_in) for x, y, _, res in points]
     labels = [
         f'<text x="{lx:.1f}" y="{ly:.1f}" text-anchor="{anchor}" font-size="{label_size}" fill="{C_INK}" '
         f'stroke="{C_BG}" stroke-width="3" paint-order="stroke">{escape(name)}</text>'
@@ -313,7 +364,7 @@ def render_svg(epci, communes, results, annee):
         out.append(
             f'<g font-size="12.5" fill="{C_INK}">'
             f'<text x="{LIST_X + 18}" y="{y}" text-anchor="end" fill="{C_MUTED}">{rank}</text>'
-            f'{marker(LIST_X + 32, cy, res, r_out=7, r_in=4.5)}'
+            f'{marker(LIST_X + 32, cy, res, colors, r_out=7, r_in=4.5)}'
             f'<text x="{LIST_X + 46}" y="{y}">{escape(c["nom"])}</text>'
             f'<text x="{LIST_X + 250}" y="{y}" text-anchor="end" font-weight="600">{pct(res["bio"])}</text>'
             f'<text x="{LIST_X + 330}" y="{y}" text-anchor="end">{pct(res["durable"])}</text>'
@@ -325,13 +376,13 @@ def render_svg(epci, communes, results, annee):
     out.append(f'<g font-size="13" fill="{C_INK}">')
     out.append(f'<text x="30" y="{ly}" font-weight="700">Lecture</text>')
     lx = 30
-    for i, (color, bio_min, dur_min) in enumerate(CLASSES):
+    for i, (color, (bio_min, dur_min)) in enumerate(zip(colors, THRESHOLDS)):
         if i == 0:
             bio_txt, dur_txt = f"≥ {bio_min}", f"≥ {dur_min}"
-        elif i == len(CLASSES) - 1:
-            bio_txt, dur_txt = f"&lt; {CLASSES[i - 1][1]}", f"&lt; {CLASSES[i - 1][2]}"
+        elif i == len(THRESHOLDS) - 1:
+            bio_txt, dur_txt = f"&lt; {THRESHOLDS[i - 1][0]}", f"&lt; {THRESHOLDS[i - 1][1]}"
         else:
-            bio_txt, dur_txt = f"{bio_min}–{CLASSES[i - 1][1]}", f"{dur_min}–{CLASSES[i - 1][2]}"
+            bio_txt, dur_txt = f"{bio_min}–{THRESHOLDS[i - 1][0]}", f"{dur_min}–{THRESHOLDS[i - 1][1]}"
         out.append(f'<rect x="{lx}" y="{ly + 14}" width="16" height="16" rx="3" fill="{color}" '
                    f'stroke="{C_INK}" stroke-opacity=".75"/>'
                    f'<text x="{lx + 23}" y="{ly + 27}">bio {bio_txt} % · durable {dur_txt} %</text>')
@@ -340,13 +391,14 @@ def render_svg(epci, communes, results, annee):
                f'<text x="{lx + 23}" y="{ly + 27}">pas de télédéclaration</text>')
     out.append(f'<text x="30" y="{ly + 54}" fill="{C_MUTED}" font-size="12">Vert : objectif EGALIM atteint '
                f'({OBJ_BIO} % de bio, {OBJ_DURABLE} % de produits durables &amp; de qualité dont le bio), '
-               f'd\'autant plus foncé qu\'il est dépassé. Rose : au moins la moitié de l\'objectif. '
-               f'Magenta : moins de la moitié.</text>')
+               f'd\'autant plus foncé qu\'il est dépassé. {pal["low_names"][0]} : au moins la moitié de l\'objectif. '
+               f'{pal["low_names"][1]} : moins de la moitié.</text>')
     out.append("</g>")
 
-    # Source
+    # Source, et où trouver l'autre version des couleurs (utile sur une carte imprimée ou transférée)
     out.append(
         f'<g font-size="11.5" fill="{C_MUTED}">'
+        f'<text x="30" y="{H - 54}">{pal["other_note"]} : biguhuh.github.io/cartes-egalim.html</text>'
         f'<text x="30" y="{H - 36}">Valeur d\'une commune : moyenne de ses cantines déclarées, pondérée par le nombre de repas. '
         f'« Cantines » : déclarées / recensées.</text>'
         f'<text x="30" y="{H - 18}">Sources : télédéclarations EGALIM {annee} (ma-cantine, data.gouv.fr), registre national '
@@ -393,10 +445,14 @@ def main():
         out = (args.out if not args.tous and args.out else
                CARTES_DIR / f"{slugify(epci['nom'])}-{annee}.svg")
         out.parent.mkdir(parents=True, exist_ok=True)
-        svg = render_svg(epci, communes, results, annee)
-        out.write_text(svg, encoding="utf-8")
+        svgs = {}
+        for palette, pal in PALETTES.items():
+            path = out.with_name(out.stem + pal["suffix"] + ".svg")
+            svg = render_svg(epci, communes, results, annee, palette)
+            path.write_text(svg, encoding="utf-8")
+            svgs[palette] = (svg, path.name)
         out.with_suffix(".html").write_text(
-            render_map_page(epci, annee, svg, out.name, rank_communes(communes, results), results),
+            render_map_page(epci, annee, svgs, rank_communes(communes, results), results),
             encoding="utf-8")
 
         n_with = sum(1 for r in results.values() if r["total"])
@@ -427,19 +483,27 @@ def epcis_of_departments(departements, session):
     return dict(sorted(deps.items()))
 
 
-def render_map_page(epci, annee, svg, svg_name, ranked, results):
+def render_map_page(epci, annee, svgs, ranked, results):
     """Page d'une carte : la carte en grand, de quoi la télécharger en PDF A4 ou en SVG, et le
     classement en tableau HTML (lisible par les lecteurs d'écran et sur mobile, ce que le
-    texte de l'image ne permet pas).
+    texte de l'image ne permet pas). svgs : {palette: (svg, nom du fichier)}.
+
+    Les deux versions des couleurs sont intégrées ; un attribut sur <html>, mémorisé dans le
+    navigateur et partagé avec la galerie, choisit celle qui s'affiche, s'imprime et se
+    télécharge.
 
     Le PDF passe par la fenêtre d'impression du navigateur, réglée en A4 dans l'orientation
     de la carte : c'est le seul moyen sans dépendance de produire un A4 fidèle au vectoriel."""
-    m = re.search(r'viewBox="0 0 (\d+) (\d+)"', svg)
+    m = re.search(r'viewBox="0 0 (\d+) (\d+)"', svgs["classique"][0])
     w, h = int(m.group(1)), int(m.group(2))
     orientation = "landscape" if w >= h else "portrait"
-    # La carte est intégrée telle quelle (et non via <img>) pour que la page puisse en masquer
-    # le lien de navigation à l'impression ; ses dimensions fixes sont laissées au CSS.
-    inline_svg = re.sub(r' width="\d+" height="\d+"', "", svg, count=1)
+    # Les cartes sont intégrées telles quelles (et non via <img>) pour que la page puisse en
+    # masquer le lien de navigation à l'impression ; leurs dimensions fixes sont laissées au CSS.
+    fixed_size = re.compile(r' width="\d+" height="\d+"')
+    versions = "\n".join(
+        f'<div class="version" data-palette="{palette}">\n{fixed_size.sub("", svg, count=1)}\n</div>'
+        for palette, (svg, _) in svgs.items())
+    svg_links = " ".join(f'data-{palette}="{escape(name)}"' for palette, (_, name) in svgs.items())
     title = map_title(epci, annee)
 
     rows = []
@@ -457,6 +521,7 @@ def render_map_page(epci, annee, svg, svg_name, ranked, results):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{escape(title)}</title>
+{PALETTE_HEAD_SCRIPT}
 <style>
   :root {{ --bg: #f7f7f5; --text: #1a1a1a; --muted: #5a5a5a; --accent: #2f6f4f; --border: #e3e2dd; --btn-bg: #ffffff; }}
   @media (prefers-color-scheme: dark) {{
@@ -479,6 +544,11 @@ def render_map_page(epci, annee, svg, svg_name, ranked, results):
   .map {{ max-width: 1440px; margin: 0 auto 40px; padding: 0 16px; }}
   .map svg {{ display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 10px; background: #fff; }}
   .map svg .nav {{ display: none; }}
+  /* Une seule version des couleurs visible (et donc imprimée) à la fois. */
+  .version[data-palette="daltonien"] {{ display: none; }}
+  html[data-palette="daltonien"] .version[data-palette="classique"] {{ display: none; }}
+  html[data-palette="daltonien"] .version[data-palette="daltonien"] {{ display: block; }}
+{PALETTE_TOGGLE_CSS}
   .sr-only {{ position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
              clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }}
   .ranking {{ max-width: 760px; margin: 0 auto 56px; padding: 0 16px; }}
@@ -509,15 +579,16 @@ def render_map_page(epci, annee, svg, svg_name, ranked, results):
 <div class="bar">
   <a class="back" href="{GALLERY_URL}">← Toutes les cartes</a>
   <div class="actions">
+    {PALETTE_TOGGLE_BUTTON}
     <button class="btn primary" type="button" onclick="window.print()">⬇ Télécharger en PDF (A4)</button>
-    <a class="btn" href="{escape(svg_name)}" download>Image SVG</a>
+    <a class="btn" id="svgLink" href="{escape(svgs["classique"][1])}" {svg_links} download>Image SVG</a>
   </div>
 </div>
 <main>
 <h1 class="sr-only">{escape(title)}</h1>
 <p class="hint">Pour le PDF, choisissez « Enregistrer au format PDF » comme imprimante. La page est déjà réglée en A4 {"paysage" if orientation == "landscape" else "portrait"}.</p>
 <div class="map">
-{inline_svg}
+{versions}
 </div>
 <section class="ranking" aria-labelledby="classement">
   <h2 id="classement">Classement des communes</h2>
@@ -537,6 +608,7 @@ def render_map_page(epci, annee, svg, svg_name, ranked, results):
   </table>
 </section>
 </main>
+{PALETTE_TOGGLE_SCRIPT}
 </body>
 </html>
 """
@@ -546,9 +618,11 @@ def render_gallery(generated, annee):
     """Page de la galerie (racine du site) : un onglet par département, une vignette
     cliquable par carte."""
     def card(epci, out, n_communes, n_with, n_decl):
+        srcs = {p: CARTES_URL + escape(out.stem + pal["suffix"] + ".svg") for p, pal in PALETTES.items()}
         return (
             f'      <a class="card" href="{CARTES_URL}{escape(out.with_suffix(".html").name)}">\n'
-            f'        <img src="{CARTES_URL}{escape(out.name)}" alt="Carte EGALIM {annee} de la {escape(epci["nom"])}" loading="lazy">\n'
+            f'        <img src="{srcs["classique"]}" data-classique="{srcs["classique"]}" data-daltonien="{srcs["daltonien"]}" '
+            f'alt="Carte EGALIM {annee} de la {escape(epci["nom"])}" loading="lazy">\n'
             f'        <h2>{escape(epci["nom"])}</h2>\n'
             f'        <p>{n_decl} communes déclarées sur {n_with} avec cantine · {n_communes} communes</p>\n'
             f'      </a>')
@@ -577,7 +651,7 @@ def render_gallery(generated, annee):
 <title>Cartes EGALIM {annee} par intercommunalité</title>
 <meta name="description" content="Cartes EGALIM {annee} figées, une par intercommunalité de Charente-Maritime et des Deux-Sèvres.">
 <!-- Page générée par map_cantines_egalim/src/static_map.py (--tous) : ne pas modifier à la main. -->
-<script>document.documentElement.classList.add("js");</script>
+{PALETTE_HEAD_SCRIPT}
 <style>
   :root {{
     --bg: #f7f7f5;
@@ -612,6 +686,10 @@ def render_gallery(generated, annee):
   header p {{ color: var(--muted); margin: 0 0 8px; font-size: 15px; line-height: 1.55;
              text-align: justify; hyphens: auto; }}
   header a {{ color: var(--accent); }}
+  .btn {{ font: inherit; font-size: 14px; font-weight: 600; padding: 9px 14px; border-radius: 8px; cursor: pointer;
+         border: 1px solid var(--border); background: var(--card-bg); color: var(--text); margin-top: 8px; }}
+  .btn:hover {{ border-color: var(--accent); }}
+{PALETTE_TOGGLE_CSS}
   /* Onglets par département. Sans JavaScript, les onglets restent cachés et les départements
      s'affichent l'un sous l'autre, chacun avec son titre. */
   .tabs {{ display: none; gap: 4px; border-bottom: 1px solid var(--border); margin-bottom: 24px; flex-wrap: wrap; }}
@@ -654,6 +732,7 @@ def render_gallery(generated, annee):
       et crèches, comparée aux objectifs EGALIM et aux communes voisines.</p>
     <p>Pour explorer cantine par cantine, voir la
       <a href="https://biguhuh.github.io/map_cantines_egalim/">carte interactive</a>.</p>
+    {PALETTE_TOGGLE_BUTTON}
   </header>
   <div class="tabs" role="tablist" aria-label="Départements">
 {tabs_html}
@@ -686,6 +765,7 @@ def render_gallery(generated, annee):
   addEventListener("hashchange", () => show(location.hash.slice(1)));
   show(location.hash.slice(1));
 </script>
+{PALETTE_TOGGLE_SCRIPT}
 </body>
 </html>
 """
