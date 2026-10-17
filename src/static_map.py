@@ -42,15 +42,18 @@ OBJ_BIO = 20
 OBJ_DURABLE = 50
 
 # Classes de couleur, de la meilleure à la moins bonne : (couleur, seuil bio, seuil durable).
-# Sous l'objectif, rouge (moins de la moitié) puis orange. Au-dessus, trois verts de plus
+# Sous l'objectif, magenta (moins de la moitié) puis rose. Au-dessus, trois verts de plus
 # en plus foncés : beaucoup de communes atteignent l'objectif, et pas toutes de la même façon.
 # Paliers verts calés sur la répartition 2025 (quart supérieur ≈ 30 % bio / 60 % durable).
+# Palette dérivée de ColorBrewer PiYG, lisible par les daltoniens : en simulation (Machado
+# 2009), l'écart CIEDE2000 minimal entre deux classes reste ≥ 21 en protanopie, deutéranopie
+# et tritanopie (l'ancienne palette rouge-orange-vert tombait à 2 : orange = vert clair).
 CLASSES = [
-    ("#00592e", 40, 70),
-    ("#3a9d48", 30, 60),
-    ("#a6d96a", OBJ_BIO, OBJ_DURABLE),
-    ("#fdae61", OBJ_BIO // 2, OBJ_DURABLE // 2),
-    ("#d73027", 0, 0),
+    ("#1f5214", 40, 70),
+    ("#5aa02c", 30, 60),
+    ("#c9e89b", OBJ_BIO, OBJ_DURABLE),
+    ("#ef9fcc", OBJ_BIO // 2, OBJ_DURABLE // 2),
+    ("#a6106d", 0, 0),
 ]
 C_NODATA = "#b9bcc2"
 C_INK, C_MUTED, C_LINE, C_BG = "#1b2733", "#5c6773", "#c9ced4", "#ffffff"
@@ -190,7 +193,7 @@ def marker(x, y, res, r_out=13, r_in=8.5):
                 f'stroke="{C_NODATA}" stroke-width="2.5" stroke-dasharray="3 2.5"/>')
     ring = level_color(res["durable"], "durable")
     fill = level_color(res["bio"], "bio")
-    return (f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r_out}" fill="{ring}" stroke="{C_INK}" stroke-opacity=".35"/>'
+    return (f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r_out}" fill="{ring}" stroke="{C_INK}" stroke-opacity=".75" stroke-width="1.2"/>'
             f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r_in}" fill="{fill}" stroke="{C_BG}" stroke-width="1.6"/>')
 
 
@@ -228,12 +231,22 @@ def place_labels(points, r, size):
     return result
 
 
-def render_svg(epci, communes, results, annee):
-    ranked = sorted(
+def rank_communes(communes, results):
+    """Communes ayant au moins une cantine, de la meilleure part de bio à la moins bonne
+    (puis durable, puis nom) ; celles sans télédéclaration en dernier."""
+    return sorted(
         (c for c in communes if results[c["code"]]["total"]),
         key=lambda c: (results[c["code"]]["bio"] is None, -(results[c["code"]]["bio"] or 0),
                        -(results[c["code"]]["durable"] or 0), c["nom"]),
     )
+
+
+def map_title(epci, annee):
+    return f"Cantines scolaires de la {epci['nom']} — EGALIM {annee}"
+
+
+def render_svg(epci, communes, results, annee):
+    ranked = rank_communes(communes, results)
     # Le classement fixe la hauteur : une grande intercommunalité allonge l'image plutôt
     # que de tasser les lignes. Au-delà de 60 communes, ronds et noms rapetissent.
     row_h = 19
@@ -247,12 +260,16 @@ def render_svg(epci, communes, results, annee):
     proj = Projection(communes, MAP_X, MAP_Y, MAP_W, MAP_H)
 
     out = [
+        # Une image pour les lecteurs d'écran, plutôt qu'une suite de textes épars ; le
+        # classement détaillé est donné en tableau sur la page de la carte.
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
-        f'font-family="Segoe UI, Helvetica, Arial, sans-serif">',
+        f'font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-labelledby="carte-titre">',
+        f'<title id="carte-titre">{escape(map_title(epci, annee))} : carte et classement des communes selon '
+        f'leur part de produits bio et de produits durables &amp; de qualité.</title>',
         f'<rect width="{W}" height="{H}" fill="{C_BG}"/>',
         f'<a class="nav" href="{GALLERY_URL}"><text x="30" y="26" font-size="13" fill="{C_MUTED}">← Toutes les cartes</text></a>',
         f'<text x="30" y="60" font-size="28" font-weight="700" fill="{C_INK}">'
-        f'Cantines scolaires de la {escape(epci["nom"])} — EGALIM {annee}</text>',
+        f'{escape(map_title(epci, annee))}</text>',
         f'<text x="30" y="90" font-size="16" fill="{C_MUTED}">Par commune : part de produits <tspan font-weight="700">bio</tspan> '
         f'au centre, part de produits <tspan font-weight="700">durables &amp; de qualité</tspan> sur l\'anneau. '
         f'Écoles et crèches.</text>',
@@ -315,15 +332,16 @@ def render_svg(epci, communes, results, annee):
             bio_txt, dur_txt = f"&lt; {CLASSES[i - 1][1]}", f"&lt; {CLASSES[i - 1][2]}"
         else:
             bio_txt, dur_txt = f"{bio_min}–{CLASSES[i - 1][1]}", f"{dur_min}–{CLASSES[i - 1][2]}"
-        out.append(f'<rect x="{lx}" y="{ly + 14}" width="16" height="16" rx="3" fill="{color}"/>'
+        out.append(f'<rect x="{lx}" y="{ly + 14}" width="16" height="16" rx="3" fill="{color}" '
+                   f'stroke="{C_INK}" stroke-opacity=".75"/>'
                    f'<text x="{lx + 23}" y="{ly + 27}">bio {bio_txt} % · durable {dur_txt} %</text>')
         lx += 212
     out.append(f'<circle cx="{lx + 8}" cy="{ly + 22}" r="7" fill="{C_BG}" stroke="{C_NODATA}" stroke-width="2.5" stroke-dasharray="3 2.5"/>'
                f'<text x="{lx + 23}" y="{ly + 27}">pas de télédéclaration</text>')
     out.append(f'<text x="30" y="{ly + 54}" fill="{C_MUTED}" font-size="12">Vert : objectif EGALIM atteint '
                f'({OBJ_BIO} % de bio, {OBJ_DURABLE} % de produits durables &amp; de qualité dont le bio), '
-               f'd\'autant plus foncé qu\'il est dépassé. Orange : au moins la moitié de l\'objectif. '
-               f'Rouge : moins de la moitié.</text>')
+               f'd\'autant plus foncé qu\'il est dépassé. Rose : au moins la moitié de l\'objectif. '
+               f'Magenta : moins de la moitié.</text>')
     out.append("</g>")
 
     # Source
@@ -377,7 +395,9 @@ def main():
         out.parent.mkdir(parents=True, exist_ok=True)
         svg = render_svg(epci, communes, results, annee)
         out.write_text(svg, encoding="utf-8")
-        out.with_suffix(".html").write_text(render_map_page(epci, annee, svg, out.name), encoding="utf-8")
+        out.with_suffix(".html").write_text(
+            render_map_page(epci, annee, svg, out.name, rank_communes(communes, results), results),
+            encoding="utf-8")
 
         n_with = sum(1 for r in results.values() if r["total"])
         n_decl = sum(1 for r in results.values() if r["declared"])
@@ -407,8 +427,10 @@ def epcis_of_departments(departements, session):
     return dict(sorted(deps.items()))
 
 
-def render_map_page(epci, annee, svg, svg_name):
-    """Page d'une carte : la carte en grand, et de quoi la télécharger en PDF A4 ou en SVG.
+def render_map_page(epci, annee, svg, svg_name, ranked, results):
+    """Page d'une carte : la carte en grand, de quoi la télécharger en PDF A4 ou en SVG, et le
+    classement en tableau HTML (lisible par les lecteurs d'écran et sur mobile, ce que le
+    texte de l'image ne permet pas).
 
     Le PDF passe par la fenêtre d'impression du navigateur, réglée en A4 dans l'orientation
     de la carte : c'est le seul moyen sans dépendance de produire un A4 fidèle au vectoriel."""
@@ -418,7 +440,17 @@ def render_map_page(epci, annee, svg, svg_name):
     # La carte est intégrée telle quelle (et non via <img>) pour que la page puisse en masquer
     # le lien de navigation à l'impression ; ses dimensions fixes sont laissées au CSS.
     inline_svg = re.sub(r' width="\d+" height="\d+"', "", svg, count=1)
-    title = f"Cantines scolaires de la {epci['nom']} — EGALIM {annee}"
+    title = map_title(epci, annee)
+
+    rows = []
+    for i, c in enumerate(ranked, start=1):
+        res = results[c["code"]]
+        rank = str(i) if res["declared"] else "—"
+        rows.append(
+            f'      <tr><td class="num">{rank}</td><th scope="row">{escape(c["nom"])}</th>'
+            f'<td class="num">{pct(res["bio"])}</td><td class="num">{pct(res["durable"])}</td>'
+            f'<td class="num">{res["declared"]} / {res["total"]}</td></tr>')
+    table_rows = "\n".join(rows)
     return f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -447,10 +479,25 @@ def render_map_page(epci, annee, svg, svg_name):
   .map {{ max-width: 1440px; margin: 0 auto 40px; padding: 0 16px; }}
   .map svg {{ display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 10px; background: #fff; }}
   .map svg .nav {{ display: none; }}
+  .sr-only {{ position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+             clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }}
+  .ranking {{ max-width: 760px; margin: 0 auto 56px; padding: 0 16px; }}
+  .ranking h2 {{ font-size: 20px; margin: 0 0 6px; }}
+  .ranking p {{ color: var(--muted); font-size: 14px; margin: 0 0 12px; line-height: 1.5; text-align: justify; hyphens: auto; }}
+  .ranking table {{ width: 100%; border-collapse: collapse; font-size: 14px; }}
+  .ranking th, .ranking td {{ padding: 7px 8px; border-bottom: 1px solid var(--border); text-align: left; }}
+  .ranking thead th {{ color: var(--muted); font-weight: 600; font-size: 13px; }}
+  .ranking tbody th {{ font-weight: 500; }}
+  .ranking .num {{ text-align: right; font-variant-numeric: tabular-nums; }}
+  .ranking td.num {{ white-space: nowrap; }}
+  @media (max-width: 480px) {{
+    .ranking table {{ font-size: 13px; }}
+    .ranking th, .ranking td {{ padding: 6px 4px; }}
+  }}
   @page {{ size: A4 {orientation}; margin: 8mm; }}
   @media print {{
     body {{ background: #fff; }}
-    .bar, .hint {{ display: none; }}
+    .bar, .hint, .ranking {{ display: none; }}
     .map {{ max-width: none; margin: 0; padding: 0; }}
     /* La carte tient sur une seule page A4, dans ses proportions. */
     .map svg {{ border: 0; border-radius: 0; width: auto; height: auto;
@@ -466,10 +513,30 @@ def render_map_page(epci, annee, svg, svg_name):
     <a class="btn" href="{escape(svg_name)}" download>Image SVG</a>
   </div>
 </div>
+<main>
+<h1 class="sr-only">{escape(title)}</h1>
 <p class="hint">Pour le PDF, choisissez « Enregistrer au format PDF » comme imprimante. La page est déjà réglée en A4 {"paysage" if orientation == "landscape" else "portrait"}.</p>
 <div class="map">
 {inline_svg}
 </div>
+<section class="ranking" aria-labelledby="classement">
+  <h2 id="classement">Classement des communes</h2>
+  <p>Part de produits bio et de produits durables &amp; de qualité dans les cantines des écoles et
+    crèches de chaque commune, en {annee}. Objectifs EGALIM : {OBJ_BIO} % de bio, {OBJ_DURABLE} % de
+    produits durables &amp; de qualité. Valeur d'une commune : moyenne de ses cantines déclarées,
+    pondérée par le nombre de repas.</p>
+  <table>
+    <caption class="sr-only">Classement des communes de la {escape(epci["nom"])} par part de produits bio, EGALIM {annee}</caption>
+    <thead>
+      <tr><th scope="col" class="num">Rang</th><th scope="col">Commune</th><th scope="col" class="num">Bio</th>
+        <th scope="col" class="num">Durable &amp; qualité</th><th scope="col" class="num">Cantines déclarées</th></tr>
+    </thead>
+    <tbody>
+{table_rows}
+    </tbody>
+  </table>
+</section>
+</main>
 </body>
 </html>
 """
