@@ -71,7 +71,11 @@
   #searchBtn{width:auto;padding:7px 12px}
   #searchHits{margin-top:6px;max-height:230px;overflow:auto;display:none}
   .hit{padding:6px 8px;border-radius:6px;font-size:12.5px;cursor:pointer;border-bottom:1px solid #1c2b47}
-  .hit:hover{background:#0e1a30}
+  button.hit{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid #1c2b47;font-weight:400;color:var(--ink)}
+  .hit:hover,.hit:focus-visible{background:#0e1a30}
+  .hit:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+  /* texte lu par les lecteurs d'écran, invisible à l'écran */
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   .hit .k{font-size:10px;color:var(--accent);text-transform:uppercase;margin-right:6px}
   .hit small{color:var(--muted)}
   /* popup au survol : grand cadre confortable */
@@ -125,7 +129,7 @@
       <div class="switch"><input type="checkbox" id="tog17" checked><label for="tog17">Charente-Maritime (17)</label></div>
       <div class="switch"><input type="checkbox" id="tog79" checked><label for="tog79">Deux-Sèvres (79)</label></div>
       <div class="row" style="margin-top:10px">
-        <span style="flex:none;color:var(--muted)">Colorer par&nbsp;:</span>
+        <label for="colorBy" style="flex:none;color:var(--muted)">Colorer par&nbsp;:</label>
         <select id="colorBy">
           <option value="none">Type de cuisine</option>
           <option value="bio">% Bio (EGALIM)</option>
@@ -133,16 +137,16 @@
         </select>
       </div>
       <div class="row">
-        <span style="flex:none;color:var(--muted)">Année EGALIM&nbsp;:</span>
+        <label for="yearSel" style="flex:none;color:var(--muted)">Année EGALIM&nbsp;:</label>
         <select id="yearSel"><option value="">—</option></select>
       </div>
       <div class="row">
-        <span style="flex:none;color:var(--muted)">Établissement&nbsp;:</span>
+        <label for="etabFilter" style="flex:none;color:var(--muted)">Établissement&nbsp;:</label>
         <select id="etabFilter">
           <option value="all">Tous types</option>
           <option value="college">Collèges (gérés par le Département)</option>
-          <option value="ecole">Écoles (gérées par la comm. de communes)</option>
-          <option value="creche">Crèches (gérées par la comm. de communes)</option>
+          <option value="ecole">Écoles</option>
+          <option value="creche">Crèches</option>
         </select>
       </div>
       <div class="switch" style="margin-top:8px"><input type="checkbox" id="togCluster" checked><label for="togCluster">Regrouper les points (cluster)</label></div>
@@ -166,6 +170,7 @@
         </div>
         <datalist id="dl"></datalist>
         <div id="searchHits"></div>
+        <div id="srLive" class="sr-only" aria-live="polite"></div>
       </div>
     </div>
   </div>
@@ -186,7 +191,7 @@
     </div>
     <div id="cmpStruct" class="cmpPane">
       <div class="row" style="margin-bottom:8px">
-        <span style="flex:none;color:var(--muted)">Périmètre&nbsp;:</span>
+        <label for="cmpScope" style="flex:none;color:var(--muted)">Périmètre&nbsp;:</label>
         <select id="cmpScope" style="max-width:320px">
           <option value="all">Tous les territoires</option>
           <option value="dep">Départements (collèges)</option>
@@ -197,7 +202,7 @@
     </div>
     <div id="cmpWithin" class="cmpPane" style="display:none">
       <div class="row" style="margin-bottom:8px">
-        <span style="flex:none;color:var(--muted)">Territoire&nbsp;:</span>
+        <label for="cmpStructSel" style="flex:none;color:var(--muted)">Territoire&nbsp;:</label>
         <select id="cmpStructSel" style="max-width:460px"></select>
       </div>
       <div id="cmpWithinTable"></div>
@@ -326,7 +331,7 @@ function recenter(){
   map.setView([46.1,-0.6],8);
 }
 
-/* popup (au survol) — grand cadre, contenu riche ; PLUS de popup au clic */
+/* popup (au survol, et au clic/toucher via bindPopup) — grand cadre, contenu riche */
 /* liste les valeurs bio/durable des autres années connues, pour voir une tendance sans changer le sélecteur */
 function historyHTML(siret,currentYear){
   const years=Object.keys(tdByYear).filter(y=>/^20\d{2}$/.test(y)&&y!==currentYear).sort().reverse();
@@ -451,14 +456,22 @@ function doSearch(){
   hits.sort((a,b)=>normalize(a.label).indexOf(q)-normalize(b.label).indexOf(q));
   const top=hits.slice(0,30);
   if(!top.length){box.innerHTML='<div class="hit"><small>Aucun résultat.</small></div>';box.style.display='block';return;}
-  box.innerHTML=top.map((h,i)=>`<div class="hit" data-i="${i}"><span class="k">${h.kind}</span>${h.label} <small>${h.sub}</small></div>`).join('');
+  box.innerHTML=top.map((h,i)=>`<button type="button" class="hit" data-i="${i}"><span class="k">${h.kind}</span>${h.label} <small>${h.sub}</small></button>`).join('');
   box.style.display='block';
   [...box.querySelectorAll('.hit')].forEach(el=>{const i=+el.dataset.i;if(isNaN(i))return;el.onclick=()=>goTo(top[i]);});
   if(top.length)goTo(top[0]);
 }
 function goTo(h){
   map.setView(h.ll,h.zoom,{animate:true});
-  if(h.marker){if(clusterGroup.hasLayer(h.marker)){clusterGroup.zoomToShowLayer(h.marker,()=>h.marker.openPopup());}else{h.marker.openPopup();}}
+  const open=()=>{h.marker.openPopup();announce(h.marker);};
+  if(h.marker){if(clusterGroup.hasLayer(h.marker)){clusterGroup.zoomToShowLayer(h.marker,open);}else{open();}}
+}
+/* Les marqueurs ne sont pas atteignables au clavier : la recherche est le chemin clavier vers
+   une cantine. Le contenu de la bulle ouverte est lu par les lecteurs d'écran. */
+function announce(marker){
+  const p=marker.getPopup();if(!p)return;
+  const tmp=document.createElement('div');tmp.innerHTML=p.getContent();
+  document.getElementById('srLive').textContent=tmp.textContent.replace(/\s+/g,' ').trim();
 }
 document.getElementById('searchBtn').addEventListener('click',doSearch);
 document.getElementById('searchInput').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();doSearch();}});
