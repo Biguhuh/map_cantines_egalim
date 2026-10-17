@@ -175,7 +175,7 @@
       <h2 style="margin:0;color:var(--accent)">⚖️ Comparaison par territoire</h2>
       <button id="cmpClose" class="ghost" style="width:auto;padding:6px 12px">✕ Fermer</button>
     </div>
-    <div class="hint" style="margin:8px 0 4px">Collèges regroupés par <b>département</b> (qui les gère) · écoles &amp; crèches regroupées par <b>communauté de communes</b>, pour comparer à une échelle intercommunale. Moyennes EGALIM (bio &amp; durable/qualité) calculées sur l'année <b><span id="cmpYear"></span></b>.</div>
+    <div class="hint" style="margin:8px 0 4px">Collèges regroupés par <b>département</b> (qui les gère) · écoles &amp; crèches regroupées par <b>intercommunalité</b> (communauté de communes ou d'agglomération). Moyennes EGALIM (bio &amp; durable/qualité) calculées sur l'année <b><span id="cmpYear"></span></b>.</div>
     <div class="cmpTabs">
       <button class="cmpTab active" data-tab="struct">Territoires entre eux</button>
       <button class="cmpTab" data-tab="within">Cantines d'un même territoire</button>
@@ -186,7 +186,7 @@
         <select id="cmpScope" style="max-width:320px">
           <option value="all">Tous les territoires</option>
           <option value="dep">Départements (collèges)</option>
-          <option value="epci">Communautés de communes (écoles &amp; crèches)</option>
+          <option value="epci">Intercommunalités (écoles &amp; crèches)</option>
         </select>
       </div>
       <div id="cmpStructTable"></div>
@@ -217,7 +217,7 @@ function gestionnaireFor(rec){
   if(!t)return null;
   if(t==="college")return {key:"DEP-"+rec.dept,name:DEPT_GEST[rec.dept]||("Département "+rec.dept),kind:"Département",scope:"gère les collèges",etab:"college"};
   const epci=EPCI_BY_INSEE[rec.ins]||("Communauté non identifiée ("+rec.dept+")");
-  return {key:"EPCI-"+epci,name:epci,kind:"Communauté de communes",scope:"territoire de comparaison des écoles & crèches",etab:"ecole_creche"};
+  return {key:"EPCI-"+epci,name:epci,kind:"Intercommunalité",scope:"territoire de comparaison des écoles & crèches",etab:"ecole_creche"};
 }
 let STRUCT={};
 function buildStructures(){
