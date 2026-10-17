@@ -146,7 +146,7 @@
 
     <div class="card"><h2>Légende</h2><div id="legend"></div></div>
     <div class="card"><h2>3 · Statistiques</h2><div id="stats"></div></div>
-    <button id="btnCmp" style="margin-bottom:10px">⚖️ Comparer les structures gérantes</button>
+    <button id="btnCmp" style="margin-bottom:10px">⚖️ Comparer les territoires</button>
     <button class="ghost" id="btnFit">🎯 Recentrer sur 17 &amp; 79</button>
   </aside>
 
@@ -172,19 +172,19 @@
 <div id="cmpModal">
   <div id="cmpBox">
     <div class="cmpHead">
-      <h2 style="margin:0;color:var(--accent)">⚖️ Comparaison des structures gérantes</h2>
+      <h2 style="margin:0;color:var(--accent)">⚖️ Comparaison par territoire</h2>
       <button id="cmpClose" class="ghost" style="width:auto;padding:6px 12px">✕ Fermer</button>
     </div>
-    <div class="hint" style="margin:8px 0 4px">Collèges → gérés par le <b>Département</b> · Écoles &amp; crèches → gérées par la <b>communauté de communes (EPCI)</b>. Moyennes EGALIM (bio &amp; durable/qualité) calculées sur l'année <b><span id="cmpYear"></span></b>.</div>
+    <div class="hint" style="margin:8px 0 4px">Collèges regroupés par <b>département</b> (qui les gère) · écoles &amp; crèches regroupées par <b>communauté de communes</b>, pour comparer à une échelle intercommunale. Moyennes EGALIM (bio &amp; durable/qualité) calculées sur l'année <b><span id="cmpYear"></span></b>.</div>
     <div class="cmpTabs">
-      <button class="cmpTab active" data-tab="struct">Structures entre elles</button>
-      <button class="cmpTab" data-tab="within">Cantines d'une même structure</button>
+      <button class="cmpTab active" data-tab="struct">Territoires entre eux</button>
+      <button class="cmpTab" data-tab="within">Cantines d'un même territoire</button>
     </div>
     <div id="cmpStruct" class="cmpPane">
       <div class="row" style="margin-bottom:8px">
         <span style="flex:none;color:var(--muted)">Périmètre&nbsp;:</span>
         <select id="cmpScope" style="max-width:320px">
-          <option value="all">Toutes les structures</option>
+          <option value="all">Tous les territoires</option>
           <option value="dep">Départements (collèges)</option>
           <option value="epci">Communautés de communes (écoles &amp; crèches)</option>
         </select>
@@ -193,7 +193,7 @@
     </div>
     <div id="cmpWithin" class="cmpPane" style="display:none">
       <div class="row" style="margin-bottom:8px">
-        <span style="flex:none;color:var(--muted)">Structure&nbsp;:</span>
+        <span style="flex:none;color:var(--muted)">Territoire&nbsp;:</span>
         <select id="cmpStructSel" style="max-width:460px"></select>
       </div>
       <div id="cmpWithinTable"></div>
@@ -215,9 +215,9 @@ function classifyEtab(s){s=s||"";if(s.indexOf("Secondaire collège")>=0)return "
 function gestionnaireFor(rec){
   const t=classifyEtab(rec.sector);
   if(!t)return null;
-  if(t==="college")return {key:"DEP-"+rec.dept,name:DEPT_GEST[rec.dept]||("Département "+rec.dept),kind:"Département",scope:"les collèges",etab:"college"};
+  if(t==="college")return {key:"DEP-"+rec.dept,name:DEPT_GEST[rec.dept]||("Département "+rec.dept),kind:"Département",scope:"gère les collèges",etab:"college"};
   const epci=EPCI_BY_INSEE[rec.ins]||("Communauté non identifiée ("+rec.dept+")");
-  return {key:"EPCI-"+epci,name:epci,kind:"Communauté de communes",scope:"les écoles & crèches",etab:"ecole_creche"};
+  return {key:"EPCI-"+epci,name:epci,kind:"Communauté de communes",scope:"territoire de comparaison des écoles & crèches",etab:"ecole_creche"};
 }
 let STRUCT={};
 function buildStructures(){
@@ -343,7 +343,7 @@ function contentHTML(r,year){
   const repas=r.ym?`<br>🍽️ ${(+r.ym).toLocaleString('fr')} repas/an${r.dm?` (${(+r.dm).toLocaleString('fr')}/jour)`:''}`:'';
   const gest=[r.em&&({public:'public',private:'privé'}[r.em]||r.em),r.mt&&({direct:'gestion directe',conceded:'gestion concédée'}[r.mt]||r.mt)].filter(Boolean).join(' · ');
   const g=r.gest, sa=r._structAvg||{};
-  const gestBloc = g ? `<div style="margin-top:7px;padding-top:6px;border-top:1px solid #e2e6ee">🏛️ <b>${g.name}</b><br><span style="font-size:11px;color:#556">${g.kind} · gère ${g.scope}</span><br><span style="font-size:12px">📊 Moyenne structure${year?` (${year})`:''} : <b>${sa.avgBio!=null?sa.avgBio.toFixed(0)+'%':'—'}</b> bio · <b>${sa.avgEg!=null?sa.avgEg.toFixed(0)+'%':'—'}</b> durable <span style="opacity:.7">(${sa.nData||0}/${sa.nTot||0} cantines)</span></span></div>` : '';
+  const gestBloc = g ? `<div style="margin-top:7px;padding-top:6px;border-top:1px solid #e2e6ee">🏛️ <b>${g.name}</b><br><span style="font-size:11px;color:#556">${g.kind} · ${g.scope}</span><br><span style="font-size:12px">📊 Moyenne du territoire${year?` (${year})`:''} : <b>${sa.avgBio!=null?sa.avgBio.toFixed(0)+'%':'—'}</b> bio · <b>${sa.avgEg!=null?sa.avgEg.toFixed(0)+'%':'—'}</b> durable <span style="opacity:.7">(${sa.nData||0}/${sa.nTot||0} cantines)</span></span></div>` : '';
   return `<b>${r.name}</b><br>
     ${r.addr?('🏠 '+r.addr+'<br>'):''}
     ${r.city?('📍 '+r.city+' '):''}<span class="pill">Dép. ${r.dept}</span><br>
@@ -493,7 +493,7 @@ function setStatus(t){document.getElementById('status').textContent=t;}
   backdrop.addEventListener('click',close);
 })();
 
-/* ---------- Fenêtre de comparaison des structures gérantes ---------- */
+/* ---------- Fenêtre de comparaison par territoire ---------- */
 let cmpSort={key:'name',dir:1};
 function structList(scope){
   let arr=Object.values(STRUCT);
@@ -517,13 +517,13 @@ function renderCmpStruct(){
   });
   const ar=kk=>cmpSort.key===kk?(cmpSort.dir>0?' ▲':' ▼'):'';
   let h=`<table class="cmp"><thead><tr>
-    <th data-k="name">Structure gérante${ar('name')}</th>
+    <th data-k="name">Territoire${ar('name')}</th>
     <th data-k="kind">Type${ar('kind')}</th>
     <th class="num" data-k="n">Cantines${ar('n')}</th>
     <th class="num" data-k="bio">Bio moyen${ar('bio')}</th>
     <th class="num" data-k="eg">Durable moyen${ar('eg')}</th></tr></thead><tbody>`;
   arr.forEach(S=>{h+=`<tr><td>${S.name}</td><td class="mut">${S.kind}</td><td class="num">${S.nData}/${S.nTot}</td><td class="num">${barHTML(S.avgBio,'#1a9850')}</td><td class="num">${barHTML(S.avgEg,'#38bdf8')}</td></tr>`;});
-  if(!arr.length)h+='<tr><td colspan="5" class="mut">Aucune structure sur ce périmètre.</td></tr>';
+  if(!arr.length)h+='<tr><td colspan="5" class="mut">Aucun territoire sur ce périmètre.</td></tr>';
   h+='</tbody></table>';
   document.getElementById('cmpStructTable').innerHTML=h;
   document.querySelectorAll('#cmpStructTable th[data-k]').forEach(th=>th.onclick=()=>{const kk=th.dataset.k;if(cmpSort.key===kk)cmpSort.dir*=-1;else cmpSort={key:kk,dir:(kk==='name'||kk==='kind')?1:-1};renderCmpStruct();});
@@ -547,7 +547,7 @@ function renderCmpWithin(){
   const box=document.getElementById('cmpWithinTable');
   if(!S){box.innerHTML='<div class="mut">—</div>';return;}
   const recs=S.recs.slice().sort((a,b)=>{const va=a.bio==null?-1:a.bio,vb=b.bio==null?-1:b.bio;return vb-va;});
-  /* noms en double dans la structure (ex. 2 « MELLE ») → on ajoute la rue pour les distinguer */
+  /* noms en double dans le territoire (ex. 2 « MELLE ») → on ajoute la rue pour les distinguer */
   const nameCount={};recs.forEach(r=>{nameCount[r.name]=(nameCount[r.name]||0)+1;});
   const label=r=>nameCount[r.name]>1&&r.addr?`${r.name} <span class="mut">(${streetOf(r.addr)})</span>`:r.name;
   let h=`<div class="hint" style="margin-bottom:8px">Moyenne de référence : 🌱 <b>${S.avgBio!=null?S.avgBio.toFixed(0)+'%':'—'}</b> bio · ♻️ <b>${S.avgEg!=null?S.avgEg.toFixed(0)+'%':'—'}</b> durable — ${S.nData}/${S.nTot} cantines déclarées.</div>`;

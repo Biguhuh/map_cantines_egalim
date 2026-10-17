@@ -2,9 +2,9 @@
 
 Carte interactive (Leaflet) des cantines scolaires et collectives des
 départements 17 et 79, avec leurs indicateurs EGALIM (part de bio et de
-produits durables & de qualité) et une comparaison entre structures
-gérantes (départements pour les collèges, communautés de communes pour
-les écoles et crèches).
+produits durables & de qualité) et une comparaison par territoire
+(départements pour les collèges, communautés de communes pour les écoles
+et crèches).
 
 La carte publiée est un **fichier HTML autonome** ([docs/index.html](docs/index.html)) :
 toutes les données sont embarquées dans la page, aucun serveur ni base de
