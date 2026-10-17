@@ -20,22 +20,26 @@
   #mapwrap{grid-row:1/2;position:relative}
   #map{position:absolute;inset:0}
   footer{grid-column:2/3;background:var(--panel);border-top:1px solid var(--line);padding:8px 16px;font-size:11.5px;color:var(--muted);font-style:italic}
-  #sidebarToggle{display:none}
+  /* Bouton du panneau : sur PC il replie la colonne (la carte prend toute la largeur),
+     sur mobile il ouvre le tiroir par-dessus la carte. */
+  #sidebarToggle{
+    display:flex;align-items:center;justify-content:center;position:absolute;top:12px;right:12px;z-index:1500;
+    width:42px;height:42px;border-radius:10px;background:var(--panel);border:1px solid var(--line);
+    color:var(--ink);font-size:19px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.4);padding:0
+  }
+  #app.collapsed{grid-template-columns:1fr}
+  #app.collapsed #sidebar{display:none}
+  #app.collapsed #mapwrap,#app.collapsed footer{grid-column:1/-1}
   #sidebarBackdrop{display:none}
   @media (max-width:768px){
-    #app{grid-template-columns:1fr}
-    #sidebar{
-      position:fixed;top:0;left:0;bottom:0;width:86vw;max-width:340px;z-index:2000;
+    #app,#app.collapsed{grid-template-columns:1fr}
+    #sidebar,#app.collapsed #sidebar{
+      display:block;position:fixed;top:0;left:0;bottom:0;width:86vw;max-width:340px;z-index:2000;
       box-shadow:2px 0 24px rgba(0,0,0,.5);transform:translateX(-100%);transition:transform .25s ease;
     }
     #sidebar.open{transform:translateX(0)}
     #mapwrap{grid-column:1/-1}
     footer{grid-column:1/-1}
-    #sidebarToggle{
-      display:flex;align-items:center;justify-content:center;position:absolute;top:12px;right:12px;z-index:1500;
-      width:42px;height:42px;border-radius:10px;background:var(--panel);border:1px solid var(--line);
-      color:var(--ink);font-size:19px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.4)
-    }
     #sidebarBackdrop.open{display:block;position:fixed;inset:0;background:rgba(4,9,18,.55);z-index:1900}
   }
   h1{font-size:17px;margin:0 0 2px}
@@ -64,7 +68,10 @@
   #dragHandle{display:flex;align-items:center;gap:8px;cursor:grab;padding:7px 10px;border-bottom:1px solid var(--line);
               font-size:12px;color:var(--muted);user-select:none;border-radius:10px 10px 0 0;background:#0e1a30}
   #dragHandle:active{cursor:grabbing}
-  #dragHandle .grip{letter-spacing:2px;color:#4a5f85}
+  #dragHandle .grip{letter-spacing:2px;color:#8a9cc0}
+  #searchCollapse{width:auto;padding:2px 9px;margin-left:4px;background:transparent;font-size:13px;line-height:1.2;cursor:pointer}
+  #searchBox.collapsed #searchBody{display:none}
+  #searchBox.collapsed #dragHandle{border-bottom:0;border-radius:10px}
   #searchBody{padding:8px}
   #searchBody .row{margin:0}
   #searchInput{flex:1}
@@ -94,7 +101,10 @@
   .cmpTab.active{border-color:var(--accent);color:var(--accent)}
   table.cmp{width:100%;border-collapse:collapse;font-size:12.5px}
   table.cmp th,table.cmp td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
-  table.cmp th{position:sticky;top:0;background:var(--panel2);cursor:pointer;user-select:none;color:var(--muted);white-space:nowrap}
+  table.cmp th{position:sticky;top:0;background:var(--panel2);user-select:none;color:var(--muted);white-space:nowrap}
+  /* en-têtes triables : un vrai bouton, atteignable au clavier */
+  .sortBtn{width:auto;padding:0;background:none;border:0;border-radius:3px;color:inherit;font:inherit;font-weight:600;cursor:pointer;text-align:inherit}
+  .sortBtn:hover{color:var(--ink)}
   table.cmp th.num,table.cmp td.num{text-align:right}
   table.cmp tr:hover td{background:#0e1a30}
   .bar{height:8px;border-radius:5px;background:#0e2440;overflow:hidden;width:90px;display:inline-block;vertical-align:middle;margin-right:6px}
@@ -160,9 +170,10 @@
 
   <div id="mapwrap">
     <div id="map"></div>
-    <button id="sidebarToggle" aria-label="Ouvrir le panneau">☰</button>
+    <button id="sidebarToggle" type="button" aria-controls="sidebar" aria-expanded="true" aria-label="Masquer le panneau">☰</button>
     <div id="searchBox">
-      <div id="dragHandle"><span class="grip">⠿⠿</span> 🔎 Recherche <small style="margin-left:auto;opacity:.7">(déplaçable)</small></div>
+      <div id="dragHandle"><span class="grip" aria-hidden="true">⠿⠿</span> 🔎 Recherche <small style="margin-left:auto;opacity:.7">(déplaçable)</small>
+        <button id="searchCollapse" type="button" aria-controls="searchBody" aria-expanded="true" aria-label="Replier la recherche">▾</button></div>
       <div id="searchBody">
         <div class="row">
           <input type="text" id="searchInput" placeholder="Commune ou nom de cantine…" list="dl" autocomplete="off"/>
@@ -179,15 +190,15 @@
 </div>
 
 <div id="cmpModal">
-  <div id="cmpBox">
+  <div id="cmpBox" role="dialog" aria-modal="true" aria-labelledby="cmpTitle" tabindex="-1">
     <div class="cmpHead">
-      <h2 style="margin:0;color:var(--accent)">⚖️ Comparaison par territoire</h2>
+      <h2 id="cmpTitle" style="margin:0;color:var(--accent)">⚖️ Comparaison par territoire</h2>
       <button id="cmpClose" class="ghost" style="width:auto;padding:6px 12px">✕ Fermer</button>
     </div>
     <div class="hint" style="margin:8px 0 4px">Collèges regroupés par <b>département</b> (qui les gère) · écoles &amp; crèches regroupées par <b>intercommunalité</b> (communauté de communes ou d'agglomération). Moyennes EGALIM (bio &amp; durable/qualité) calculées sur l'année <b><span id="cmpYear"></span></b>.</div>
     <div class="cmpTabs">
-      <button class="cmpTab active" data-tab="struct">Territoires entre eux</button>
-      <button class="cmpTab" data-tab="within">Cantines d'un même territoire</button>
+      <button class="cmpTab active" data-tab="struct" aria-pressed="true">Territoires entre eux</button>
+      <button class="cmpTab" data-tab="within" aria-pressed="false">Cantines d'un même territoire</button>
     </div>
     <div id="cmpStruct" class="cmpPane">
       <div class="row" style="margin-bottom:8px">
@@ -492,7 +503,17 @@ document.getElementById('searchInput').addEventListener('keydown',e=>{if(e.key==
     x=Math.max(0,Math.min(x,p.width-box.offsetWidth));y=Math.max(0,Math.min(y,p.height-box.offsetHeight));
     box.style.left=x+'px';box.style.top=y+'px';
   });
-  handle.addEventListener('pointerup',e=>{drag=false;try{handle.releasePointerCapture(e.pointerId);}catch(_){}}); 
+  handle.addEventListener('pointerup',e=>{drag=false;try{handle.releasePointerCapture(e.pointerId);}catch(_){}});
+  // repli : ne garde que la barre de titre, pour dégager la carte
+  const fold=document.getElementById('searchCollapse');
+  fold.addEventListener('pointerdown',e=>e.stopPropagation()); // un clic ici ne démarre pas le déplacement
+  fold.addEventListener('click',()=>{
+    const folded=box.classList.toggle('collapsed');
+    fold.setAttribute('aria-expanded',!folded);
+    fold.setAttribute('aria-label',folded?'Déplier la recherche':'Replier la recherche');
+    fold.textContent=folded?'▸':'▾';
+    if(!folded)document.getElementById('searchInput').focus();
+  });
 })();
 
 /* ---------- Events ---------- */
@@ -502,12 +523,34 @@ document.getElementById('yearSel').addEventListener('change',()=>{applyEgalimToM
 document.getElementById('btnFit').addEventListener('click',recenter);
 function setStatus(t){document.getElementById('status').textContent=t;}
 
-/* ---------- Tiroir latéral (mobile) ---------- */
+/* ---------- Panneau latéral : colonne repliable sur PC, tiroir sur mobile ---------- */
 (function(){
-  const sidebar=document.getElementById('sidebar'),toggle=document.getElementById('sidebarToggle'),backdrop=document.getElementById('sidebarBackdrop');
-  const close=()=>{sidebar.classList.remove('open');backdrop.classList.remove('open');};
-  toggle.addEventListener('click',()=>{sidebar.classList.toggle('open');backdrop.classList.toggle('open');});
-  backdrop.addEventListener('click',close);
+  const app=document.getElementById('app'),sidebar=document.getElementById('sidebar'),
+        toggle=document.getElementById('sidebarToggle'),backdrop=document.getElementById('sidebarBackdrop');
+  const mobile=window.matchMedia('(max-width:768px)');
+  const isOpen=()=>mobile.matches?sidebar.classList.contains('open'):!app.classList.contains('collapsed');
+  function sync(){
+    const open=isOpen();
+    toggle.setAttribute('aria-expanded',open);
+    toggle.setAttribute('aria-label',open?'Masquer le panneau':'Afficher le panneau');
+  }
+  function closeDrawer(){sidebar.classList.remove('open');backdrop.classList.remove('open');sync();}
+  // sur PC, la colonne repliée le reste d'une visite à l'autre
+  try{if(localStorage.getItem('egalim-panneau')==='replie')app.classList.add('collapsed');}catch(_){}
+  toggle.addEventListener('click',()=>{
+    if(mobile.matches){sidebar.classList.toggle('open');backdrop.classList.toggle('open');}
+    else{
+      const folded=app.classList.toggle('collapsed');
+      try{localStorage.setItem('egalim-panneau',folded?'replie':'ouvert');}catch(_){}
+      map.invalidateSize(); // la carte change de largeur
+    }
+    sync();
+  });
+  backdrop.addEventListener('click',closeDrawer);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mobile.matches&&sidebar.classList.contains('open')){closeDrawer();toggle.focus();}});
+  mobile.addEventListener('change',()=>{map.invalidateSize();sync();});
+  sync();
+  map.invalidateSize();
 })();
 
 /* ---------- Fenêtre de comparaison par territoire ---------- */
@@ -533,17 +576,20 @@ function renderCmpStruct(){
     return dir*(va-vb);
   });
   const ar=kk=>cmpSort.key===kk?(cmpSort.dir>0?' ▲':' ▼'):'';
+  const th=(kk,label,cls)=>`<th${cls?` class="${cls}"`:''} data-k="${kk}"${cmpSort.key===kk?` aria-sort="${cmpSort.dir>0?'ascending':'descending'}"`:''}>`
+    +`<button type="button" class="sortBtn">${label}${ar(kk)}</button></th>`;
   let h=`<table class="cmp"><thead><tr>
-    <th data-k="name">Territoire${ar('name')}</th>
-    <th data-k="kind">Type${ar('kind')}</th>
-    <th class="num" data-k="n">Cantines${ar('n')}</th>
-    <th class="num" data-k="bio">Bio moyen${ar('bio')}</th>
-    <th class="num" data-k="eg">Durable moyen${ar('eg')}</th></tr></thead><tbody>`;
+    ${th('name','Territoire')}${th('kind','Type')}${th('n','Cantines','num')}${th('bio','Bio moyen','num')}${th('eg','Durable moyen','num')}</tr></thead><tbody>`;
   arr.forEach(S=>{h+=`<tr><td>${S.name}</td><td class="mut">${S.kind}</td><td class="num">${S.nData}/${S.nTot}</td><td class="num">${barHTML(S.avgBio,'#1a9850')}</td><td class="num">${barHTML(S.avgEg,'#38bdf8')}</td></tr>`;});
   if(!arr.length)h+='<tr><td colspan="5" class="mut">Aucun territoire sur ce périmètre.</td></tr>';
   h+='</tbody></table>';
   document.getElementById('cmpStructTable').innerHTML=h;
-  document.querySelectorAll('#cmpStructTable th[data-k]').forEach(th=>th.onclick=()=>{const kk=th.dataset.k;if(cmpSort.key===kk)cmpSort.dir*=-1;else cmpSort={key:kk,dir:(kk==='name'||kk==='kind')?1:-1};renderCmpStruct();});
+  document.querySelectorAll('#cmpStructTable th[data-k] .sortBtn').forEach(b=>b.onclick=()=>{
+    const kk=b.parentElement.dataset.k;
+    if(cmpSort.key===kk)cmpSort.dir*=-1;else cmpSort={key:kk,dir:(kk==='name'||kk==='kind')?1:-1};
+    renderCmpStruct();
+    document.querySelector(`#cmpStructTable th[data-k="${kk}"] .sortBtn`).focus(); // le tableau est recréé : on garde le focus
+  });
 }
 function fillStructSel(){
   const sel=document.getElementById('cmpStructSel');
@@ -577,14 +623,37 @@ function renderCmpWithin(){
   h+='</tbody></table>';
   box.innerHTML=h;
 }
-function openCmp(){document.getElementById('cmpYear').textContent=document.getElementById('yearSel').value||'—';renderCmpStruct();fillStructSel();document.getElementById('cmpModal').classList.add('open');}
+/* Dialogue : le focus y entre à l'ouverture, y reste (Tab boucle), Échap ferme, et le focus
+   revient au bouton qui l'a ouvert. */
+let cmpOpener=null;
+function openCmp(){
+  document.getElementById('cmpYear').textContent=document.getElementById('yearSel').value||'—';
+  renderCmpStruct();fillStructSel();
+  cmpOpener=document.activeElement;
+  document.getElementById('cmpModal').classList.add('open');
+  document.getElementById('cmpClose').focus();
+}
+function closeCmp(){
+  document.getElementById('cmpModal').classList.remove('open');
+  if(cmpOpener&&cmpOpener.focus)cmpOpener.focus();
+}
 document.getElementById('btnCmp').addEventListener('click',openCmp);
-document.getElementById('cmpClose').addEventListener('click',()=>document.getElementById('cmpModal').classList.remove('open'));
-document.getElementById('cmpModal').addEventListener('click',e=>{if(e.target.id==='cmpModal')e.target.classList.remove('open');});
+document.getElementById('cmpClose').addEventListener('click',closeCmp);
+document.getElementById('cmpModal').addEventListener('click',e=>{if(e.target.id==='cmpModal')closeCmp();});
+document.getElementById('cmpModal').addEventListener('keydown',e=>{
+  if(e.key==='Escape'){e.preventDefault();closeCmp();return;}
+  if(e.key!=='Tab')return;
+  const f=[...document.querySelectorAll('#cmpBox button,#cmpBox select,#cmpBox a[href],#cmpBox [tabindex="0"]')].filter(el=>el.offsetParent!==null);
+  if(!f.length)return;
+  const first=f[0],last=f[f.length-1];
+  if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+  else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+});
 document.getElementById('cmpScope').addEventListener('change',renderCmpStruct);
 document.getElementById('cmpStructSel').addEventListener('change',renderCmpWithin);
 document.querySelectorAll('.cmpTab').forEach(t=>t.addEventListener('click',()=>{
-  document.querySelectorAll('.cmpTab').forEach(x=>x.classList.remove('active'));t.classList.add('active');
+  document.querySelectorAll('.cmpTab').forEach(x=>{x.classList.remove('active');x.setAttribute('aria-pressed','false');});
+  t.classList.add('active');t.setAttribute('aria-pressed','true');
   const tab=t.dataset.tab;
   document.getElementById('cmpStruct').style.display=tab==='struct'?'':'none';
   document.getElementById('cmpWithin').style.display=tab==='within'?'':'none';
