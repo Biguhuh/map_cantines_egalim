@@ -185,7 +185,7 @@
       </div>
     </div>
   </main>
-  <footer>Cantines géolocalisées (registre + SIRENE) · Données EGALIM 2021-2024 (télédéclarations). Données mises à jour le __GENERATED_AT__. Support réalisé avec l'aide d'une IA générative ; les analyses, interprétations et décisions relèvent de l'auteur.</footer>
+  <footer>Cantines géolocalisées (registre + SIRENE) · Données EGALIM __YEARS_RANGE__ (télédéclarations). Données mises à jour le __GENERATED_AT__. Support réalisé avec l'aide d'une IA générative ; les analyses, interprétations et décisions relèvent de l'auteur.</footer>
   <div id="sidebarBackdrop"></div>
 </div>
 
@@ -224,7 +224,7 @@
 <script>
 /* ===== Données cantines EMBARQUÉES (immuables) ===== */
 const CANTINES = __CANTINES_JSON__;
-/* ===== Données EGALIM 2021-2024 EMBARQUÉES (télédéclarations) ===== */
+/* ===== Données EGALIM EMBARQUÉES (télédéclarations, toutes les années disponibles) ===== */
 const TD_EMBED = __TD_EMBED_JSON__;
 
 const EPCI_BY_INSEE=__EPCI_JSON__;
@@ -661,7 +661,7 @@ document.querySelectorAll('.cmpTab').forEach(t=>t.addEventListener('click',()=>{
 
 /* ---------- Démarrage ---------- */
 updateLegend();
-loadEmbeddedTd();                       // données EGALIM 2021-2024 embarquées (défaut = 2024)
+loadEmbeddedTd();                       // données EGALIM embarquées (défaut = année la plus récente)
 buildMarkers();                         // cantines embarquées -> affichage immédiat + jointure EGALIM
 loadContours().then(recenter);          // contours puis cadrage
 loadCommunes();                         // centres de communes (recherche + repli 8 cantines)
