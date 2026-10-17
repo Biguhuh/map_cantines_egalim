@@ -24,11 +24,13 @@
 <g font-size="12.5" fill="#1b2733"><text x="948" y="196" text-anchor="end" fill="#5c6773"></text><circle cx="962.0" cy="192.0" r="4.5" fill="#ffffff" stroke="#b9bcc2" stroke-width="2.5" stroke-dasharray="3 2.5"/><text x="976" y="196">Louin</text><text x="1180" y="196" text-anchor="end" font-weight="600">—</text><text x="1260" y="196" text-anchor="end">—</text><text x="1360" y="196" text-anchor="end" fill="#5c6773">0/1</text></g>
 <g font-size="13" fill="#1b2733">
 <text x="30" y="870" font-weight="700">Lecture</text>
-<rect x="30" y="884" width="16" height="16" rx="3" fill="#1a9850"/><text x="54" y="897">bio ≥ 20 % · durable ≥ 50 %</text>
-<rect x="295" y="884" width="16" height="16" rx="3" fill="#fdae61"/><text x="319" y="897">bio 10–20 % · durable 25–50 %</text>
-<rect x="560" y="884" width="16" height="16" rx="3" fill="#d73027"/><text x="584" y="897">bio &lt; 10 % · durable &lt; 25 %</text>
-<circle cx="833" cy="892" r="7" fill="#ffffff" stroke="#b9bcc2" stroke-width="2.5" stroke-dasharray="3 2.5"/><text x="849" y="897">pas de télédéclaration</text>
-<text x="30" y="924" fill="#5c6773" font-size="12">Vert : objectif EGALIM atteint (20 % de bio, 50 % de produits durables &amp; de qualité dont le bio). Orange : au moins la moitié de l'objectif. Rouge : moins de la moitié.</text>
+<rect x="30" y="884" width="16" height="16" rx="3" fill="#00592e"/><text x="53" y="897">bio ≥ 40 % · durable ≥ 70 %</text>
+<rect x="242" y="884" width="16" height="16" rx="3" fill="#3a9d48"/><text x="265" y="897">bio 30–40 % · durable 60–70 %</text>
+<rect x="454" y="884" width="16" height="16" rx="3" fill="#a6d96a"/><text x="477" y="897">bio 20–30 % · durable 50–60 %</text>
+<rect x="666" y="884" width="16" height="16" rx="3" fill="#fdae61"/><text x="689" y="897">bio 10–20 % · durable 25–50 %</text>
+<rect x="878" y="884" width="16" height="16" rx="3" fill="#d73027"/><text x="901" y="897">bio &lt; 10 % · durable &lt; 25 %</text>
+<circle cx="1098" cy="892" r="7" fill="#ffffff" stroke="#b9bcc2" stroke-width="2.5" stroke-dasharray="3 2.5"/><text x="1113" y="897">pas de télédéclaration</text>
+<text x="30" y="924" fill="#5c6773" font-size="12">Vert : objectif EGALIM atteint (20 % de bio, 50 % de produits durables &amp; de qualité dont le bio), d'autant plus foncé qu'il est dépassé. Orange : au moins la moitié de l'objectif. Rouge : moins de la moitié.</text>
 </g>
 <g font-size="11.5" fill="#5c6773"><text x="30" y="964">Valeur d'une commune : moyenne de ses cantines déclarées, pondérée par le nombre de repas. « Cantines » : déclarées / recensées.</text><text x="30" y="982">Sources : télédéclarations EGALIM 2025 (ma-cantine, data.gouv.fr), registre national des cantines ; contours IGN via geo.api.gouv.fr. Généré le 17/10/2026 — biguhuh.github.io/map_cantines_egalim</text></g>
 </svg>

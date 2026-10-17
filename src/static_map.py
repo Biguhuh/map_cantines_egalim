@@ -40,8 +40,17 @@ GALLERY_FILE = config.ROOT.parent / "Biguhuh.github.io" / "cartes-egalim.html"
 OBJ_BIO = 20
 OBJ_DURABLE = 50
 
-# Couleurs des 3 classes : sous la moitié de l'objectif, en dessous, atteint.
-C_LOW, C_MID, C_OK = "#d73027", "#fdae61", "#1a9850"
+# Classes de couleur, de la meilleure à la moins bonne : (couleur, seuil bio, seuil durable).
+# Sous l'objectif, rouge (moins de la moitié) puis orange. Au-dessus, trois verts de plus
+# en plus foncés : beaucoup de communes atteignent l'objectif, et pas toutes de la même façon.
+# Paliers verts calés sur la répartition 2025 (quart supérieur ≈ 30 % bio / 60 % durable).
+CLASSES = [
+    ("#00592e", 40, 70),
+    ("#3a9d48", 30, 60),
+    ("#a6d96a", OBJ_BIO, OBJ_DURABLE),
+    ("#fdae61", OBJ_BIO // 2, OBJ_DURABLE // 2),
+    ("#d73027", 0, 0),
+]
 C_NODATA = "#b9bcc2"
 C_INK, C_MUTED, C_LINE, C_BG = "#1b2733", "#5c6773", "#c9ced4", "#ffffff"
 C_COMMUNE, C_COMMUNE_EMPTY = "#eef1f4", "#f8f9fa"
@@ -120,14 +129,12 @@ def commune_results(communes, cantines, td_year):
 # Rendu SVG
 # ---------------------------------------------------------------------------
 
-def level_color(value, objectif):
+def level_color(value, kind):
+    """Couleur de la classe d'une valeur, kind valant "bio" ou "durable"."""
     if value is None:
         return C_NODATA
-    if value >= objectif:
-        return C_OK
-    if value >= objectif / 2:
-        return C_MID
-    return C_LOW
+    col = 1 if kind == "bio" else 2
+    return next(cls[0] for cls in CLASSES if value >= cls[col])
 
 
 def rings(geometry):
@@ -180,8 +187,8 @@ def marker(x, y, res, r_out=13, r_in=8.5):
     if not res["declared"]:
         return (f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r_out - 2.5}" fill="{C_BG}" '
                 f'stroke="{C_NODATA}" stroke-width="2.5" stroke-dasharray="3 2.5"/>')
-    ring = level_color(res["durable"], OBJ_DURABLE)
-    fill = level_color(res["bio"], OBJ_BIO)
+    ring = level_color(res["durable"], "durable")
+    fill = level_color(res["bio"], "bio")
     return (f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r_out}" fill="{ring}" stroke="{C_INK}" stroke-opacity=".35"/>'
             f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r_in}" fill="{fill}" stroke="{C_BG}" stroke-width="1.6"/>')
 
@@ -300,19 +307,22 @@ def render_svg(epci, communes, results, annee):
     out.append(f'<g font-size="13" fill="{C_INK}">')
     out.append(f'<text x="30" y="{ly}" font-weight="700">Lecture</text>')
     lx = 30
-    for color, bio_txt, dur_txt in (
-        (C_OK, f"≥ {OBJ_BIO} %", f"≥ {OBJ_DURABLE} %"),
-        (C_MID, f"{OBJ_BIO // 2}–{OBJ_BIO} %", f"{OBJ_DURABLE // 2}–{OBJ_DURABLE} %"),
-        (C_LOW, f"&lt; {OBJ_BIO // 2} %", f"&lt; {OBJ_DURABLE // 2} %"),
-    ):
+    for i, (color, bio_min, dur_min) in enumerate(CLASSES):
+        if i == 0:
+            bio_txt, dur_txt = f"≥ {bio_min}", f"≥ {dur_min}"
+        elif i == len(CLASSES) - 1:
+            bio_txt, dur_txt = f"&lt; {CLASSES[i - 1][1]}", f"&lt; {CLASSES[i - 1][2]}"
+        else:
+            bio_txt, dur_txt = f"{bio_min}–{CLASSES[i - 1][1]}", f"{dur_min}–{CLASSES[i - 1][2]}"
         out.append(f'<rect x="{lx}" y="{ly + 14}" width="16" height="16" rx="3" fill="{color}"/>'
-                   f'<text x="{lx + 24}" y="{ly + 27}">bio {bio_txt} · durable {dur_txt}</text>')
-        lx += 265
+                   f'<text x="{lx + 23}" y="{ly + 27}">bio {bio_txt} % · durable {dur_txt} %</text>')
+        lx += 212
     out.append(f'<circle cx="{lx + 8}" cy="{ly + 22}" r="7" fill="{C_BG}" stroke="{C_NODATA}" stroke-width="2.5" stroke-dasharray="3 2.5"/>'
-               f'<text x="{lx + 24}" y="{ly + 27}">pas de télédéclaration</text>')
+               f'<text x="{lx + 23}" y="{ly + 27}">pas de télédéclaration</text>')
     out.append(f'<text x="30" y="{ly + 54}" fill="{C_MUTED}" font-size="12">Vert : objectif EGALIM atteint '
-               f'({OBJ_BIO} % de bio, {OBJ_DURABLE} % de produits durables &amp; de qualité dont le bio). '
-               f'Orange : au moins la moitié de l\'objectif. Rouge : moins de la moitié.</text>')
+               f'({OBJ_BIO} % de bio, {OBJ_DURABLE} % de produits durables &amp; de qualité dont le bio), '
+               f'd\'autant plus foncé qu\'il est dépassé. Orange : au moins la moitié de l\'objectif. '
+               f'Rouge : moins de la moitié.</text>')
     out.append("</g>")
 
     # Source
