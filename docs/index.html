@@ -536,17 +536,26 @@ function fillStructSel(){
   if(prev&&STRUCT[prev])sel.value=prev;
   renderCmpWithin();
 }
+/* "RUE DU SIMPLOT, 79500 MELLE" → "rue du Simplot" */
+function streetOf(addr){
+  const small=new Set(['de','du','des','la','le','les','et','en','sur','sous','aux','au']);
+  return addr.split(',')[0].trim().toLowerCase().split(/\s+/).map((w,i)=>
+    i===0||small.has(w)?w:w.replace(/(^|[-'])(\p{L})/gu,(m,p,l)=>p+l.toUpperCase())).join(' ');
+}
 function renderCmpWithin(){
   const key=document.getElementById('cmpStructSel').value;const S=STRUCT[key];
   const box=document.getElementById('cmpWithinTable');
   if(!S){box.innerHTML='<div class="mut">—</div>';return;}
   const recs=S.recs.slice().sort((a,b)=>{const va=a.bio==null?-1:a.bio,vb=b.bio==null?-1:b.bio;return vb-va;});
+  /* noms en double dans la structure (ex. 2 « MELLE ») → on ajoute la rue pour les distinguer */
+  const nameCount={};recs.forEach(r=>{nameCount[r.name]=(nameCount[r.name]||0)+1;});
+  const label=r=>nameCount[r.name]>1&&r.addr?`${r.name} <span class="mut">(${streetOf(r.addr)})</span>`:r.name;
   let h=`<div class="hint" style="margin-bottom:8px">Moyenne de référence : 🌱 <b>${S.avgBio!=null?S.avgBio.toFixed(0)+'%':'—'}</b> bio · ♻️ <b>${S.avgEg!=null?S.avgEg.toFixed(0)+'%':'—'}</b> durable — ${S.nData}/${S.nTot} cantines déclarées.</div>`;
   h+=`<table class="cmp"><thead><tr><th>Cantine</th><th>Commune</th><th class="num">Bio</th><th class="num">Durable</th><th class="num">Écart bio / moy.</th></tr></thead><tbody>`;
   recs.forEach(r=>{
     const d=(r.bio!=null&&S.avgBio!=null)?(r.bio-S.avgBio):null;
     const dtxt=d==null?'<span class="mut">—</span>':`<span style="color:${d>=0?'#7ee081':'#f38b8b'}">${d>=0?'+':''}${d.toFixed(0)} pt</span>`;
-    h+=`<tr><td>${r.name}</td><td class="mut">${r.city||''}</td><td class="num">${r.bio!=null?r.bio.toFixed(0)+'%':'<span class=\"mut\">—</span>'}</td><td class="num">${r.egalim!=null?r.egalim.toFixed(0)+'%':'<span class=\"mut\">—</span>'}</td><td class="num">${dtxt}</td></tr>`;
+    h+=`<tr><td>${label(r)}</td><td class="mut">${r.city||''}</td><td class="num">${r.bio!=null?r.bio.toFixed(0)+'%':'<span class=\"mut\">—</span>'}</td><td class="num">${r.egalim!=null?r.egalim.toFixed(0)+'%':'<span class=\"mut\">—</span>'}</td><td class="num">${dtxt}</td></tr>`;
   });
   h+='</tbody></table>';
   box.innerHTML=h;
