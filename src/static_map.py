@@ -9,13 +9,13 @@ Seules les cantines d'écoles et de crèches sont prises en compte (les
 collèges relèvent du département). Les valeurs d'une commune sont la moyenne
 de ses cantines déclarées, pondérée par leur nombre de repas annuels.
 
-Les données viennent de la carte déjà générée (docs/index.html) ; les
+Les données viennent de la carte déjà générée (docs/carte.html) ; les
 contours des communes de l'API publique geo.api.gouv.fr.
 
 Usage :
     python -m src.static_map --epci 200041317            # CA du Niortais
     python -m src.static_map --epci 200041317 --annee 2024
-    python -m src.static_map --tous                      # toutes, + la galerie à la racine du site
+    python -m src.static_map --tous                      # toutes, + la galerie (docs/cartes/index.html)
 """
 import argparse
 import json
@@ -32,9 +32,9 @@ from . import config
 GEO_API = "https://geo.api.gouv.fr"
 CARTES_DIR = config.ROOT / "docs" / "cartes"
 CARTES_URL = "https://biguhuh.github.io/map_cantines_egalim/cartes/"
-# Page de la galerie des cartes, à la racine du site (dépôt Biguhuh.github.io).
-GALLERY_URL = "https://biguhuh.github.io/cartes-egalim.html"
-GALLERY_FILE = config.ROOT.parent / "Biguhuh.github.io" / "cartes-egalim.html"
+# Page de la galerie des cartes, à côté des cartes (docs/cartes/index.html).
+GALLERY_URL = CARTES_URL
+GALLERY_FILE = CARTES_DIR / "index.html"
 DEPT_NAMES = {"17": "Charente-Maritime", "79": "Deux-Sèvres"}
 
 # Objectifs EGALIM pour la restauration collective.
@@ -398,7 +398,7 @@ def render_svg(epci, communes, results, annee, palette="classique"):
     # Source, et où trouver l'autre version des couleurs (utile sur une carte imprimée ou transférée)
     out.append(
         f'<g font-size="11.5" fill="{C_MUTED}">'
-        f'<text x="30" y="{H - 54}">{pal["other_note"]} : biguhuh.github.io/cartes-egalim.html</text>'
+        f'<text x="30" y="{H - 54}">{pal["other_note"]} : biguhuh.github.io/map_cantines_egalim/cartes/</text>'
         f'<text x="30" y="{H - 36}">Valeur d\'une commune : moyenne de ses cantines déclarées, pondérée par le nombre de repas. '
         f'« Cantines » : déclarées / recensées.</text>'
         f'<text x="30" y="{H - 18}">Sources : télédéclarations EGALIM {annee} (ma-cantine, data.gouv.fr), registre national '
@@ -615,7 +615,7 @@ def render_map_page(epci, annee, svgs, ranked, results):
 
 
 def render_gallery(generated, annee):
-    """Page de la galerie (racine du site) : un onglet par département, une vignette
+    """Page de la galerie (docs/cartes/index.html) : un onglet par département, une vignette
     cliquable par carte."""
     def card(epci, out, n_communes, n_with, n_decl):
         srcs = {p: CARTES_URL + escape(out.stem + pal["suffix"] + ".svg") for p, pal in PALETTES.items()}
@@ -724,14 +724,14 @@ def render_gallery(generated, annee):
 </head>
 <body>
 <main>
-  <a class="back" href="./">← Tous les projets</a>
+  <a class="back" href="../">← Cantines EGALIM</a>
   <header>
     <h1>Cartes EGALIM {annee} par intercommunalité</h1>
     <p>Une carte figée par intercommunalité de Charente-Maritime et des Deux-Sèvres. Pour chaque
       commune, la part de bio et de produits durables &amp; de qualité dans les cantines de ses écoles
       et crèches, comparée aux objectifs EGALIM et aux communes voisines.</p>
     <p>Pour explorer cantine par cantine, voir la
-      <a href="https://biguhuh.github.io/map_cantines_egalim/">carte interactive</a>.</p>
+      <a href="../carte.html">carte interactive</a>.</p>
     {PALETTE_TOGGLE_BUTTON}
   </header>
   <div class="tabs" role="tablist" aria-label="Départements">

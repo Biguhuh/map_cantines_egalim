@@ -6,7 +6,11 @@ produits durables & de qualité) et une comparaison par territoire
 (départements pour les collèges, intercommunalités pour les écoles
 et crèches).
 
-La carte publiée est un **fichier HTML autonome** ([docs/index.html](docs/index.html)) :
+Le site s'ouvre sur une page d'accueil ([docs/index.html](docs/index.html), écrite à la main)
+qui propose d'un côté les cartes figées par intercommunalité ([docs/cartes/](docs/cartes/)),
+de l'autre la carte interactive.
+
+La carte interactive est un **fichier HTML autonome** ([docs/carte.html](docs/carte.html)) :
 toutes les données sont embarquées dans la page, aucun serveur ni base de
 données n'est nécessaire. Elle est régénérée automatiquement chaque mois
 par une GitHub Action à partir des données ouvertes publiées par
@@ -44,7 +48,10 @@ src/                Code Python du générateur
 template/
   map_template.html  Squelette HTML/CSS/JS de la carte (placeholders __XXX__)
 docs/
-  index.html          Carte générée, publiée via GitHub Pages
+  index.html          Page d'accueil (écrite à la main, jamais régénérée)
+  carte.html          Carte interactive générée, publiée via GitHub Pages
+  cartes/             Cartes figées par intercommunalité + leur galerie (index.html),
+                      générées par `python -m src.static_map --tous`
 data/
   state.json          Dernières versions de données traitées (committé)
   cache/
@@ -98,7 +105,7 @@ tout au long de l'année, au fil des nouvelles télédéclarations.
 Le workflow [`update-map.yml`](.github/workflows/update-map.yml) tourne le
 1er de chaque mois : il compare les métadonnées (`last_modified`) des
 ressources data.gouv.fr à celles enregistrées dans `data/state.json`. Si
-rien n'a changé, il ne fait rien. Sinon, il régénère `docs/index.html` et
+rien n'a changé, il ne fait rien. Sinon, il régénère `docs/carte.html` et
 committe le résultat (carte, cache de géocodage, état) directement sur la
 branche par défaut. Il peut aussi être déclenché manuellement depuis
 l'onglet *Actions* (avec l'option *force* pour ignorer la détection de
@@ -108,8 +115,9 @@ changement).
 
 Une fois le dépôt poussé sur GitHub, activer GitHub Pages sur le dossier
 `docs/` de la branche par défaut (*Settings → Pages → Source: Deploy from
-a branch → Branch: main, /docs*). La carte sera alors disponible à
-`https://<utilisateur>.github.io/<depot>/`.
+a branch → Branch: main, /docs*). La page d'accueil sera alors disponible à
+`https://<utilisateur>.github.io/<depot>/`, la carte interactive à
+`https://<utilisateur>.github.io/<depot>/carte.html`.
 
 ## Étendre à d'autres départements
 

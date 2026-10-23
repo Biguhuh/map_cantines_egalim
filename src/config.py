@@ -10,7 +10,8 @@ STATE_FILE = DATA_DIR / "state.json"
 GEOCODE_CACHE_FILE = CACHE_DIR / "geocode_cache.json"
 
 TEMPLATE_FILE = ROOT / "template" / "map_template.html"
-OUTPUT_FILE = ROOT / "docs" / "index.html"
+# Carte interactive. docs/index.html est la page d'accueil (écrite à la main), à ne pas écraser.
+OUTPUT_FILE = ROOT / "docs" / "carte.html"
 
 # Départements couverts par la carte.
 DEPARTMENTS = ["17", "79"]
